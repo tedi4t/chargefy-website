@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import Link from 'next/link';
 import Button from '@mui/material/Button';
 
 export const Wrapper = styled.div`
@@ -34,9 +35,14 @@ export const WButton = styled(Button)`
   transition-duration: 0.4s;
   border: 1px solid #e99c2e;
   transition-property: transparent color;
+  padding: 0;
   
   &:hover {
     background: transparent;
     color: #e99c2e;
   }
+`;
+
+export const TextWrapper = styled.div`
+  padding: 1rem 2.5rem;
 `;

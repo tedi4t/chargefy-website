@@ -1,7 +1,8 @@
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import Typography from '@mui/material/Typography';
 
-import { Wrapper, Title, Description, Subtitle, WButton } from './Info.styles';
+import { Wrapper, Title, Description, Subtitle, WButton, TextWrapper } from './Info.styles';
 
 interface InfoProps {
   title: string;
@@ -23,7 +24,13 @@ export default function (props: InfoProps) {
         Від <span className="highlighted">₴{props.price}</span>
       </Subtitle>
       <WButton>
-        Перейти
+        <Link href={props.link}>
+          <a>
+            <TextWrapper>
+              Перейти
+            </TextWrapper>
+          </a>
+        </Link>
       </WButton>
     </Wrapper>
   )

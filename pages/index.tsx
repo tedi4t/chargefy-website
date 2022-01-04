@@ -3,10 +3,14 @@ import Head from 'next/head';
 
 import Carousel from '../components/Carousel';
 import Navbar from '../components/Navbar';
+import Paper from '../components/Paper';
+import Info from '../components/Info';
 
 import img1 from '../media/carousel/1.png';
 import img2 from '../media/carousel/2.png';
 import img3 from '../media/carousel/3.png';
+
+import sofaBg from '../media/banner/sofa.jpeg';
 
 const Home: NextPage = () => {
   return (
@@ -37,6 +41,15 @@ const Home: NextPage = () => {
             img: img3,
           },
         ]} />
+
+        <Paper img={sofaBg} textElement={
+          <Info
+            title={'Lorem ipsum dolor'}
+            description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa laboriosam laborum laudantium nam quam ullam unde! Ad autem reiciendis tempora. Aut ex impedit laudantium voluptate?'}
+            price={249}
+            link={'/'}
+          />
+        }/>
       </main>
 
       <footer>

@@ -9,11 +9,11 @@ export const WSwiper = styled(Swiper)`
   height: 80vh;
   
   .swiper-pagination-bullet-active {
-    background: #a26764 !important;
+    background: #e99c2e !important;
   }
 
   .swiper-button-prev::after, .swiper-button-next::after {
-    color: #a26764 !important;
+    color: #e99c2e !important;
   }
 `;
 

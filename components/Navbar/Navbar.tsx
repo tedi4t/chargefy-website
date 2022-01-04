@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,14 +15,30 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-import { WAppBar, LogoWrapper, WAvatar } from './Navbar.styles';
+import { WAppBar, LogoWrapper, WAvatar, PageName } from './Navbar.styles';
 
 import Logo from '../../media/logo.png';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
 export default function Navbar () {
+  const pages: Array<{ name: string, href: string }> = [
+    {
+      name: 'Home',
+      href: '/'
+    },
+    {
+      name: 'Products',
+      href: 'products'
+    },
+    {
+      name: 'Contacts',
+      href: 'contacts'
+    },
+  ];
+  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+  const router = useRouter();
+  console.log(router);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -61,7 +78,6 @@ export default function Navbar () {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -84,10 +100,12 @@ export default function Navbar () {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link href={`/${page}`}>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Link href={page.href}>
                     <a>
-                      <Typography textAlign="center">{page}</Typography>
+                      <Typography textAlign="center">
+                        {page.name}
+                      </Typography>
                     </a>
                   </Link>
                 </MenuItem>
@@ -105,13 +123,20 @@ export default function Navbar () {
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent={'center'}>
             {pages.map((page) => (
-              <Button
-                key={page}
+              <PageName
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, mx: 3, color: 'white', display: 'block' }}
+                sx={{ my: 2, mx: 5, color: 'black', display: 'block' }}
+                className={router.pathname === page.href ? 'active' : ''}
               >
-                {page}
-              </Button>
+                <Link
+                  key={page.name}
+                  href={page.href}
+                >
+                  <a>
+                    {page.name}
+                  </a>
+                </Link>
+              </PageName>
             ))}
           </Box>
 

@@ -20,21 +20,23 @@ export const Subtitle = styled.h4`
   
   
   .highlighted {
-    color: #a26764;
+    color: #e99c2e;
     font-weight: 600;
     margin-left: 0.5rem;
   }
 `;
 
 export const WButton = styled(Button)`
-  background: #a26764 !important;
+  background: #e99c2e;
   padding: 1rem 2.5rem;
   color: #fff;
   letter-spacing: 0.2rem;
   transition-duration: 0.4s;
-  transition-property: opacity;
+  border: 1px solid #e99c2e;
+  transition-property: transparent color;
   
   &:hover {
-    opacity: 0.8 !important;
+    background: transparent;
+    color: #e99c2e;
   }
 `;

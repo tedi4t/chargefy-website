@@ -1,10 +1,13 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import Carousel from '../components/Carousel';
 import Navbar from '../components/Navbar';
 import Paper from '../components/Paper';
 import Info from '../components/Info';
+import Products from '../components/Products';
 
 import img1 from '../media/carousel/1.png';
 import img2 from '../media/carousel/2.png';
@@ -41,6 +44,26 @@ const Home: NextPage = () => {
             img: img3,
           },
         ]} />
+
+        <Box sx={{ my: '2rem' }}>
+          <Container>
+            <Products
+              products={[
+                {
+                  img: img2,
+                  title: 'title 1',
+                  price: 400,
+                  sale: 200,
+                },
+                {
+                  img: img2,
+                  title: 'title 2',
+                  price: 500,
+                },
+              ]}
+            />
+          </Container>
+        </Box>
 
         <Paper img={sofaBg} textElement={
           <Info

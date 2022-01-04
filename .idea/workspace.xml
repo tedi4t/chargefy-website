@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4950d21f-ffef-41f4-9887-a5dfa9dd2f8b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Carousel/Carousel.styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Carousel/Carousel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Carousel/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/intl/uk.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Navbar/Navbar.styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Navbar/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Carousel/Carousel.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Carousel/Carousel.styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Home.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +18,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="239BfCJlBRaCOjJPvk3SRdcKW59" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641136524225</updated>
       <workItem from="1641136529499" duration="1505000" />
-      <workItem from="1641219485922" duration="15671000" />
+      <workItem from="1641219485922" duration="20262000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import Carousel from '../components/Carousel';
+import Navbar from '../components/Navbar';
 
 import img1 from '../media/carousel/1.png';
 import img2 from '../media/carousel/2.png';
@@ -17,6 +18,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
+        <Navbar />
+
         <Carousel content={[
           {
             title: 'Lorem ipsum dolor sit amet',

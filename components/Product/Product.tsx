@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Wrapper, Title, Price, Line } from './Product.style';
+import { Wrapper, Title, Price } from './Product.style';
 
 export interface ProductProps {
   img: any;

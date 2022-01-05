@@ -6,6 +6,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -21,11 +22,18 @@ export const Line = styled.div`
 `;
 
 export const Title = styled(Typography)`
-  
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0.2rem;
 `;
 
 export const Content = styled.div`
-  
+
+`;
+
+export const Text = styled(Typography)`
+  font-weight: 300;
+  text-transform: capitalize;
 `;
 
 export const RadioCategory = styled(Radio)`
@@ -89,18 +97,29 @@ export const ColorCheckbox = styled(Checkbox)`
   }
 `;
 
-// export const WAccordion = styled(Accordion)`
-//   padding: 0;
-//   background: transparent;
-//   box-shadow: none;
-// `;
-//
-// export const WAccordionSummary = styled(AccordionSummary)`
-//   padding-left: 0;
-//   padding-right: 0;
-// `;
-//
-// export const WAccordionDetails = styled(AccordionDetails)`
-//   padding-left: 0;
-//   padding-right: 0;
-// `;
+export const WAccordion = styled(Accordion)`
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+`;
+
+export const WAccordionSummary = styled(AccordionSummary)`
+  padding-left: 0;
+  padding-right: 0;
+  
+  &::after {
+    content: '\\276F';
+    transform: rotate(90deg);
+  }
+  
+  &.Mui-expanded {
+    &::after {
+      transform: rotate(-90deg);
+    } 
+  }
+`;
+
+export const WAccordionDetails = styled(AccordionDetails)`
+  padding-left: 0;
+  padding-right: 0;
+`;

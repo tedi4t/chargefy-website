@@ -8,11 +8,12 @@ import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 
-import { Wrapper, Line, Title, Content, RadioCategory, PriceSlider, ColorCheckbox } from './Sidebar.styles';
+import { Wrapper, Line, Title, Content, RadioCategory, PriceSlider, ColorCheckbox, WAccordion, WAccordionSummary, WAccordionDetails, Text } from './Sidebar.styles';
 
 export default function() {
   const [value, setValue] = useState([30, 40]);
-  const categories = ['category 1', 'category 2', 'category 3', 'category 4'];
+  const categories = ['charger', 'holder', 'cable', 'other'];
+  const coloes = ['red', 'blue', 'green', 'yellow'];
   const priceMarks = [
     {
       value: 0,
@@ -26,41 +27,66 @@ export default function() {
 
   return (
     <Wrapper>
-      <Title>
-        Categories
-      </Title>
-      <Content>
-        <RadioGroup aria-label="gender" name="customized-radios">
-          <FormControlLabel value="female" control={<RadioCategory />} label="Female" />
-          <FormControlLabel value="male" control={<RadioCategory />} label="Male" />
-          <FormControlLabel value="other" control={<RadioCategory />} label="Other" />
-        </RadioGroup>
-      </Content>
+      <WAccordion>
+        <WAccordionSummary>
+          <Title>
+            Categories
+          </Title>
+        </WAccordionSummary>
+        <WAccordionDetails>
+          <RadioGroup>
+            {
+              categories.map(category => (
+                <FormControlLabel
+                  value={category}
+                  control={<RadioCategory />}
+                  label={<Text>{category}</Text>}
+                />
+              ))
+            }
+          </RadioGroup>
+        </WAccordionDetails>
+      </WAccordion>
 
-      <Title>
-        Price
-      </Title>
-      <Content>
-        <PriceSlider
-          valueLabelDisplay="auto"
-          aria-label="pretto slider"
-          value={value}
-          marks={priceMarks}
-          valueLabelFormat={(a) => `950`}
-        />
-      </Content>
+      <WAccordion>
+        <WAccordionSummary>
+          <Title>
+            Price
+          </Title>
+        </WAccordionSummary>
+        <WAccordionDetails>
+          <PriceSlider
+            valueLabelDisplay="auto"
+            aria-label="pretto slider"
+            value={value}
+            marks={priceMarks}
+            valueLabelFormat={(a) => `950`}
+          />
+        </WAccordionDetails>
+      </WAccordion>
 
-      <Title>
-        Color
-      </Title>
-      <Content>
-        <FormGroup>
-          <FormControlLabel control={<ColorCheckbox defaultChecked />} label="Label" />
-          <FormControlLabel control={<ColorCheckbox />} label="Color" />
-          <FormControlLabel control={<ColorCheckbox />} label="Something" />
-          <FormControlLabel control={<ColorCheckbox />} label="Observer" />
-        </FormGroup>
-      </Content>
+      <WAccordion>
+        <WAccordionSummary>
+          <Title>
+            Color
+          </Title>
+        </WAccordionSummary>
+        <WAccordionDetails>
+          <FormGroup>
+            {
+              coloes.map(color => (
+                <FormControlLabel
+                  control={<ColorCheckbox />}
+                  label={<Text>{color}</Text>}
+                  value={color}
+                />
+
+              ))
+            }
+          </FormGroup>
+        </WAccordionDetails>
+      </WAccordion>
+
     </Wrapper>
   )
 }

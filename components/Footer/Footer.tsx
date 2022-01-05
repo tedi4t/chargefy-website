@@ -101,7 +101,7 @@ export default function() {
                 <Column>
                   {
                     socials.map((social: Social) => (
-                      <HighlightGrid container alignItems={'center'} sx={{ my: '1rem' }}>
+                      <HighlightGrid container alignItems={'center'} sx={{ my: '1rem' }} key={social.text}>
                         {social.icon}
                         <Box sx={{ ml: '1rem' }}>
                           <Link href={social.href}>
@@ -119,7 +119,7 @@ export default function() {
                 <Column>
                   {
                     pages.map(page => (
-                      <LinkWrapper>
+                      <LinkWrapper key={page.name}>
                         <Highlight>
                           <Link href={page.href}>
                             <a>
@@ -136,7 +136,7 @@ export default function() {
                 <Column>
                   {
                     helpPages.map(page => (
-                      <LinkWrapper>
+                      <LinkWrapper key={page.name}>
                         <Highlight>
                           <Link href={page.href}>
                             <a>

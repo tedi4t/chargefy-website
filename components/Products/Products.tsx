@@ -11,7 +11,7 @@ export default function (props: ProductsProps) {
     <Grid container spacing={2} justifyContent={'center'}>
       {
         props.products.map((product: ProductProps) => (
-          <Grid item>
+          <Grid item key={product.title}>
             <Product {...product} key={product.title} />
           </Grid>
         ))

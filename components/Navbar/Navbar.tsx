@@ -130,6 +130,7 @@ export default function Navbar () {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 5, color: 'black', display: 'block' }}
                 className={router.pathname === page.href ? 'active' : ''}
+                key={page.name}
               >
                 <Link
                   key={page.name}

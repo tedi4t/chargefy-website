@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   padding: 2rem;
-  border: 1px solid #efefef;
   max-width: 400px;
   transition-duration: 0.3s;
   position: relative;
@@ -21,8 +20,6 @@ export const Wrapper = styled.div`
   }
   
   &:hover {
-    border-color: #e99c2e;
-    
     .hover_decoration {
       transform: scale(1);
     }
@@ -51,9 +48,4 @@ export const Price = styled.h3`
     font-weight: 400;
     color: #e99c2e;
   }
-`;
-
-export const Line = styled.div`
-  margin-top: 1rem;
-  border-bottom: 2px solid #efefef;
 `;

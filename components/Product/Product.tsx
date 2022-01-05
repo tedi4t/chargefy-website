@@ -16,8 +16,6 @@ export default function(props: ProductProps) {
 
       <Image src={props.img} />
 
-      <Line />
-
       <Title>
         {props.title}
       </Title>

@@ -4,6 +4,7 @@ import Paper from './Paper';
 import Info from './Info';
 import Products from './Products';
 import Title from './Title';
+import Footer from './Footer';
 
 export {
   Carousel,
@@ -12,4 +13,5 @@ export {
   Info,
   Products,
   Title,
+  Footer,
 };

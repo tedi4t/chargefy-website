@@ -27,11 +27,15 @@ export default function Navbar () {
     },
     {
       name: 'Products',
-      href: 'products'
+      href: '/products'
+    },
+    {
+      name: 'About Us',
+      href: '/about'
     },
     {
       name: 'Contacts',
-      href: 'contacts'
+      href: '/contacts'
     },
   ];
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];

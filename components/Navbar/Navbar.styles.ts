@@ -21,7 +21,7 @@ export const LogoWrapper = styled(Box)`
 `;
 
 export const WAvatar = styled(Avatar)`
-  background: '#efefef'; 
+  background: #efefef; 
   color: '#000';
   font-weight: 200;
 `;

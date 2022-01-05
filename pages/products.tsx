@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 import {
   Carousel,
@@ -11,6 +12,7 @@ import {
   Products,
   Title,
   Footer,
+  Sidebar,
 } from '../components';
 
 import img1 from '../media/carousel/1.png';
@@ -49,22 +51,33 @@ const Home: NextPage = () => {
           },
         ]} />
 
-            {/*<Products*/}
-            {/*  products={[*/}
-            {/*    {*/}
-            {/*      img: img2,*/}
-            {/*      title: 'title 1',*/}
-            {/*      price: 400,*/}
-            {/*      sale: 200,*/}
-            {/*    },*/}
-            {/*    {*/}
-            {/*      img: img2,*/}
-            {/*      title: 'title 2',*/}
-            {/*      price: 500,*/}
-            {/*    },*/}
-            {/*  ]}*/}
-            {/*/>*/}
-        
+        <Box sx={{ my: '5rem' }}>
+          <Container>
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <Sidebar />
+              </Grid>
+              <Grid item xs={8}>
+                <Products
+                  products={[
+                    {
+                      img: img2,
+                      title: 'title 1',
+                      price: 400,
+                      sale: 200,
+                    },
+                    {
+                      img: img2,
+                      title: 'title 2',
+                      price: 500,
+                    },
+                  ]}
+                />
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+
       </main>
       <Footer />
     </div>

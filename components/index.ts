@@ -5,6 +5,7 @@ import Info from './Info';
 import Products from './Products';
 import Title from './Title';
 import Footer from './Footer';
+import Sidebar from './Sidebar';
 
 export {
   Carousel,
@@ -14,4 +15,5 @@ export {
   Products,
   Title,
   Footer,
+  Sidebar,
 };

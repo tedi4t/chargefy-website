@@ -10,7 +10,7 @@ import { Overlay } from './Paper.styles';
 
 export interface PaperProps {
   img: any;
-  textElement: JSX.Element,
+  element: JSX.Element,
 }
 
 export default function Paper(props: PaperProps) {
@@ -28,11 +28,7 @@ export default function Paper(props: PaperProps) {
       <Overlay />
       
       <Container>
-        <Grid container spacing={2} position={'relative'}>
-          <Grid item container xs={6}>
-            {props.textElement}
-          </Grid>
-        </Grid>
+        {props.element}
       </Container>
     </div>
   )

@@ -70,7 +70,7 @@ const Home: NextPage = () => {
           </Container>
         </Box>
 
-        <Paper img={sofaBg} textElement={
+        <Paper img={sofaBg} element={
           <Info
             title={'Lorem ipsum dolor'}
             description={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa laboriosam laborum laudantium nam quam ullam unde! Ad autem reiciendis tempora. Aut ex impedit laudantium voluptate?'}

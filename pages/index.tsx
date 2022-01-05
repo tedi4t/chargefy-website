@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar';
 import Paper from '../components/Paper';
 import Info from '../components/Info';
 import Products from '../components/Products';
+import Title from '../components/Title';
 
 import img1 from '../media/carousel/1.png';
 import img2 from '../media/carousel/2.png';
@@ -45,8 +46,9 @@ const Home: NextPage = () => {
           },
         ]} />
 
-        <Box sx={{ my: '2rem' }}>
+        <Box sx={{ mb: '2rem' }}>
           <Container>
+            <Title text={'Mauris pellentesque pulvinar pellentesque habitant'} />
             <Products
               products={[
                 {

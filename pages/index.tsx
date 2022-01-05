@@ -3,12 +3,14 @@ import Head from 'next/head';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
-import Carousel from '../components/Carousel';
-import Navbar from '../components/Navbar';
-import Paper from '../components/Paper';
-import Info from '../components/Info';
-import Products from '../components/Products';
-import Title from '../components/Title';
+import {
+  Carousel,
+  Navbar,
+  Paper,
+  Info,
+  Products,
+  Title,
+} from '../components';
 
 import img1 from '../media/carousel/1.png';
 import img2 from '../media/carousel/2.png';

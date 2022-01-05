@@ -78,29 +78,29 @@ const Home: NextPage = () => {
             link={'/'}
           />
         }/>
+
+        <Box sx={{ mb: '4rem' }}>
+          <Container>
+            <Title text={'Mauris pellentesque pulvinar pellentesque habitant'} />
+            <Products
+              products={[
+                {
+                  img: img2,
+                  title: 'title 1',
+                  price: 400,
+                  sale: 200,
+                },
+                {
+                  img: img2,
+                  title: 'title 2',
+                  price: 500,
+                },
+              ]}
+            />
+          </Container>
+        </Box>
       </main>
-
-      <Box sx={{ mb: '4rem' }}>
-        <Container>
-          <Title text={'Mauris pellentesque pulvinar pellentesque habitant'} />
-          <Products
-            products={[
-              {
-                img: img2,
-                title: 'title 1',
-                price: 400,
-                sale: 200,
-              },
-              {
-                img: img2,
-                title: 'title 2',
-                price: 500,
-              },
-            ]}
-          />
-        </Container>
-      </Box>
-
+      
       <Footer />
     </div>
   )

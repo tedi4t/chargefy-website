@@ -13,7 +13,7 @@ import { Wrapper, Line, Title, Content, RadioCategory, PriceSlider, ColorCheckbo
 export default function() {
   const [value, setValue] = useState([30, 40]);
   const categories = ['charger', 'holder', 'cable', 'other'];
-  const coloes = ['red', 'blue', 'green', 'yellow'];
+  const colors = ['red', 'blue', 'green', 'yellow'];
   const priceMarks = [
     {
       value: 0,
@@ -74,7 +74,7 @@ export default function() {
         <WAccordionDetails>
           <FormGroup>
             {
-              coloes.map(color => (
+              colors.map(color => (
                 <FormControlLabel
                   control={<ColorCheckbox />}
                   label={<Text>{color}</Text>}

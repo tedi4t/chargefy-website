@@ -53,6 +53,7 @@ const Home: NextPage = () => {
 
         <Box sx={{ my: '5rem' }}>
           <Container>
+            <Title text={'Libero justo laoreet sit amet cursus'}/>
             <Grid container spacing={2}>
               <Grid item xs={4}>
                 <Sidebar />

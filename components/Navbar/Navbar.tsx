@@ -14,8 +14,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Grid from '@mui/material/Grid';
 
-import { WAppBar, LogoWrapper, WAvatar, PageName } from './Navbar.styles';
+import { WAppBar, LogoWrapper, WAvatar, PageName, WShoppingCartIcon } from './Navbar.styles';
 
 import Logo from '../../media/logo.png';
 
@@ -145,11 +146,18 @@ export default function Navbar () {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <WAvatar sx={{ background: '#efefef', color: '#000' }}>D</WAvatar>
-              </IconButton>
-            </Tooltip>
+            <Grid container alignItems={'center'}>
+              <Link href={'shopping-cart'}>
+                <a>
+                  <WShoppingCartIcon />
+                </a>
+              </Link>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <WAvatar sx={{ background: '#efefef', color: '#000' }}>D</WAvatar>
+                </IconButton>
+              </Tooltip>
+            </Grid>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

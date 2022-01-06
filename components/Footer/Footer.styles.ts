@@ -65,6 +65,7 @@ export const FooterText = styled(Typography)`
 
 export const HighlightGrid = styled(Grid)`
   transition-duration: 0.2s;
+  cursor: pointer;
 
   &:hover {
     color: #e99c2e;

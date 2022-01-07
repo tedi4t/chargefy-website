@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 export const WSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
-  background: #efefef;
   
   .swiper-pagination-bullet-active {
     background: #e99c2e !important;

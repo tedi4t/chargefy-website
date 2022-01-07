@@ -16,6 +16,7 @@ import {
   Footer,
   InfoTitle,
   ProductSlide,
+  ProductInfo
 } from '../../components';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
@@ -44,7 +45,7 @@ const Home: NextPage = () => {
         <Container>
           <Box sx={{ my: '5rem' }}>
             <Grid container spacing={4}>
-              <Grid item container xs={4} alignItems={'center'}>
+              <Grid item container xs={6} alignItems={'center'}>
                 <Carousel
                   Slide={ProductSlide}
                   content={[
@@ -60,8 +61,8 @@ const Home: NextPage = () => {
                   ]}
                 />
               </Grid>
-              <Grid item xs={8}>
-
+              <Grid item xs={6}>
+                <ProductInfo />
               </Grid>
             </Grid>
           </Box>

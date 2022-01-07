@@ -7,6 +7,7 @@ export const SlideContent = styled.div`
   align-items: center;
   justify-content: center;
   height: 80vh;
+  background: #efefef;
 `;
 
 export const Title = styled.h1`

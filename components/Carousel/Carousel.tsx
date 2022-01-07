@@ -9,21 +9,16 @@ import "swiper/css/pagination";
 
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 
-import { WSwiper, SlideContent, Title, Text } from './Carousel.styles';
+import { WSwiper } from './Carousel.styles';
 
-interface SlideProps {
-  img: any,
-  title: string,
-  description: string,
-}
-
-interface CarouselProps {
-  content: Array<SlideProps>
+interface CarouselProps<T> {
+  content: Array<T>,
+  Slide: (slideContent: T) => JSX.Element,
 }
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-export default function Carousel({ content }: CarouselProps) {
+export default function Carousel<T>({ content, Slide }: CarouselProps<T>) {
   return (
     <WSwiper
       navigation={true}
@@ -34,25 +29,11 @@ export default function Carousel({ content }: CarouselProps) {
       pagination={{ dynamicBullets: true }}
     >
       {
-        content.map((slide: SlideProps, index: number) => (
+        content.map((slideContent: T, index: number) => (
           <SwiperSlide
             key={index}
           >
-            <SlideContent>
-              <Grid container spacing={2}>
-                <Grid item container xs={6} direction={'column'} justifyContent={'center'}>
-                  <Title>
-                    {slide.title}
-                  </Title>
-                  <Text>
-                    {slide.description}
-                  </Text>
-                </Grid>
-                <Grid item container xs={6} justifyContent={'center'}>
-                  <Image src={slide.img}/>
-                </Grid>
-              </Grid>
-            </SlideContent>
+            <Slide {...slideContent} />
           </SwiperSlide>
         ))
       }

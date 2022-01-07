@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4950d21f-ffef-41f4-9887-a5dfa9dd2f8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/MainSlide/MainStyle.styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/MainSlide/MainStyle.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/MainSlide/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/products/[id].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Navbar/Navbar.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar/Navbar.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Carousel/Carousel.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Carousel/Carousel.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Carousel/Carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Carousel/Carousel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +61,7 @@
       <updated>1641136524225</updated>
       <workItem from="1641136529499" duration="1505000" />
       <workItem from="1641219485922" duration="26150000" />
+      <workItem from="1641558465640" duration="3646000" />
     </task>
     <servers />
   </component>

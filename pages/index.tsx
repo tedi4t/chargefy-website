@@ -11,6 +11,7 @@ import {
   Products,
   Title,
   Footer,
+  MainSlide,
 } from '../components';
 
 import img1 from '../media/carousel/1.png';
@@ -31,23 +32,26 @@ const Home: NextPage = () => {
       <main>
         <Navbar />
 
-        <Carousel content={[
-          {
-            title: 'Lorem ipsum dolor sit amet',
-            description: 'Lacus sed viverra tellus in hac habitasse. Sem nulla pharetra diam sit. Enim diam vulputate ut pharetra sit amet aliquam id. Scelerisque in dictum non consectetur a erat nam. ',
-            img: img1,
-          },
-          {
-            title: 'Excepteur sint occaecat cupidatat',
-            description: 'Viverra nam libero justo laoreet sit amet cursus. Tincidunt vitae semper quis lectus nulla at volutpat diam. Nulla aliquet enim tortor at. Aliquet enim tortor at auctor urna nunc id cursus.',
-            img: img2,
-          },
-          {
-            title: 'Vulputate odio ut enim blandit volutpat',
-            description: 'Non consectetur a erat nam. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Ante metus dictum at tempor.',
-            img: img3,
-          },
-        ]} />
+        <Carousel
+          Slide={MainSlide}
+          content={[
+            {
+              title: 'Lorem ipsum dolor sit amet',
+              description: 'Lacus sed viverra tellus in hac habitasse. Sem nulla pharetra diam sit. Enim diam vulputate ut pharetra sit amet aliquam id. Scelerisque in dictum non consectetur a erat nam. ',
+              img: img1,
+            },
+            {
+              title: 'Excepteur sint occaecat cupidatat',
+              description: 'Viverra nam libero justo laoreet sit amet cursus. Tincidunt vitae semper quis lectus nulla at volutpat diam. Nulla aliquet enim tortor at. Aliquet enim tortor at auctor urna nunc id cursus.',
+              img: img2,
+            },
+            {
+              title: 'Vulputate odio ut enim blandit volutpat',
+              description: 'Non consectetur a erat nam. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Ante metus dictum at tempor.',
+              img: img3,
+            },
+          ]}
+        />
 
         <Box sx={{ mb: '4rem' }}>
           <Container>

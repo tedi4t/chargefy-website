@@ -7,6 +7,7 @@ import Title from './Title';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 import InfoTitle from './InfoTitle';
+import MainSlide from './MainSlide';
 
 export {
   Carousel,
@@ -18,4 +19,5 @@ export {
   Footer,
   Sidebar,
   InfoTitle,
+  MainSlide,
 };

@@ -15,10 +15,15 @@ import {
   Title,
   Footer,
   InfoTitle,
+  ProductSlide,
 } from '../../components';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
 import logo from '../../media/logo.png';
+
+import img1 from '../../media/carousel/1.png';
+import img2 from '../../media/carousel/2.png';
+import img3 from '../../media/carousel/3.png';
 
 const Home: NextPage = () => {
   return (
@@ -40,10 +45,23 @@ const Home: NextPage = () => {
           <Box sx={{ my: '5rem' }}>
             <Grid container spacing={4}>
               <Grid item container xs={4} alignItems={'center'}>
-
+                <Carousel
+                  Slide={ProductSlide}
+                  content={[
+                    {
+                      src: img1,
+                    },
+                    {
+                      src: img2,
+                    },
+                    {
+                      src: img3,
+                    },
+                  ]}
+                />
               </Grid>
               <Grid item xs={8}>
-                
+
               </Grid>
             </Grid>
           </Box>

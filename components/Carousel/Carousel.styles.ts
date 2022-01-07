@@ -6,7 +6,6 @@ export const WSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
   background: #efefef;
-  height: 80vh;
   
   .swiper-pagination-bullet-active {
     background: #e99c2e !important;

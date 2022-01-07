@@ -8,6 +8,7 @@ import Footer from './Footer';
 import Sidebar from './Sidebar';
 import InfoTitle from './InfoTitle';
 import MainSlide from './MainSlide';
+import ProductSlide from './ProductSlide';
 
 export {
   Carousel,
@@ -20,4 +21,5 @@ export {
   Sidebar,
   InfoTitle,
   MainSlide,
+  ProductSlide,
 };

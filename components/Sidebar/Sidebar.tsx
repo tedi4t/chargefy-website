@@ -1,18 +1,11 @@
 import { useState } from 'react';
-import Radio, { RadioProps } from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
-import Checkbox from '@mui/material/Checkbox';
-import Slider from '@mui/material/Slider';
 
 import {
 	Wrapper,
-	Line,
 	Title,
-	Content,
 	RadioCategory,
 	PriceSlider,
 	ColorCheckbox,

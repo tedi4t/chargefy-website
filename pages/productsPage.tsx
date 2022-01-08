@@ -7,8 +7,6 @@ import Grid from '@mui/material/Grid';
 import {
 	Carousel,
 	Navbar,
-	Paper,
-	Info,
 	Products,
 	Title,
 	Footer,
@@ -20,9 +18,7 @@ import img1 from '../media/carousel/1.png';
 import img2 from '../media/carousel/2.png';
 import img3 from '../media/carousel/3.png';
 
-import sofaBg from '../media/banner/sofa.jpeg';
-
-const Home: NextPage = () => {
+const ProductsPage: NextPage = () => {
 	return (
 		<div>
 			<Head>
@@ -91,4 +87,4 @@ const Home: NextPage = () => {
 	);
 };
 
-export default Home;
+export default ProductsPage;

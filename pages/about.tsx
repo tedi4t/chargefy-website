@@ -2,16 +2,15 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
-import { Carousel, Navbar, Paper, Info, Products, Title, Footer, InfoTitle } from '../components';
+import { Navbar, Paper, Footer, InfoTitle } from '../components';
 
 import sofaBg from '../media/banner/sofa.jpeg';
 import logo from '../media/logo.png';
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
 	return (
 		<div>
 			<Head>
@@ -57,4 +56,4 @@ const Home: NextPage = () => {
 	);
 };
 
-export default Home;
+export default About;

@@ -1,10 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-
-import background from '../../media/banner/sofa.jpeg';
 
 import { Overlay } from './Paper.styles';
 

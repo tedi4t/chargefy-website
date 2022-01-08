@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
-import Grid from '@mui/material/Grid';
+import React from 'react';
+import { SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

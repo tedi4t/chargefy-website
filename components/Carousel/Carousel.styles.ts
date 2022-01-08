@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Grid from '@mui/material/Grid';
+import { Swiper } from 'swiper/react';
 
 export const WSwiper = styled(Swiper)`
 	width: 100%;

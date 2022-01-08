@@ -2,7 +2,6 @@ import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import FacebookIcon from '@mui/icons-material/Facebook';

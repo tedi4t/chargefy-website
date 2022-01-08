@@ -18,7 +18,7 @@ import { HighlightGrid } from '../components/Footer';
 import sofaBg from '../media/banner/sofa.jpeg';
 import logo from '../media/logo.png';
 
-const Home: NextPage = () => {
+const Contacts: NextPage = () => {
 	const socials = [
 		{
 			icon: <FacebookIcon />,
@@ -65,7 +65,7 @@ const Home: NextPage = () => {
 									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Contact Us</Box>
 									<Box sx={{ mt: '3rem' }}>
 										{socials.map(social => (
-											<Box>
+											<Box key={social.text}>
 												{social.href ? (
 													<Link href={social.href}>
 														<a>
@@ -100,4 +100,4 @@ const Home: NextPage = () => {
 	);
 };
 
-export default Home;
+export default Contacts;

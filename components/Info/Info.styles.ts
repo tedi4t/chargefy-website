@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-import Link from 'next/link';
 import Button from '@mui/material/Button';
 
 export const Wrapper = styled.div`

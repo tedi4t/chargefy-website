@@ -1,6 +1,4 @@
-import Button from '@mui/material/Button';
 import Link from 'next/link';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 import { Wrapper, Title, Description, Subtitle, WButton, TextWrapper } from './Info.styles';

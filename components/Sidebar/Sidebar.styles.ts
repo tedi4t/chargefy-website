@@ -9,117 +9,115 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 
 export const Wrapper = styled.div`
-  position: relative;
-  background: #efefef;
-  padding: 2.5rem;
-  height: 100%;
+	position: relative;
+	background: #efefef;
+	padding: 2.5rem;
+	height: 100%;
 `;
 
 export const Line = styled.div`
-  width: 100%;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 1px;
+	background: rgba(0, 0, 0, 0.5);
 `;
 
 export const Title = styled(Typography)`
-  text-transform: uppercase;
-  font-weight: 300;
-  letter-spacing: 0.2rem;
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 0.2rem;
 `;
 
-export const Content = styled.div`
-
-`;
+export const Content = styled.div``;
 
 export const Text = styled(Typography)`
-  font-weight: 300;
-  text-transform: capitalize;
+	font-weight: 300;
+	text-transform: capitalize;
 `;
 
 export const RadioCategory = styled(Radio)`
-  &.Mui-checked {
-    color: #e99c2e;
-  }
+	&.Mui-checked {
+		color: #e99c2e;
+	}
 `;
 
 export const PriceSlider = styled(Slider)({
-  color: '#e99c2e',
-  height: 5,
-  '& .MuiSlider-track': {
-    border: 'none',
-  },
-  '& .MuiSlider-thumb': {
-    height: 16,
-    width: 16,
-    backgroundColor: '#fff',
-    border: '2px solid currentColor',
-    '&.Mui-active': {
-      width: 20,
-      height: 20,
-    },
-    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-      boxShadow: 'inherit',
-    },
-    '&:before': {
-      display: 'none',
-    },
-  },
-  '& .MuiSlider-valueLabel': {
-    lineHeight: 1.2,
-    fontSize: 12,
-    background: 'unset',
-    padding: 0,
-    width: 32,
-    height: 32,
-    borderRadius: '50% 50% 50% 0',
-    backgroundColor: '#e99c2e',
-    transformOrigin: 'bottom left',
-    transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
-    '&:before': { display: 'none' },
-    '&.MuiSlider-valueLabelOpen': {
-      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
-    },
-    '& > *': {
-      transform: 'rotate(45deg)',
-    },
-  },
+	color: '#e99c2e',
+	height: 5,
+	'& .MuiSlider-track': {
+		border: 'none',
+	},
+	'& .MuiSlider-thumb': {
+		height: 16,
+		width: 16,
+		backgroundColor: '#fff',
+		border: '2px solid currentColor',
+		'&.Mui-active': {
+			width: 20,
+			height: 20,
+		},
+		'&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+			boxShadow: 'inherit',
+		},
+		'&:before': {
+			display: 'none',
+		},
+	},
+	'& .MuiSlider-valueLabel': {
+		lineHeight: 1.2,
+		fontSize: 12,
+		background: 'unset',
+		padding: 0,
+		width: 32,
+		height: 32,
+		borderRadius: '50% 50% 50% 0',
+		backgroundColor: '#e99c2e',
+		transformOrigin: 'bottom left',
+		transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+		'&:before': { display: 'none' },
+		'&.MuiSlider-valueLabelOpen': {
+			transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+		},
+		'& > *': {
+			transform: 'rotate(45deg)',
+		},
+	},
 });
 
 export const ColorCheckbox = styled(Checkbox)`
-  transition-duration: 0.2s;
-  
-  &.Mui-checked {
-    color: #e99c2e;
-  }
-  
-  &:hover {
-    background: rgba(233, 156, 46, 0.07);
-  }
+	transition-duration: 0.2s;
+
+	&.Mui-checked {
+		color: #e99c2e;
+	}
+
+	&:hover {
+		background: rgba(233, 156, 46, 0.07);
+	}
 `;
 
 export const WAccordion = styled(Accordion)`
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
+	padding: 0;
+	background: transparent;
+	box-shadow: none;
 `;
 
 export const WAccordionSummary = styled(AccordionSummary)`
-  padding-left: 0;
-  padding-right: 0;
-  
-  &::after {
-    content: '\\276F';
-    transform: rotate(90deg);
-  }
-  
-  &.Mui-expanded {
-    &::after {
-      transform: rotate(-90deg);
-    } 
-  }
+	padding-left: 0;
+	padding-right: 0;
+
+	&::after {
+		content: '\\276F';
+		transform: rotate(90deg);
+	}
+
+	&.Mui-expanded {
+		&::after {
+			transform: rotate(-90deg);
+		}
+	}
 `;
 
 export const WAccordionDetails = styled(AccordionDetails)`
-  padding-left: 0;
-  padding-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 `;

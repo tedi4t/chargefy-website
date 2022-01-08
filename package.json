@@ -26,6 +26,7 @@
     "@types/styled-components": "^5.1.19",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
+    "prettier": "^2.5.1",
     "typescript": "4.5.4"
   }
 }

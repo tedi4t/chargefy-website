@@ -1,5 +1,5 @@
 export interface ProductSlideProps {
-  src: StaticImageData,
+	src: StaticImageData;
 }
 
 import ProductSlide from './ProductSlide';

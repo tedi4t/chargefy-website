@@ -1,7 +1,7 @@
 export interface SlideProps {
-  img: any,
-  title: string,
-  description: string,
+	img: any;
+	title: string;
+	description: string;
 }
 
 import MainSlide from './MainStyle';

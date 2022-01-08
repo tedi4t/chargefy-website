@@ -1,0 +1,9 @@
+package.json
+yarn.lock
+public/
+node_modules/
+build
+lib
+lib-scripts
+.next/
+.idea/

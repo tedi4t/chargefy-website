@@ -4,48 +4,48 @@ import Button from '@mui/material/Button';
 
 export const Title = styled(Typography)``;
 Title.defaultProps = {
-  variant: 'h3',
-  fontWeight: 300,
-}
+	variant: 'h3',
+	fontWeight: 300,
+};
 
 export const Description = styled(Typography)`
-  margin: 3rem 0;
+	margin: 3rem 0;
 `;
 Description.defaultProps = {
-  fontWeight: 300,
-}
+	fontWeight: 300,
+};
 
 export const Characheristics = styled.div`
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 `;
 
 export const Characheristic = styled.div`
-  font-size: 1.1rem;
-  font-weight: 300;
-  line-height: 2rem;
+	font-size: 1.1rem;
+	font-weight: 300;
+	line-height: 2rem;
 `;
 
 export const Key = styled.span`
-  font-weight: 600;
+	font-weight: 600;
 `;
 
 export const Value = styled.span``;
 
 export const WButton = styled(Button)`
-  width: 100%;
-  background: #e99c2e;
-  border: 3px solid #e99c2e;
-  border-radius: 0;
-  margin-top: 3rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #fff;
-  letter-spacing: 0.4rem;
-  
-  &:hover {
-    background: #fff;
-    color: #e99c2e;
-  }
+	width: 100%;
+	background: #e99c2e;
+	border: 3px solid #e99c2e;
+	border-radius: 0;
+	margin-top: 3rem;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 1.2rem;
+	color: #fff;
+	letter-spacing: 0.4rem;
+
+	&:hover {
+		background: #fff;
+		color: #e99c2e;
+	}
 `;

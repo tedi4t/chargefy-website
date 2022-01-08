@@ -3,37 +3,31 @@ import Image from 'next/image';
 import { Wrapper, Title, Price } from './Product.style';
 
 export interface ProductProps {
-  img: any;
-  title: string;
-  price: number;
-  sale?: number;
+	img: any;
+	title: string;
+	price: number;
+	sale?: number;
 }
 
-export default function(props: ProductProps) {
-  return (
-    <Wrapper>
-      <div className={'hover_decoration'} />
+export default function (props: ProductProps) {
+	return (
+		<Wrapper>
+			<div className={'hover_decoration'} />
 
-      <Image src={props.img} />
+			<Image src={props.img} />
 
-      <Title>
-        {props.title}
-      </Title>
+			<Title>{props.title}</Title>
 
-      <Price>
-        {
-          props.sale ? (
-            <>
-              <span className={'crossed'}>₴{props.price}</span>
-              <span className={'sale'}>₴{props.sale}</span>
-            </>
-          ) : (
-            <>
-              ₴{props.price}
-            </>
-          )
-        }
-      </Price>
-    </Wrapper>
-  )
+			<Price>
+				{props.sale ? (
+					<>
+						<span className={'crossed'}>₴{props.price}</span>
+						<span className={'sale'}>₴{props.sale}</span>
+					</>
+				) : (
+					<>₴{props.price}</>
+				)}
+			</Price>
+		</Wrapper>
+	);
 }

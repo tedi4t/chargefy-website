@@ -4,45 +4,43 @@ import Link from 'next/link';
 import Button from '@mui/material/Button';
 
 export const Wrapper = styled.div`
-  color: #fff;
-  padding: 3rem 0;
+	color: #fff;
+	padding: 3rem 0;
 `;
 
 export const Title = styled.h1`
-  font-weight: 300;
+	font-weight: 300;
 `;
 
 export const Description = styled.p`
-  font-width: 1.5rem;
-  line-height: 2rem;
+	font-width: 1.5rem;
+	line-height: 2rem;
 `;
 
 export const Subtitle = styled.h4`
-  
-  
-  .highlighted {
-    color: #e99c2e;
-    font-weight: 600;
-    margin-left: 0.5rem;
-  }
+	.highlighted {
+		color: #e99c2e;
+		font-weight: 600;
+		margin-left: 0.5rem;
+	}
 `;
 
 export const WButton = styled(Button)`
-  background: #e99c2e;
-  padding: 1rem 2.5rem;
-  color: #fff;
-  letter-spacing: 0.2rem;
-  transition-duration: 0.4s;
-  border: 1px solid #e99c2e;
-  transition-property: transparent color;
-  padding: 0;
-  
-  &:hover {
-    background: transparent;
-    color: #e99c2e;
-  }
+	background: #e99c2e;
+	padding: 1rem 2.5rem;
+	color: #fff;
+	letter-spacing: 0.2rem;
+	transition-duration: 0.4s;
+	border: 1px solid #e99c2e;
+	transition-property: transparent color;
+	padding: 0;
+
+	&:hover {
+		background: transparent;
+		color: #e99c2e;
+	}
 `;
 
 export const TextWrapper = styled.div`
-  padding: 1rem 2.5rem;
+	padding: 1rem 2.5rem;
 `;

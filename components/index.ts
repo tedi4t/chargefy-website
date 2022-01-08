@@ -12,16 +12,16 @@ import ProductSlide from './ProductSlide';
 import ProductInfo from './ProductInfo';
 
 export {
-  Carousel,
-  Navbar,
-  Paper,
-  Info,
-  Products,
-  Title,
-  Footer,
-  Sidebar,
-  InfoTitle,
-  MainSlide,
-  ProductSlide,
-  ProductInfo,
+	Carousel,
+	Navbar,
+	Paper,
+	Info,
+	Products,
+	Title,
+	Footer,
+	Sidebar,
+	InfoTitle,
+	MainSlide,
+	ProductSlide,
+	ProductInfo,
 };

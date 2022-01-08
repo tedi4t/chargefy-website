@@ -1,8 +1,6 @@
-import type { NextPage } from 'next';
+import type { NextPageContext } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
@@ -10,23 +8,18 @@ import {
 	Carousel,
 	Navbar,
 	Paper,
-	Info,
-	Products,
-	Title,
 	Footer,
 	InfoTitle,
 	ProductSlide,
 	ProductInfo,
 } from '../../components';
+import { fetchAPI, getStrapiMedia } from '../../lib/api';
+import { ProductResponse } from '../../lib/apiResponse';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
-import logo from '../../media/logo.png';
 
-import img1 from '../../media/carousel/1.png';
-import img2 from '../../media/carousel/2.png';
-import img3 from '../../media/carousel/3.png';
-
-const Home: NextPage = () => {
+const ProductPage = ({ product }: ProductResponse) => {
+	console.log(product);
 	return (
 		<div>
 			<Head>
@@ -46,21 +39,11 @@ const Home: NextPage = () => {
 							<Grid item container xs={6} alignItems={'center'}>
 								<Carousel
 									Slide={ProductSlide}
-									content={[
-										{
-											src: img1,
-										},
-										{
-											src: img2,
-										},
-										{
-											src: img3,
-										},
-									]}
+									content={product.images}
 								/>
 							</Grid>
 							<Grid item xs={6}>
-								<ProductInfo />
+								<ProductInfo {...product} />
 							</Grid>
 						</Grid>
 					</Box>
@@ -72,4 +55,31 @@ const Home: NextPage = () => {
 	);
 };
 
-export default Home;
+ProductPage.getInitialProps = async(ctx: NextPageContext) => {
+	const id = ctx.query.id;
+	const url = `/products/${id}?populate=*`;
+	const response = await fetchAPI(url);
+	const product = response.data.attributes;
+	const images = product.images.data;
+
+	return {
+		product: {
+			id: product.id,
+			title: product.title,
+			description: product.description,
+			price: product.price,
+			sale: product.sale,
+			characteristic: product.characteristic,
+			images: images.map((image: any) => {
+				const img = image.attributes.formats.medium;
+				return {
+					url: getStrapiMedia(img.url),
+					width: img.width,
+					height: img.height,
+				}
+			})
+		}
+	} as ProductResponse;
+}
+
+export default ProductPage;

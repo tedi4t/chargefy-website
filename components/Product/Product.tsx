@@ -17,27 +17,32 @@ export interface ProductProps {
 
 export default function (props: ProductProps) {
 	return (
-		<Link href={`/products/${props.id}`}>
-			<a>
-			<Wrapper>
-					<div className={'hover_decoration'} />
+		<div>
+			<Link href={{
+				pathname: '/products/[id]',
+				query: { id: props.id }
+			}}>
+				<a>
+					<Wrapper>
+						<div className={'hover_decoration'} />
 
-					<Image src={props.img.url} width={props.img.width} height={props.img.height} />
+						<Image src={props.img.url} width={props.img.width} height={props.img.height} />
 
-					<Title>{props.title}</Title>
+						<Title>{props.title}</Title>
 
-					<Price>
-						{props.sale ? (
-							<>
-								<span className={'crossed'}>₴{props.price}</span>
-								<span className={'sale'}>₴{props.sale}</span>
-							</>
-						) : (
-							<>₴{props.price}</>
-						)}
-					</Price>
-				</Wrapper>
-			</a>
-		</Link>
+						<Price>
+							{props.sale ? (
+								<>
+									<span className={'crossed'}>₴{props.price}</span>
+									<span className={'sale'}>₴{props.sale}</span>
+								</>
+							) : (
+								<>₴{props.price}</>
+							)}
+						</Price>
+					</Wrapper>
+				</a>
+			</Link>
+		</div>
 	);
 }

@@ -49,3 +49,18 @@ export const WButton = styled(Button)`
 		color: #e99c2e;
 	}
 `;
+
+export const Price = styled.h3`
+  font-weight: 300;
+  letter-spacing: 0.15rem;
+
+  .crossed {
+    text-decoration: line-through;
+  }
+
+  .sale {
+    margin-left: 1rem;
+    font-weight: 400;
+    color: #e99c2e;
+  }
+`;

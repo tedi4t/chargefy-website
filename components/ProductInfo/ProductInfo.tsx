@@ -6,42 +6,33 @@ import {
 	Key,
 	Value,
 	WButton,
+	Price,
 } from './ProductInfo.styles';
+import { ProductInfoProps } from './index';
 
-export default function () {
-	const characteristics = [
-		{
-			key: 'Lorem ipsum',
-			value: 'sit amet',
-		},
-		{
-			key: 'consectetur adipisicing',
-			value: 'elit',
-		},
-		{
-			key: 'Aspernatur autem beatae',
-			value: 'mollitia',
-		},
-		{
-			key: 'necessitatibus non',
-			value: 'officiis quaerat quasi',
-		},
-	];
+export default function (props: ProductInfoProps) {
 	return (
 		<div>
-			<Title>Lorem ipsum dolor sit.</Title>
-			<Description>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias eaque impedit
-				ipsum itaque possimus quidem recusandae sit ut vitae.
-			</Description>
+			<Title>{props.title}</Title>
+			<Description>{props.description}</Description>
 			<Characheristics>
-				{characteristics.map(characteristic => (
-					<Characheristic>
-						<Key>{characteristic.key}:&nbsp;</Key>
-						<Value>{characteristic.value}</Value>
+				{Object.keys(props.characteristic).map(characteristic => (
+					<Characheristic key={characteristic}>
+						<Key>{characteristic}:&nbsp;</Key>
+						<Value>{props.characteristic[characteristic]}</Value>
 					</Characheristic>
 				))}
 			</Characheristics>
+			<Price>
+				{props.sale ? (
+					<>
+						<span className={'crossed'}>₴{props.price}</span>
+						<span className={'sale'}>₴{props.sale}</span>
+					</>
+				) : (
+					<>₴{props.price}</>
+				)}
+			</Price>
 			<WButton>Buy</WButton>
 		</div>
 	);

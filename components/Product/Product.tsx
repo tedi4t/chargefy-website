@@ -1,9 +1,15 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Wrapper, Title, Price } from './Product.style';
 
 export interface ProductProps {
-	img: any;
+	id: number;
+	img: {
+		url: string,
+		width: number,
+		height: number,
+	};
 	title: string;
 	price: number;
 	sale?: number;
@@ -11,23 +17,27 @@ export interface ProductProps {
 
 export default function (props: ProductProps) {
 	return (
-		<Wrapper>
-			<div className={'hover_decoration'} />
+		<Link href={`/products/${props.id}`}>
+			<a>
+			<Wrapper>
+					<div className={'hover_decoration'} />
 
-			<Image src={props.img} />
+					<Image src={props.img.url} width={props.img.width} height={props.img.height} />
 
-			<Title>{props.title}</Title>
+					<Title>{props.title}</Title>
 
-			<Price>
-				{props.sale ? (
-					<>
-						<span className={'crossed'}>₴{props.price}</span>
-						<span className={'sale'}>₴{props.sale}</span>
-					</>
-				) : (
-					<>₴{props.price}</>
-				)}
-			</Price>
-		</Wrapper>
+					<Price>
+						{props.sale ? (
+							<>
+								<span className={'crossed'}>₴{props.price}</span>
+								<span className={'sale'}>₴{props.sale}</span>
+							</>
+						) : (
+							<>₴{props.price}</>
+						)}
+					</Price>
+				</Wrapper>
+			</a>
+		</Link>
 	);
 }

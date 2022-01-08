@@ -2,9 +2,13 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
 	padding: 2rem;
-	max-width: 400px;
+	max-width: 300px;
 	transition-duration: 0.3s;
 	position: relative;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
 	.hover_decoration {
 		position: absolute;

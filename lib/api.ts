@@ -1,20 +1,17 @@
-export function getStrapiURL(path = "") {
-  return `${
-    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
-  }${path}`;
+export function getStrapiURL(path = "", isApi: boolean = false) {
+  return `${ process.env.NEXT_PUBLIC_STRAPI_API_URL }${isApi ? '/api' : ''}${path}`;
 }
 
 // Helper to make GET requests to Strapi
 export async function fetchAPI(path: string) {
-  const requestUrl = getStrapiURL(path);
+  const requestUrl = getStrapiURL(path, true);
   const response = await fetch(requestUrl);
   const data = await response.json();
   return data;
 }
 
-// export function getStrapiMedia(media) {
-//   const imageUrl = media.url.startsWith("/")
-//     ? getStrapiURL(media.url)
-//     : media.url;
-//   return imageUrl;
-// }
+export function getStrapiMedia(mediaUrl: string) {
+  return mediaUrl.startsWith("/")
+    ? getStrapiURL(mediaUrl)
+    : mediaUrl;
+}

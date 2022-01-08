@@ -40,6 +40,7 @@ export default function () {
 					<RadioGroup>
 						{categories.map(category => (
 							<FormControlLabel
+								key={category}
 								value={category}
 								control={<RadioCategory />}
 								label={<Text>{category}</Text>}
@@ -56,7 +57,6 @@ export default function () {
 				<WAccordionDetails>
 					<PriceSlider
 						valueLabelDisplay='auto'
-						aria-label='pretto slider'
 						value={value}
 						marks={priceMarks}
 						valueLabelFormat={a => `950`}
@@ -72,6 +72,7 @@ export default function () {
 					<FormGroup>
 						{colors.map(color => (
 							<FormControlLabel
+								key={color}
 								control={<ColorCheckbox />}
 								label={<Text>{color}</Text>}
 								value={color}

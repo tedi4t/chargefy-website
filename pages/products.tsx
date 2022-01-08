@@ -13,12 +13,14 @@ import {
 	Sidebar,
 	MainSlide,
 } from '../components';
+import { fetchAPI, getStrapiMedia } from '../lib/api';
 
 import img1 from '../media/carousel/1.png';
 import img2 from '../media/carousel/2.png';
 import img3 from '../media/carousel/3.png';
+import { ProductsListResponse } from '../lib/apiResponse';
 
-const ProductsPage: NextPage = () => {
+const ProductsPage = ({ products }: ProductsListResponse) => {
 	return (
 		<div>
 			<Head>
@@ -63,19 +65,7 @@ const ProductsPage: NextPage = () => {
 							</Grid>
 							<Grid item xs={8}>
 								<Products
-									products={[
-										{
-											img: img2,
-											title: 'title 1',
-											price: 400,
-											sale: 200,
-										},
-										{
-											img: img2,
-											title: 'title 2',
-											price: 500,
-										},
-									]}
+									products={products.data}
 								/>
 							</Grid>
 						</Grid>
@@ -86,5 +76,29 @@ const ProductsPage: NextPage = () => {
 		</div>
 	);
 };
+
+ProductsPage.getInitialProps = async() => {
+	const url = '/products?populate=*';
+	const response = await fetchAPI(url);
+	return {
+		products: {
+			data: response.data.map((product: any) => {
+				const img = product.attributes.images.data[0].attributes.formats.medium;
+				return {
+					id: product.id,
+					title: product.attributes.title,
+					price: product.attributes.price,
+					sale: product.attributes.sale,
+					img: {
+						url: getStrapiMedia(img.url),
+						width: img.width,
+						height: img.height,
+					},
+				};
+			}),
+			meta: response.meta,
+		}
+	} as ProductsListResponse;
+}
 
 export default ProductsPage;

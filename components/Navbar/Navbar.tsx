@@ -147,7 +147,7 @@ export default function Navbar () {
 
           <Box sx={{ flexGrow: 0 }}>
             <Grid container alignItems={'center'}>
-              <Link href={'shopping-cart'}>
+              <Link href={'/shopping-cart'}>
                 <a>
                   <WShoppingCartIcon />
                 </a>

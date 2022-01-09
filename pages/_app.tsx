@@ -5,6 +5,7 @@ import { IntlProvider } from 'react-intl';
 
 import uk from '../intl/uk.json';
 import { ShoppingCartProvider } from '../contexts/shoppingCart';
+import { ShoppingCartChecker } from '../components';
 
 const IntlProviderComponent = ({ children }: any) => {
 	const router = useRouter();
@@ -25,7 +26,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<IntlProviderComponent>
 			<ShoppingCartProvider>
-				<Component {...pageProps} />
+				<ShoppingCartChecker>
+					<Component {...pageProps} />
+				</ShoppingCartChecker>
 			</ShoppingCartProvider>
 		</IntlProviderComponent>
 	);

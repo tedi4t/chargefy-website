@@ -12,6 +12,7 @@ import ProductSlide from './ProductSlide';
 import ProductInfo from './ProductInfo';
 import BuyButton from './BuyButton';
 import ShoppingCartItem from './ShoppingCartItem';
+import ShoppingCartChecker from './ShoppingCartChecker';
 
 export {
 	Carousel,
@@ -28,4 +29,5 @@ export {
 	ProductInfo,
 	BuyButton,
 	ShoppingCartItem,
+	ShoppingCartChecker,
 };

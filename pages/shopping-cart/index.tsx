@@ -12,14 +12,14 @@ import {
 	InfoTitle,
 	ShoppingCartItem,
 	ActionButton,
-} from '../components';
+} from '../../components';
 
-import sofaBg from '../media/banner/sofa.jpeg';
+import sofaBg from '../../media/banner/sofa.jpeg';
 import { useContext } from 'react';
 import {
 	shoppingCartContext,
 	ShoppingCartItem as ShoppingCartItemType,
-} from '../contexts/shoppingCart';
+} from '../../contexts/shoppingCart';
 import Grid from '@mui/material/Grid';
 
 const ProductsPage = () => {

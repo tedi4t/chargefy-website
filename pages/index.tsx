@@ -1,5 +1,5 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
+import qs from 'qs';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
@@ -10,8 +10,11 @@ import img2 from '../media/carousel/2.png';
 import img3 from '../media/carousel/3.png';
 
 import sofaBg from '../media/banner/sofa.jpeg';
+import { fetchAPI } from '../lib/api';
+import { ProductsListResponse } from '../lib/apiResponse';
+import { toProductsListResponse } from '../lib/formatter';
 
-const Home: NextPage = () => {
+const Home = ({ popular, recommend }: { popular: ProductsListResponse, recommend: ProductsListResponse }) => {
 	return (
 		<div>
 			<Head>
@@ -49,21 +52,9 @@ const Home: NextPage = () => {
 
 				<Box sx={{ mb: '4rem' }}>
 					<Container>
-						<Title text={'Mauris pellentesque pulvinar pellentesque habitant'} />
+						<Title text={'Popular'} />
 						<Products
-							products={[
-								{
-									img: img2,
-									title: 'title 1',
-									price: 400,
-									sale: 200,
-								},
-								{
-									img: img2,
-									title: 'title 2',
-									price: 500,
-								},
-							]}
+							products={popular.products.data}
 						/>
 					</Container>
 				</Box>
@@ -84,21 +75,9 @@ const Home: NextPage = () => {
 
 				<Box sx={{ mb: '4rem' }}>
 					<Container>
-						<Title text={'Mauris pellentesque pulvinar pellentesque habitant'} />
+						<Title text={'Recommend'} />
 						<Products
-							products={[
-								{
-									img: img2,
-									title: 'title 1',
-									price: 400,
-									sale: 200,
-								},
-								{
-									img: img2,
-									title: 'title 2',
-									price: 500,
-								},
-							]}
+							products={recommend.products.data}
 						/>
 					</Container>
 				</Box>
@@ -108,5 +87,40 @@ const Home: NextPage = () => {
 		</div>
 	);
 };
+
+Home.getInitialProps = async () => {
+	const queryPopular = qs.stringify({
+		filters: {
+			isPopular: {
+				$eq: true,
+			},
+		},
+		populate: '*',
+	});
+
+	const queryRecommend = qs.stringify({
+		filters: {
+			isRecommend: {
+				$eq: true,
+			},
+		},
+		populate: '*',
+	});
+
+	const url = '/products?';
+	const popularUrl = `${url}${queryPopular}`;
+	const recommendUrl = `${url}${queryRecommend}`;
+
+	const popularResponse = await fetchAPI(popularUrl);
+	const recommendResponse = await fetchAPI(recommendUrl);
+
+	const popularProducts = toProductsListResponse(popularResponse);
+	const recommendProducts = toProductsListResponse(recommendResponse);
+
+	return {
+		popular: popularProducts,
+		recommend: recommendProducts,
+	};
+}
 
 export default Home;

@@ -59,16 +59,18 @@ const ProductsPage = () => {
 								₴ {totalPrice.toFixed(2)}
 							</Box>
 						</Typography>
-						<Grid container sx={{ mt: '4rem' }} flexDirection={'row'}>
-							<Grid item xs={2}></Grid>
-							<Grid item xs={8}>
-								<Link href={'/shopping-cart/order'}>
-									<a>
-										<ActionButton>Оформити замовлення</ActionButton>
-									</a>
-								</Link>
+						<Box sx={{ mt: '4rem' }}>
+							<Grid container>
+								<Grid item xs={2}></Grid>
+								<Grid item xs={8}>
+									<Link href={'/shopping-cart/order'}>
+										<a>
+											<ActionButton>Оформити замовлення</ActionButton>
+										</a>
+									</Link>
+								</Grid>
 							</Grid>
-						</Grid>
+						</Box>
 					</Container>
 				</Box>
 			</main>

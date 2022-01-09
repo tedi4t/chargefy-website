@@ -4,10 +4,11 @@ import { shoppingCartContext } from '../../contexts/shoppingCart';
 
 export default ({ children }: any) => {
 	const [shoppingCart, dispatch] = useContext(shoppingCartContext);
-	const [cookies, setCookie] = useCookies(['shoppingCart']);
+	const key = 'shoppingCart';
+	const [cookies, setCookie] = useCookies([key]);
 
 	useEffect(() => {
-		const shoppingCart: Array<any> = cookies['shoppingCart'] || [];
+		const shoppingCart: Array<any> = cookies[key] || [];
 		if (dispatch) {
 			shoppingCart.forEach(item => {
 				dispatch({ type: 'addGood', payload: item });
@@ -16,7 +17,7 @@ export default ({ children }: any) => {
 	}, [dispatch]);
 
 	useEffect(() => {
-		setCookie('shoppingCart', JSON.stringify(shoppingCart));
+		setCookie(key, JSON.stringify(shoppingCart));
 	}, [shoppingCart]);
 
 	return children;

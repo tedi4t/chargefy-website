@@ -3,13 +3,13 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import { Carousel, Navbar, Products, Title, Footer, Sidebar, MainSlide } from '../components';
-import { fetchAPI, getStrapiMedia } from '../lib/api';
+import { Carousel, Navbar, Products, Title, Footer, Sidebar, MainSlide } from '../../components';
+import { fetchAPI, getStrapiMedia } from '../../lib/api';
 
-import img1 from '../media/carousel/1.png';
-import img2 from '../media/carousel/2.png';
-import img3 from '../media/carousel/3.png';
-import { ProductsListResponse } from '../lib/apiResponse';
+import img1 from '../../media/carousel/1.png';
+import img2 from '../../media/carousel/2.png';
+import img3 from '../../media/carousel/3.png';
+import { ProductsListResponse } from '../../lib/apiResponse';
 
 const ProductsPage = ({ products }: ProductsListResponse) => {
 	return (

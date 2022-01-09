@@ -21,7 +21,7 @@ export default function Carousel<T>({ content, Slide }: CarouselProps<T>) {
 		<WSwiper
 			navigation={true}
 			autoplay={{
-				delay: 15000,
+				delay: 150000,
 				disableOnInteraction: false,
 			}}
 			pagination={{ dynamicBullets: true }}

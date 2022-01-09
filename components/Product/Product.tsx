@@ -17,7 +17,7 @@ export interface ProductProps {
 
 export default function (props: ProductProps) {
 	return (
-		<div>
+		<>
 			<Link
 				href={{
 					pathname: '/products/[id]',
@@ -45,6 +45,6 @@ export default function (props: ProductProps) {
 					</Wrapper>
 				</a>
 			</Link>
-		</div>
+		</>
 	);
 }

@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from 'react';
 import type { NextPageContext } from 'next';
 import Head from 'next/head';
 import Container from '@mui/material/Container';
@@ -18,10 +19,34 @@ import { fetchAPI, getStrapiMedia } from '../../lib/api';
 import { ProductResponse } from '../../lib/apiResponse';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
-import { useState } from 'react';
+import { shoppingCartContext } from '../../contexts/shoppingCart';
 
 const ProductPage = ({ product }: ProductResponse) => {
 	const [quantity, setQuantity] = useState(0);
+	const [, dispatch] = useContext(shoppingCartContext);
+
+	const handleAddClick = () => {
+		if (dispatch) {
+			dispatch(
+				quantity === 0
+					? { type: 'addGood', payload: { product, quantity: quantity + 1 } }
+					: { type: 'updateQuantity', payload: { product, quantity: quantity + 1 } },
+			);
+		}
+		setQuantity(quantity + 1);
+	};
+
+	const handleRemoveClick = () => {
+		if (dispatch) {
+			dispatch(
+				quantity === 1
+					? { type: 'removeGood', payload: { product, quantity: quantity - 1 } }
+					: { type: 'updateQuantity', payload: { product, quantity: quantity - 1 } },
+			);
+		}
+		setQuantity(quantity - 1);
+	};
+
 	return (
 		<div>
 			<Head>
@@ -43,7 +68,12 @@ const ProductPage = ({ product }: ProductResponse) => {
 							</Grid>
 							<Grid item xs={6}>
 								<ProductInfo {...product} />
-								<BuyButton quantity={quantity} setQuantity={setQuantity} />
+								<BuyButton
+									quantity={quantity}
+									setQuantity={setQuantity}
+									handleAddClick={handleAddClick}
+									handleRemoveClick={handleRemoveClick}
+								/>
 							</Grid>
 						</Grid>
 					</Box>
@@ -64,7 +94,7 @@ ProductPage.getInitialProps = async (ctx: NextPageContext) => {
 
 	return {
 		product: {
-			id: product.id,
+			id: response.data.id,
 			title: product.title,
 			description: product.description,
 			price: product.price,

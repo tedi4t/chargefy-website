@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
 
 import uk from '../intl/uk.json';
+import { ShoppingCartProvider } from '../contexts/shoppingCart';
 
 const IntlProviderComponent = ({ children }: any) => {
 	const router = useRouter();
@@ -23,7 +24,9 @@ const IntlProviderComponent = ({ children }: any) => {
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<IntlProviderComponent>
-			<Component {...pageProps} />
+			<ShoppingCartProvider>
+				<Component {...pageProps} />
+			</ShoppingCartProvider>
 		</IntlProviderComponent>
 	);
 }

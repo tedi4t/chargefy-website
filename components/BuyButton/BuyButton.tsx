@@ -8,22 +8,18 @@ import { WButton, Wrapper, QuantityButton, Quantity } from './BuyButton.styles';
 export default function ({
 	quantity,
 	setQuantity,
+	handleAddClick,
+	handleRemoveClick,
 }: {
 	quantity: number;
 	setQuantity: React.Dispatch<React.SetStateAction<number>>;
+	handleAddClick: () => void;
+	handleRemoveClick: () => void;
 }) {
-	const handleAddClick = () => {
-		setQuantity(quantity + 1);
-	}
-
-	const handleRemoveClick = () => {
-		setQuantity(quantity - 1);
-	}
-
 	return (
 		<Wrapper>
 			{quantity === 0 ? (
-				<WButton onClick={() => setQuantity(1)}>Buy</WButton>
+				<WButton onClick={handleAddClick}>Buy</WButton>
 			) : (
 				<>
 					<QuantityButton onClick={handleRemoveClick}>

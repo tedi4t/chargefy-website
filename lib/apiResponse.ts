@@ -1,4 +1,16 @@
-import { getStrapiMedia } from './api';
+export interface Product {
+	id: string,
+	title: string,
+	description: string,
+	price: number,
+	sale?: number,
+	characteristic: Record<string, string>,
+	images: Array<{
+		url: string,
+		width: number,
+		height: number,
+	}>
+}
 
 export interface ProductsListResponse {
 	products: {
@@ -11,7 +23,7 @@ export interface ProductsListResponse {
 				url: string,
 				width: number,
 				height: number,
-			},
+			}
 		}>,
 		meta: {
 			pagination: {
@@ -25,17 +37,5 @@ export interface ProductsListResponse {
 }
 
 export interface ProductResponse {
-	product: {
-		id: string,
-		title: string,
-		description: string,
-		price: number,
-		sale?: number,
-		characteristic: Record<string, string>,
-		images: Array<{
-			url: string,
-			width: number,
-			height: number,
-		}>
-	}
+	product: Product;
 }

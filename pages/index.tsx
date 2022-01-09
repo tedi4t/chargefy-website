@@ -14,7 +14,13 @@ import { fetchAPI } from '../lib/api';
 import { ProductsListResponse } from '../lib/apiResponse';
 import { toProductsListResponse } from '../lib/formatter';
 
-const Home = ({ popular, recommend }: { popular: ProductsListResponse, recommend: ProductsListResponse }) => {
+const Home = ({
+	popular,
+	recommend,
+}: {
+	popular: ProductsListResponse;
+	recommend: ProductsListResponse;
+}) => {
 	return (
 		<div>
 			<Head>
@@ -53,9 +59,7 @@ const Home = ({ popular, recommend }: { popular: ProductsListResponse, recommend
 				<Box sx={{ mb: '4rem' }}>
 					<Container>
 						<Title text={'Popular'} />
-						<Products
-							products={popular.products.data}
-						/>
+						<Products products={popular.products.data} />
 					</Container>
 				</Box>
 
@@ -76,9 +80,7 @@ const Home = ({ popular, recommend }: { popular: ProductsListResponse, recommend
 				<Box sx={{ mb: '4rem' }}>
 					<Container>
 						<Title text={'Recommend'} />
-						<Products
-							products={recommend.products.data}
-						/>
+						<Products products={recommend.products.data} />
 					</Container>
 				</Box>
 			</main>
@@ -121,6 +123,6 @@ Home.getInitialProps = async () => {
 		popular: popularProducts,
 		recommend: recommendProducts,
 	};
-}
+};
 
 export default Home;

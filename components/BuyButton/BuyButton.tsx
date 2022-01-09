@@ -7,12 +7,10 @@ import { WButton, Wrapper, QuantityButton, Quantity } from './BuyButton.styles';
 
 export default function ({
 	quantity,
-	setQuantity,
 	handleAddClick,
 	handleRemoveClick,
 }: {
 	quantity: number;
-	setQuantity: React.Dispatch<React.SetStateAction<number>>;
 	handleAddClick: () => void;
 	handleRemoveClick: () => void;
 }) {

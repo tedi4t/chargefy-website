@@ -68,12 +68,13 @@ const ProductPage = ({ product }: ProductResponse) => {
 							</Grid>
 							<Grid item xs={6}>
 								<ProductInfo {...product} />
-								<BuyButton
-									quantity={quantity}
-									setQuantity={setQuantity}
-									handleAddClick={handleAddClick}
-									handleRemoveClick={handleRemoveClick}
-								/>
+								<Box sx={{ mt: '3rem' }}>
+									<BuyButton
+										quantity={quantity}
+										handleAddClick={handleAddClick}
+										handleRemoveClick={handleRemoveClick}
+									/>
+								</Box>
 							</Grid>
 						</Grid>
 					</Box>

@@ -11,6 +11,7 @@ import MainSlide from './MainSlide';
 import ProductSlide from './ProductSlide';
 import ProductInfo from './ProductInfo';
 import BuyButton from './BuyButton';
+import ShoppingCartItem from './ShoppingCartItem';
 
 export {
 	Carousel,
@@ -26,4 +27,5 @@ export {
 	ProductSlide,
 	ProductInfo,
 	BuyButton,
+	ShoppingCartItem,
 };

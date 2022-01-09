@@ -43,7 +43,6 @@ export const Quantity = styled(Typography)`
 
 export const Wrapper = styled.div`
 	width: 100%;
-	margin-top: 3rem;
 	display: flex;
 	flex-direction: row;
 	align-items: center;

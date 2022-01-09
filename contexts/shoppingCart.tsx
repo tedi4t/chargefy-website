@@ -1,7 +1,7 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
 import { Product } from '../lib/apiResponse';
 
-interface ShoppingCartItem {
+export interface ShoppingCartItem {
 	product: Product;
 	quantity: number;
 }

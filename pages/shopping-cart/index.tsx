@@ -22,7 +22,7 @@ import {
 } from '../../contexts/shoppingCart';
 import Grid from '@mui/material/Grid';
 
-const ProductsPage = () => {
+const ShoppingCartPage = () => {
 	const [shoppingCart] = useContext(shoppingCartContext);
 	const totalPrice =
 		shoppingCart?.reduce((acc: number, item: ShoppingCartItemType) => {
@@ -79,4 +79,4 @@ const ProductsPage = () => {
 	);
 };
 
-export default ProductsPage;
+export default ShoppingCartPage;

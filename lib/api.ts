@@ -15,3 +15,17 @@ export function getStrapiMedia(mediaUrl: string) {
     ? getStrapiURL(mediaUrl)
     : mediaUrl;
 }
+
+export async function fetchNovaPoschtaApi(body: any): Promise<any> {
+  const response = await fetch('https://api.novaposhta.ua/v2.0/json/', {
+    method: 'POST',
+    body: JSON.stringify({
+      apiKey: process.env.NOVA_POSCHTA_API_KEY,
+      ...body,
+    }),
+  });
+
+  const responseData = await response.json();
+
+  return responseData;
+}

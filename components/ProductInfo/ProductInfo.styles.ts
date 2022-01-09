@@ -32,35 +32,17 @@ export const Key = styled.span`
 
 export const Value = styled.span``;
 
-export const WButton = styled(Button)`
-	width: 100%;
-	background: #e99c2e;
-	border: 3px solid #e99c2e;
-	border-radius: 0;
-	margin-top: 3rem;
-	text-transform: uppercase;
-	font-weight: 600;
-	font-size: 1.2rem;
-	color: #fff;
-	letter-spacing: 0.4rem;
+export const Price = styled.h3`
+	font-weight: 300;
+	letter-spacing: 0.15rem;
 
-	&:hover {
-		background: #fff;
+	.crossed {
+		text-decoration: line-through;
+	}
+
+	.sale {
+		margin-left: 1rem;
+		font-weight: 400;
 		color: #e99c2e;
 	}
-`;
-
-export const Price = styled.h3`
-  font-weight: 300;
-  letter-spacing: 0.15rem;
-
-  .crossed {
-    text-decoration: line-through;
-  }
-
-  .sale {
-    margin-left: 1rem;
-    font-weight: 400;
-    color: #e99c2e;
-  }
 `;

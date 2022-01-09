@@ -12,14 +12,16 @@ import {
 	InfoTitle,
 	ProductSlide,
 	ProductInfo,
+	BuyButton,
 } from '../../components';
 import { fetchAPI, getStrapiMedia } from '../../lib/api';
 import { ProductResponse } from '../../lib/apiResponse';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
+import { useState } from 'react';
 
 const ProductPage = ({ product }: ProductResponse) => {
-	console.log(product);
+	const [quantity, setQuantity] = useState(0);
 	return (
 		<div>
 			<Head>
@@ -37,13 +39,11 @@ const ProductPage = ({ product }: ProductResponse) => {
 					<Box sx={{ my: '5rem' }}>
 						<Grid container spacing={4}>
 							<Grid item container xs={6} alignItems={'center'}>
-								<Carousel
-									Slide={ProductSlide}
-									content={product.images}
-								/>
+								<Carousel Slide={ProductSlide} content={product.images} />
 							</Grid>
 							<Grid item xs={6}>
 								<ProductInfo {...product} />
+								<BuyButton quantity={quantity} setQuantity={setQuantity} />
 							</Grid>
 						</Grid>
 					</Box>
@@ -55,7 +55,7 @@ const ProductPage = ({ product }: ProductResponse) => {
 	);
 };
 
-ProductPage.getInitialProps = async(ctx: NextPageContext) => {
+ProductPage.getInitialProps = async (ctx: NextPageContext) => {
 	const id = ctx.query.id;
 	const url = `/products/${id}?populate=*`;
 	const response = await fetchAPI(url);
@@ -76,10 +76,10 @@ ProductPage.getInitialProps = async(ctx: NextPageContext) => {
 					url: getStrapiMedia(img.url),
 					width: img.width,
 					height: img.height,
-				}
-			})
-		}
+				};
+			}),
+		},
 	} as ProductResponse;
-}
+};
 
 export default ProductPage;

@@ -6,9 +6,9 @@ import { Wrapper, Title, Price } from './Product.style';
 export interface ProductProps {
 	id: number;
 	img: {
-		url: string,
-		width: number,
-		height: number,
+		url: string;
+		width: number;
+		height: number;
 	};
 	title: string;
 	price: number;
@@ -18,10 +18,12 @@ export interface ProductProps {
 export default function (props: ProductProps) {
 	return (
 		<div>
-			<Link href={{
-				pathname: '/products/[id]',
-				query: { id: props.id }
-			}}>
+			<Link
+				href={{
+					pathname: '/products/[id]',
+					query: { id: props.id },
+				}}
+			>
 				<a>
 					<Wrapper>
 						<div className={'hover_decoration'} />

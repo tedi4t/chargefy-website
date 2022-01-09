@@ -3,15 +3,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import {
-	Carousel,
-	Navbar,
-	Products,
-	Title,
-	Footer,
-	Sidebar,
-	MainSlide,
-} from '../components';
+import { Carousel, Navbar, Products, Title, Footer, Sidebar, MainSlide } from '../components';
 import { fetchAPI, getStrapiMedia } from '../lib/api';
 
 import img1 from '../media/carousel/1.png';
@@ -63,9 +55,7 @@ const ProductsPage = ({ products }: ProductsListResponse) => {
 								<Sidebar />
 							</Grid>
 							<Grid item xs={8}>
-								<Products
-									products={products.data}
-								/>
+								<Products products={products.data} />
 							</Grid>
 						</Grid>
 					</Container>
@@ -76,7 +66,7 @@ const ProductsPage = ({ products }: ProductsListResponse) => {
 	);
 };
 
-ProductsPage.getInitialProps = async() => {
+ProductsPage.getInitialProps = async () => {
 	const url = '/products?populate=*';
 	const response = await fetchAPI(url);
 	return {
@@ -96,8 +86,8 @@ ProductsPage.getInitialProps = async() => {
 				};
 			}),
 			meta: response.meta,
-		}
+		},
 	} as ProductsListResponse;
-}
+};
 
 export default ProductsPage;

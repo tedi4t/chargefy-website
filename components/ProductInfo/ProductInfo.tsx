@@ -5,7 +5,6 @@ import {
 	Characheristic,
 	Key,
 	Value,
-	WButton,
 	Price,
 } from './ProductInfo.styles';
 import { ProductInfoProps } from './index';
@@ -33,7 +32,6 @@ export default function (props: ProductInfoProps) {
 					<>₴{props.price}</>
 				)}
 			</Price>
-			<WButton>Buy</WButton>
 		</div>
 	);
 }

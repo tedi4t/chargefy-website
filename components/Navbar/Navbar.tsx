@@ -72,10 +72,7 @@ export default function Navbar() {
 					</Link>
 
 					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-						<IconButton
-							size='large'
-							onClick={handleOpenNavMenu}
-						>
+						<IconButton size='large' onClick={handleOpenNavMenu}>
 							<MenuIcon />
 						</IconButton>
 						<Menu

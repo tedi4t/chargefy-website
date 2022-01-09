@@ -10,6 +10,7 @@ import InfoTitle from './InfoTitle';
 import MainSlide from './MainSlide';
 import ProductSlide from './ProductSlide';
 import ProductInfo from './ProductInfo';
+import BuyButton from './BuyButton';
 
 export {
 	Carousel,
@@ -24,4 +25,5 @@ export {
 	MainSlide,
 	ProductSlide,
 	ProductInfo,
+	BuyButton,
 };

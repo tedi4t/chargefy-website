@@ -13,6 +13,7 @@ import ProductInfo from './ProductInfo';
 import BuyButton from './BuyButton';
 import ShoppingCartItem from './ShoppingCartItem';
 import ShoppingCartChecker from './ShoppingCartChecker';
+import ActionButton from './ActionButton';
 
 export {
 	Carousel,
@@ -30,4 +31,5 @@ export {
 	BuyButton,
 	ShoppingCartItem,
 	ShoppingCartChecker,
+	ActionButton,
 };

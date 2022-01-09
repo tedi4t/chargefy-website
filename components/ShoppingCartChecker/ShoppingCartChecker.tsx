@@ -8,16 +8,16 @@ export default ({ children }: any) => {
 
 	useEffect(() => {
 		const shoppingCart: Array<any> = cookies['shoppingCart'] || [];
-		if(dispatch) {
+		if (dispatch) {
 			shoppingCart.forEach(item => {
 				dispatch({ type: 'addGood', payload: item });
-			})
+			});
 		}
 	}, [dispatch]);
 
 	useEffect(() => {
 		setCookie('shoppingCart', JSON.stringify(shoppingCart));
-	}, [shoppingCart])
+	}, [shoppingCart]);
 
 	return children;
-}
+};

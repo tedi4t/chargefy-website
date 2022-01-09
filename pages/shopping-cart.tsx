@@ -1,19 +1,33 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import { Navbar, Title, Footer, Paper, InfoTitle, ShoppingCartItem } from '../components';
+import {
+	Navbar,
+	Title,
+	Footer,
+	Paper,
+	InfoTitle,
+	ShoppingCartItem,
+	ActionButton,
+} from '../components';
 
 import sofaBg from '../media/banner/sofa.jpeg';
 import { useContext } from 'react';
-import { shoppingCartContext, ShoppingCartItem as ShoppingCartItemType } from '../contexts/shoppingCart';
+import {
+	shoppingCartContext,
+	ShoppingCartItem as ShoppingCartItemType,
+} from '../contexts/shoppingCart';
+import Grid from '@mui/material/Grid';
 
 const ProductsPage = () => {
 	const [shoppingCart] = useContext(shoppingCartContext);
-	const totalPrice = shoppingCart?.reduce((acc: number, item: ShoppingCartItemType) => {
-		return acc + (item.product.price * item.quantity);
-	}, 0) || 0;
+	const totalPrice =
+		shoppingCart?.reduce((acc: number, item: ShoppingCartItemType) => {
+			return acc + item.product.price * item.quantity;
+		}, 0) || 0;
 
 	return (
 		<>
@@ -45,6 +59,16 @@ const ProductsPage = () => {
 								₴ {totalPrice.toFixed(2)}
 							</Box>
 						</Typography>
+						<Grid container alignItems={'center'} sx={{ mt: '4rem' }}>
+							<Grid item xs={2} />
+							<Grid item xs={8}>
+								<Link href={'/shopping-cart/order'}>
+									<a>
+										<ActionButton>Оформити замовлення</ActionButton>
+									</a>
+								</Link>
+							</Grid>
+						</Grid>
 					</Container>
 				</Box>
 			</main>

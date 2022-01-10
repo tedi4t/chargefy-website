@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import type { NextPageContext } from 'next';
 import Head from 'next/head';
 import Container from '@mui/material/Container';
@@ -15,11 +15,12 @@ import {
 	ProductInfo,
 	BuyButton,
 } from '../../components';
-import { fetchAPI, getStrapiMedia } from '../../lib/api';
+import { fetchAPI } from '../../lib/api';
 import { ProductResponse } from '../../lib/apiResponse';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
+import { toProductResponse } from '../../lib/formatter';
 
 const ProductPage = ({ product }: ProductResponse) => {
 	const [quantity, setQuantity] = useState(0);
@@ -86,31 +87,11 @@ const ProductPage = ({ product }: ProductResponse) => {
 	);
 };
 
-ProductPage.getInitialProps = async (ctx: NextPageContext) => {
+ProductPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductResponse> => {
 	const id = ctx.query.id;
 	const url = `/products/${id}?populate=*`;
 	const response = await fetchAPI(url);
-	const product = response.data.attributes;
-	const images = product.images.data;
-
-	return {
-		product: {
-			id: response.data.id,
-			title: product.title,
-			description: product.description,
-			price: product.price,
-			sale: product.sale,
-			characteristic: product.characteristic,
-			images: images.map((image: any) => {
-				const img = image.attributes.formats.medium;
-				return {
-					url: getStrapiMedia(img.url),
-					width: img.width,
-					height: img.height,
-				};
-			}),
-		},
-	} as ProductResponse;
+	return toProductResponse(response);
 };
 
 export default ProductPage;

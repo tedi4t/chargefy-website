@@ -1,8 +1,11 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 
 import {
 	Navbar,
@@ -15,19 +18,24 @@ import {
 } from '../../components';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
-import { useContext } from 'react';
 import {
 	shoppingCartContext,
 	ShoppingCartItem as ShoppingCartItemType,
 } from '../../contexts/shoppingCart';
-import Grid from '@mui/material/Grid';
 
 const ShoppingCartPage = () => {
 	const [shoppingCart] = useContext(shoppingCartContext);
+	const router = useRouter();
 	const totalPrice =
 		shoppingCart?.reduce((acc: number, item: ShoppingCartItemType) => {
 			return acc + item.product.price * item.quantity;
 		}, 0) || 0;
+
+	useEffect(() => {
+		if (router && !shoppingCart?.length) {
+			router.push('/');
+		}
+	}, [shoppingCart, router]);
 
 	return (
 		<>

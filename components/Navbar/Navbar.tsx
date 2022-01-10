@@ -10,15 +10,18 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Tooltip from '@mui/material/Tooltip';
+// import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
 
 import { WAppBar, LogoWrapper, WAvatar, PageName, WShoppingCartIcon } from './Navbar.styles';
 
 import Logo from '../../media/logo.png';
+import { useContext } from 'react';
+import { shoppingCartContext } from '../../contexts/shoppingCart';
 
 export default function Navbar() {
+	const [shoppingCart] = useContext(shoppingCartContext);
 	const pages: Array<{ name: string; href: string }> = [
 		{
 			name: 'Home',
@@ -37,27 +40,27 @@ export default function Navbar() {
 			href: '/contacts',
 		},
 	];
-	const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+	// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 	const router = useRouter();
 
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+	// const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
 	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElNav(event.currentTarget);
 	};
-	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElUser(event.currentTarget);
-	};
+	// const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+	// 	setAnchorElUser(event.currentTarget);
+	// };
 
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
 	};
 
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
-	};
+	// const handleCloseUserMenu = () => {
+	// 	setAnchorElUser(null);
+	// };
 
 	return (
 		<WAppBar>
@@ -130,39 +133,43 @@ export default function Navbar() {
 
 					<Box sx={{ flexGrow: 0 }}>
 						<Grid container alignItems={'center'}>
-							<Link href={'/shopping-cart'}>
-								<a>
-									<WShoppingCartIcon />
-								</a>
-							</Link>
-							<Tooltip title='Open settings'>
-								<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-									<WAvatar sx={{ background: '#efefef', color: '#000' }}>D</WAvatar>
-								</IconButton>
-							</Tooltip>
+							{
+								shoppingCart?.length && (
+									<Link href={'/shopping-cart'}>
+										<a>
+											<WShoppingCartIcon />
+										</a>
+									</Link>
+								)
+							}
+							{/*<Tooltip title='Open settings'>*/}
+							{/*	<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>*/}
+							{/*		<WAvatar sx={{ background: '#efefef', color: '#000' }}>D</WAvatar>*/}
+							{/*	</IconButton>*/}
+							{/*</Tooltip>*/}
 						</Grid>
-						<Menu
-							sx={{ mt: '45px' }}
-							id='menu-appbar'
-							anchorEl={anchorElUser}
-							anchorOrigin={{
-								vertical: 'top',
-								horizontal: 'right',
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'right',
-							}}
-							open={Boolean(anchorElUser)}
-							onClose={handleCloseUserMenu}
-						>
-							{settings.map(setting => (
-								<MenuItem key={setting} onClick={handleCloseNavMenu}>
-									<Typography textAlign='center'>{setting}</Typography>
-								</MenuItem>
-							))}
-						</Menu>
+						{/*<Menu*/}
+						{/*	sx={{ mt: '45px' }}*/}
+						{/*	id='menu-appbar'*/}
+						{/*	anchorEl={anchorElUser}*/}
+						{/*	anchorOrigin={{*/}
+						{/*		vertical: 'top',*/}
+						{/*		horizontal: 'right',*/}
+						{/*	}}*/}
+						{/*	keepMounted*/}
+						{/*	transformOrigin={{*/}
+						{/*		vertical: 'top',*/}
+						{/*		horizontal: 'right',*/}
+						{/*	}}*/}
+						{/*	open={Boolean(anchorElUser)}*/}
+						{/*	onClose={handleCloseUserMenu}*/}
+						{/*>*/}
+						{/*	{settings.map(setting => (*/}
+						{/*		<MenuItem key={setting} onClick={handleCloseNavMenu}>*/}
+						{/*			<Typography textAlign='center'>{setting}</Typography>*/}
+						{/*		</MenuItem>*/}
+						{/*	))}*/}
+						{/*</Menu>*/}
 					</Box>
 				</Toolbar>
 			</Container>

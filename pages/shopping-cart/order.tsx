@@ -1,19 +1,27 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
-import {
-	Navbar,
-	Footer,
-	Paper,
-	InfoTitle,
-} from '../../components';
+import { Navbar, Footer, Paper, InfoTitle, Title, ActionButton } from '../../components';
 
 import sofaBg from '../../media/banner/sofa.jpeg';
-import OrderForm, { NovaPoschtaInfo } from '../../components/OrderForm';
+import OrderForm, { NovaPoschtaInfo, OrderFormValue } from '../../components/OrderForm';
 import { fetchNovaPoschtaApi } from '../../lib/api';
 
 const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
+	const [order, setOrder] = useState<OrderFormValue>({
+		name: null,
+		surname: null,
+		middleName:  null,
+		phoneNumber:  null,
+		payment: null,
+		area: null,
+		city: null,
+		warehouse: null,
+	});
+
 	return (
 		<>
 			<Head>
@@ -29,21 +37,33 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>
-						<OrderForm areas={areas} />
+						<Title text={'Order info'} />
+
+						<OrderForm areas={areas} order={order} setOrder={setOrder} />
+
+						<Box sx={{ mt: '4rem' }}>
+							<Grid container>
+								<Grid item xs={2}></Grid>
+								<Grid item xs={8}>
+									<ActionButton disabled={Object.values(order).some(value => !value)}>
+										замовити
+									</ActionButton>
+								</Grid>
+							</Grid>
+						</Box>
 					</Container>
 				</Box>
-
 			</main>
 			<Footer />
 		</>
 	);
 };
 
-OrderPage.getInitialProps = async() => {
+OrderPage.getInitialProps = async () => {
 	const response = await fetchNovaPoschtaApi({
-		modelName: "Address",
-		calledMethod: "getAreas",
-		methodProperties: {}
+		modelName: 'Address',
+		calledMethod: 'getAreas',
+		methodProperties: {},
 	});
 
 	return {
@@ -52,6 +72,6 @@ OrderPage.getInitialProps = async() => {
 			name: area.Description,
 		})),
 	};
-}
+};
 
 export default OrderPage;

@@ -1,5 +1,5 @@
 import { WButton } from './ActionButton.styles';
 
-export default function ({ children }: any) {
-	return <WButton>{children}</WButton>;
+export default function ({ children, ...rest }: any) {
+	return <WButton {...rest}>{children}</WButton>;
 }

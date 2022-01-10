@@ -11,6 +11,10 @@ export const WButton = styled(Button)`
 	font-size: 1.2rem;
 	color: #fff;
 	letter-spacing: 0.4rem;
+	
+	&:disabled {
+		background: #fff;
+	}
 
 	&:hover {
 		background: #fff;

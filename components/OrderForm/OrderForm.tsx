@@ -1,128 +1,218 @@
-import FormControl from '@mui/material/FormControl';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { useEffect, useMemo, useState } from 'react';
-import { NovaPoschtaInfo } from './index';
+import Grid from '@mui/material/Grid';
+import Radio from '@mui/material/Radio';
+import Typography from '@mui/material/Typography';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
+import { NovaPoschtaInfo, OrderFormValue } from './index';
 import { fetchNovaPoschtaApi } from '../../lib/api';
+import { WFormControl, WTextField, WRadioGroup } from './OrderForm.styles';
 
 interface OrderFormProps {
 	areas: Array<NovaPoschtaInfo>;
+	order: OrderFormValue;
+	setOrder: Dispatch<SetStateAction<OrderFormValue>>;
 }
 
-export default function({ areas }: OrderFormProps) {
-	const [cities, setCities] =  useState<Array<NovaPoschtaInfo>>([]);
-	const [warehouses, setWarehouses] =  useState<Array<NovaPoschtaInfo>>([]);
-	const [area, setArea] = useState<string | null>(null);
-	const [city, setCity] = useState<string | null>(null);
-	const [warehouse, setWarehouse] = useState<string | null>(null);
+interface FormSelectProps {
+	value: NovaPoschtaInfo | null;
+	onChange: (e: any) => any;
+	content: Array<NovaPoschtaInfo>;
+	id: string;
+	label: string;
+}
+
+export const FormSelect = (props: FormSelectProps) => {
+	return (
+		<WFormControl fullWidth>
+			<InputLabel id={props.id}>{props.label}</InputLabel>
+			<Select labelId={props.id} label={props.label} value={props.value?.ref || ''} onChange={props.onChange} disabled={!props.content.length}>
+				{props.content.map((area: NovaPoschtaInfo) => (
+					<MenuItem value={area.ref} key={area.ref}>
+						{area.name}
+					</MenuItem>
+				))}
+			</Select>
+		</WFormControl>
+	);
+};
+
+export default function ({ areas, order, setOrder }: OrderFormProps) {
+	const [cities, setCities] = useState<Array<NovaPoschtaInfo>>([]);
+	const [warehouses, setWarehouses] = useState<Array<NovaPoschtaInfo>>([]);
 
 	useEffect(() => {
-		if (area) {
+		if (order.area?.ref) {
 			fetchNovaPoschtaApi({
-				modelName: "Address",
-				calledMethod: "getCities",
+				modelName: 'Address',
+				calledMethod: 'getCities',
 				methodProperties: {
-					AreaRef: area
+					AreaRef: order.area.ref,
 				},
 			}).then((response: any) => {
-				setCities(response.data.map((area: any) => ({
-					name: area.Description,
-					ref: area.Ref,
-				})))
+				setCities(
+					response.data.map((area: any) => ({
+						name: area.Description,
+						ref: area.Ref,
+					})),
+				);
 			});
 		}
-	}, [area]);
+	}, [order.area]);
 
 	useEffect(() => {
-		if (city) {
+		if (order.city?.ref) {
 			fetchNovaPoschtaApi({
-				modelName: "Address",
-				calledMethod: "getWarehouses",
+				modelName: 'Address',
+				calledMethod: 'getWarehouses',
 				methodProperties: {
-					CityRef: city
+					CityRef: order.city.ref,
 				},
 			}).then((response: any) => {
-				setWarehouses(response.data.map((warehouse: any) => ({
-					name: warehouse.Description,
-					ref: warehouse.Ref,
-				})))
+				setWarehouses(
+					response.data.map((warehouse: any) => ({
+						name: warehouse.Description,
+						ref: warehouse.Ref,
+					})),
+				);
 			});
 		}
-	}, [city]);
+	}, [order.city]);
 
 	const onAreaChange = (e: any) => {
-		setArea(e.target.value);
+		const areaRef = e.target.value;
+		const area = areas.find(area => area.ref === areaRef) || null;
+		setOrder(order => ({
+			...order,
+			area: area,
+			city: null,
+			warehouse: null,
+		}));
 		setCities([]);
 		setWarehouses([]);
-		setCity(null);
-		setWarehouse(null);
-	}
+	};
 
 	const onCityChange = (e: any) => {
-		setCity(e.target.value);
+		const cityRef = e.target.value;
+		const city = cities.find(city => city.ref === cityRef) || null;
+		setOrder(order => ({
+			...order,
+			city: city,
+			warehouse: null,
+		}));
 		setWarehouses([]);
-		setWarehouse(null);
-	}
+	};
 
 	const onWarehouseChange = (e: any) => {
-		setWarehouse(e.target.value);
-	}
+		const warehouseRef = e.target.value;
+		const warehouse = warehouses.find(warehouse => warehouse.ref === warehouseRef) || null;
+		setOrder(order => ({
+			...order,
+			warehouse: warehouse,
+		}));
+	};
 
 	return (
 		<div>
-			<FormControl fullWidth>
-				<InputLabel id='area-select-label'>Area</InputLabel>
-				<Select
-					labelId='area-select-label'
-					id='area-select'
-					label='Area'
-					value={area}
-					onChange={onAreaChange}
-				>
-					{
-						areas.map((area: NovaPoschtaInfo) => (
-							<MenuItem value={area.ref} key={area.ref}>{area.name}</MenuItem>
-						))
-					}
-				</Select>
-			</FormControl>
+			<Grid container spacing={4}>
+				<Grid item xs={6}>
+					<WTextField
+						fullWidth
+						label="Name"
+						variant="outlined"
+						// value={order.name || ''}
+						onChange={(e: any) => {
+							setOrder((order: OrderFormValue) => ({
+								...order as OrderFormValue,
+								name: e.target.value,
+							}))
+						}}
+					/>
+					<WTextField
+						fullWidth
+						label="Surname"
+						variant="outlined"
+						onChange={(e: any) => {
+							setOrder((order: OrderFormValue) => ({
+								...order as OrderFormValue,
+								surname: e.target.value,
+							}))
+						}}
+					/>
+					<WTextField
+						fullWidth
+						label="Po bat'kovi"
+						variant="outlined"
+						// value={order.name || ''}
+						onChange={(e: any) => {
+							setOrder((order: OrderFormValue) => ({
+								...order as OrderFormValue,
+								middleName: e.target.value,
+							}))
+						}}
+					/>
+					<WTextField
+						fullWidth
+						label="Phone Number"
+						variant="outlined"
+						// value={order.name || ''}
+						onChange={(e: any) => {
+							setOrder((order: OrderFormValue) => ({
+								...order as OrderFormValue,
+								phoneNumber: e.target.value,
+							}))
+						}}
+					/>
+					<WRadioGroup
+						row
+						onChange={(e: any) => {
+							setOrder((order: OrderFormValue) => ({
+								...order as OrderFormValue,
+								payment: e.target.value,
+							}))
+						}}
+					>
+						<FormControlLabel
+							value={'cash'}
+							control={<Radio />}
+							label={<Typography>Cash</Typography>}
+						/>
+						<FormControlLabel
+							value={'card'}
+							control={<Radio />}
+							label={<Typography>Card</Typography>}
+						/>
+					</WRadioGroup>
+				</Grid>
+				<Grid item xs={6}>
+					<FormSelect
+						value={order.area}
+						onChange={onAreaChange}
+						content={areas}
+						id={'area-select-label'}
+						label={'Area'}
+					/>
 
-			<FormControl fullWidth sx={{ mt: '1.5rem' }}>
-				<InputLabel id='city-select-label'>City</InputLabel>
-				<Select
-					labelId='city-select-label'
-					id='city-select'
-					label='City'
-					value={city}
-					onChange={onCityChange}
-					disabled={!cities.length}
-				>
-					{
-						cities.map((city: NovaPoschtaInfo) => (
-							<MenuItem value={city.ref} key={city.ref}>{city.name}</MenuItem>
-						))
-					}
-				</Select>
-			</FormControl>
+					<FormSelect
+						value={order.city}
+						onChange={onCityChange}
+						content={cities}
+						id={'city-select-label'}
+						label={'City'}
+					/>
 
-			<FormControl fullWidth sx={{ mt: '1.5rem' }}>
-				<InputLabel id='warehouse-select-label'>Warehouse</InputLabel>
-				<Select
-					labelId='warehouse-select-label'
-					id='warehouse-select'
-					label='Warehouse'
-					value={warehouse}
-					onChange={onWarehouseChange}
-					disabled={!warehouses.length}
-				>
-					{
-						warehouses.map((warehouse: NovaPoschtaInfo) => (
-							<MenuItem value={warehouse.ref} key={warehouse.ref}>{warehouse.name}</MenuItem>
-						))
-					}
-				</Select>
-			</FormControl>
+					<FormSelect
+						value={order.warehouse}
+						onChange={onWarehouseChange}
+						content={warehouses}
+						id={'warehouse-select-label'}
+						label={'Warehouse'}
+					/>
+				</Grid>
+			</Grid>
 		</div>
 	);
 }

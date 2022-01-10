@@ -2,10 +2,13 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
 import uk from '../intl/uk.json';
 import { ShoppingCartProvider } from '../contexts/shoppingCart';
 import { ShoppingCartChecker } from '../components';
+import { themeOptions } from '../themes/theme';
 
 const IntlProviderComponent = ({ children }: any) => {
 	const router = useRouter();
@@ -23,13 +26,17 @@ const IntlProviderComponent = ({ children }: any) => {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
+	const theme = createTheme(themeOptions);
+
 	return (
 		<IntlProviderComponent>
-			<ShoppingCartProvider>
-				<ShoppingCartChecker>
-					<Component {...pageProps} />
-				</ShoppingCartChecker>
-			</ShoppingCartProvider>
+			<MuiThemeProvider theme={theme}>
+				<ShoppingCartProvider>
+					<ShoppingCartChecker>
+						<Component {...pageProps} />
+					</ShoppingCartChecker>
+				</ShoppingCartProvider>
+			</MuiThemeProvider>
 		</IntlProviderComponent>
 	);
 }

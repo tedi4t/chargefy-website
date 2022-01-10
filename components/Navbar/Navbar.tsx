@@ -133,15 +133,13 @@ export default function Navbar() {
 
 					<Box sx={{ flexGrow: 0 }}>
 						<Grid container alignItems={'center'}>
-							{
-								shoppingCart?.length && (
-									<Link href={'/shopping-cart'}>
-										<a>
-											<WShoppingCartIcon />
-										</a>
-									</Link>
-								)
-							}
+							{shoppingCart?.length && (
+								<Link href={'/shopping-cart'}>
+									<a>
+										<WShoppingCartIcon />
+									</a>
+								</Link>
+							)}
 							{/*<Tooltip title='Open settings'>*/}
 							{/*	<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>*/}
 							{/*		<WAvatar sx={{ background: '#efefef', color: '#000' }}>D</WAvatar>*/}

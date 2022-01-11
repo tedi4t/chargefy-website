@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -8,9 +9,12 @@ import { Navbar, Footer, Paper, InfoTitle, Title, ActionButton } from '../../com
 
 import sofaBg from '../../media/banner/sofa.jpeg';
 import OrderForm, { NovaPoschtaInfo, OrderFormValue } from '../../components/OrderForm';
-import { fetchNovaPoschtaApi } from '../../lib/api';
+import { fetchAPI, fetchNovaPoschtaApi } from '../../lib/api';
+import { shoppingCartContext } from '../../contexts/shoppingCart';
 
 const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
+	const router = useRouter();
+	const [shoppingCart, dispatch] = useContext(shoppingCartContext);
 	const [order, setOrder] = useState<OrderFormValue>({
 		name: null,
 		surname: null,
@@ -21,6 +25,53 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 		city: null,
 		warehouse: null,
 	});
+
+	const handleOrder = async () => {
+		const orderResponse = await fetchAPI(
+			'/orders', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					data: {
+						name: order.name,
+						surname: order.surname,
+						middlename: order.middleName,
+						phoneNumber: order.phoneNumber,
+						payment: order.payment,
+						area: order.area?.name,
+						city: order.city?.name,
+						warehouse: order.warehouse?.name,
+					}
+				})
+			}
+		);
+		const orderId = orderResponse.data.id;
+
+		const promises = shoppingCart?.map(async item => {
+			await fetchAPI('/order-items', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					data: {
+						order: orderId,
+						product: item.product.id,
+						quantity: item.quantity,
+					}
+				})
+			})
+		}) || [];
+
+		Promise.all(promises).then(() => {
+			if (dispatch) {
+				dispatch({ type: 'clearState' });
+			}
+			router.push('/');
+		})
+	}
 
 	return (
 		<>
@@ -45,7 +96,10 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 							<Grid container>
 								<Grid item xs={2}></Grid>
 								<Grid item xs={8}>
-									<ActionButton disabled={Object.values(order).some(value => !value)}>
+									<ActionButton
+										disabled={Object.values(order).some(value => !value)}
+										onClick={handleOrder}
+									>
 										замовити
 									</ActionButton>
 								</Grid>

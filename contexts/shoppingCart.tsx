@@ -10,7 +10,7 @@ type ActionType = 'addGood' | 'updateQuantity' | 'removeGood' | 'clearState';
 
 export interface Action {
 	type: ActionType;
-	payload: ShoppingCartItem;
+	payload?: ShoppingCartItem;
 }
 
 type ShoppingCart = Array<ShoppingCartItem>;
@@ -19,13 +19,13 @@ const reducer = (state: ShoppingCart, action: Action): ShoppingCart => {
 	const actions: Record<string, () => ShoppingCart> = {
 		addGood: () => {
 			const existingIds = state.map(item => item.product.id);
-			return !existingIds.includes(action.payload.product.id) ? [...state, action.payload] : state;
+			return !existingIds.includes(action.payload!.product.id) ? [...state, action.payload!] : state;
 		},
 		updateQuantity: () => {
 			const {
 				product: { id },
 				quantity,
-			} = action.payload;
+			} = action.payload!;
 			const newState = [];
 			for (const element of state) {
 				if (element.product.id === id) {
@@ -40,7 +40,7 @@ const reducer = (state: ShoppingCart, action: Action): ShoppingCart => {
 			const newState: ShoppingCart = [];
 			const {
 				product: { id },
-			} = action.payload;
+			} = action.payload!;
 			for (const element of state) {
 				if (element.product.id !== id) {
 					newState.push(element);

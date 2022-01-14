@@ -1,4 +1,4 @@
-import { ProductResponse, ProductsListResponse } from './apiResponse';
+import { CategoriesResponse, ColorsResponse, ProductResponse, ProductsListResponse } from './apiResponse';
 import { getStrapiMedia } from './api';
 
 export const toProductsListResponse = (response: any): ProductsListResponse => {
@@ -45,4 +45,22 @@ export const toProductResponse = (response: any): ProductResponse => {
 			}),
 		},
 	} as ProductResponse;
+}
+
+export const toColorsResponse = (response: any): ColorsResponse => {
+	return {
+		colors: response.data.map((color: any) => ({
+			id: color.id,
+			name: color.attributes.name,
+		}))
+	}
+}
+
+export const toCategoriesResponse = (response: any): CategoriesResponse => {
+	return {
+		categories: response.data.map((category: any) => ({
+			id: category.id,
+			name: category.attributes.name,
+		}))
+	}
 }

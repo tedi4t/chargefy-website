@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
@@ -14,21 +14,73 @@ import {
 	WAccordionDetails,
 	Text,
 } from './Sidebar.styles';
+import { CategoryResponse, ColorResponse } from '../../lib/apiResponse';
+import { FiltersProps } from './index';
 
-export default function Sidebar () {
-	const [value, setValue] = useState([30, 40]);
-	const categories = ['charger', 'holder', 'cable', 'other'];
-	const colors = ['red', 'blue', 'green', 'yellow'];
+export interface SidebarProps {
+	colors: Array<ColorResponse>;
+	categories: Array<CategoryResponse>;
+	minPrice: number;
+	maxPrice: number;
+	filters: FiltersProps;
+	setFilters: Dispatch<SetStateAction<FiltersProps>>;
+}
+
+export default function Sidebar ({ colors, categories, minPrice, maxPrice, filters, setFilters }: SidebarProps) {
+	const offset = 50;
+	const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]);
+
+	const minPriceW = Math.max(minPrice - offset, 0);
+	const maxPriceW = maxPrice + offset;
 	const priceMarks = [
 		{
 			value: 0,
-			label: '₴130',
+			label: `₴${minPriceW}`,
 		},
 		{
 			value: 100,
-			label: '₴980',
+			label: `₴${maxPriceW}`,
 		},
 	];
+
+	const getValueLabelFormat = (a: number): string => {
+		const range = maxPriceW - minPriceW;
+		const price = (a / 100) * range + minPriceW;
+		return `${price.toFixed(0)}`;
+	}
+
+	const onPriceChange = (e: any): void => {
+		const prices = e.target.value;
+		setPriceRange(prices);
+	}
+
+	useEffect(() => {
+		const range = maxPriceW - minPriceW;
+		setFilters((filters: FiltersProps) => ({
+			...filters,
+			minPrice: (priceRange[0] / 100) * range + minPriceW,
+			maxPrice: (priceRange[1] / 100) * range + minPriceW,
+		}))
+	}, [priceRange]);
+
+	const onCategoryChange = (e: any): void => {
+		const category = e.target.value
+		setFilters((filters: FiltersProps) => ({
+			...filters,
+			categories: [category],
+		}));
+	}
+
+	const onColorChange = (e: any): void => {
+		const color = e.target.value
+		setFilters((filters: FiltersProps) => {
+			const colors = filters.colors || [];
+			return {
+				...filters,
+				colors: colors.includes(color) ? colors.filter(selectedColor => selectedColor !== color) : [...colors, color],
+			}
+		});
+	}
 
 	return (
 		<Wrapper>
@@ -37,13 +89,13 @@ export default function Sidebar () {
 					<Title>Categories</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
-					<RadioGroup>
+					<RadioGroup onChange={onCategoryChange}>
 						{categories.map(category => (
 							<FormControlLabel
-								key={category}
-								value={category}
+								key={category.id}
+								value={category.id}
 								control={<RadioCategory />}
-								label={<Text>{category}</Text>}
+								label={<Text>{category.name}</Text>}
 							/>
 						))}
 					</RadioGroup>
@@ -57,9 +109,10 @@ export default function Sidebar () {
 				<WAccordionDetails>
 					<PriceSlider
 						valueLabelDisplay='auto'
-						value={value}
+						value={priceRange}
 						marks={priceMarks}
-						valueLabelFormat={a => `950`}
+						valueLabelFormat={getValueLabelFormat}
+						onChange={onPriceChange}
 					/>
 				</WAccordionDetails>
 			</WAccordion>
@@ -69,13 +122,13 @@ export default function Sidebar () {
 					<Title>Color</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
-					<FormGroup>
+					<FormGroup onChange={onColorChange}>
 						{colors.map(color => (
 							<FormControlLabel
-								key={color}
+								key={color.id}
 								control={<ColorCheckbox />}
-								label={<Text>{color}</Text>}
-								value={color}
+								label={<Text>{color.name}</Text>}
+								value={color.id}
 							/>
 						))}
 					</FormGroup>

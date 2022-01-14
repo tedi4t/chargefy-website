@@ -5,14 +5,76 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 import { Carousel, Navbar, Products, Title, Footer, Sidebar, MainSlide } from '../../components';
-import { fetchAPI, getStrapiMedia } from '../../lib/api';
+import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
 import img1 from '../../media/carousel/1.png';
 import img2 from '../../media/carousel/2.png';
 import img3 from '../../media/carousel/3.png';
-import { ProductsListResponse } from '../../lib/apiResponse';
+import { CategoryResponse, ColorResponse, ProductsListResponse } from '../../lib/apiResponse';
+import { toCategoriesResponse, toColorsResponse, toProductsListResponse } from '../../lib/formatter';
+import { useEffect, useState } from 'react';
+import { FiltersProps } from '../../components/Sidebar';
 
-const ProductsPage = ({ products }: ProductsListResponse) => {
+export interface ProductsPageProps {
+	colors: Array<ColorResponse>,
+	categories: Array<CategoryResponse>,
+	minPrice: number;
+	maxPrice: number;
+}
+
+const ProductsPage = (props: ProductsPageProps) => {
+	const [productsList, setProductsList] = useState<ProductsListResponse | null>(null);
+	const [filters, setFilters] = useState<FiltersProps>({
+		categories: null,
+		colors: null,
+		minPrice: null,
+		maxPrice: null,
+	});
+
+	useEffect(() => {
+		const queryFilters: any = {};
+
+		if (filters.colors?.length) {
+			queryFilters.color = {
+				id: {
+					$in: filters.colors
+				}
+			}
+		}
+
+		if (filters.categories?.length) {
+			queryFilters.category = {
+				id: {
+					$in: filters.categories
+				}
+			}
+		}
+
+		if (filters.minPrice !== null && filters.maxPrice !== null) {
+			queryFilters.$or = [
+				{
+					price: {
+						$between: [filters.minPrice, filters.maxPrice],
+					},
+				},
+				{
+					sale: {
+						$between: [filters.minPrice, filters.maxPrice],
+					},
+				},
+			]
+		}
+
+		const query = qs.stringify({
+			filters: queryFilters,
+			populate: '*'
+		})
+		const url = `/products?${query}`;
+		fetchAPI(url).then((response: any) => {
+			setProductsList(toProductsListResponse(response));
+		});
+	}, [filters]);
+
 	return (
 		<div>
 			<Head>
@@ -53,10 +115,14 @@ const ProductsPage = ({ products }: ProductsListResponse) => {
 						<Title text={'Libero justo laoreet sit amet cursus'} />
 						<Grid container spacing={2}>
 							<Grid item xs={4}>
-								<Sidebar />
+								<Sidebar {...props} filters={filters} setFilters={setFilters} />
 							</Grid>
 							<Grid item xs={8}>
-								<Products products={products.data} />
+								{
+									productsList && (
+										<Products products={productsList?.products.data} />
+									)
+								}
 							</Grid>
 						</Grid>
 					</Container>
@@ -67,41 +133,27 @@ const ProductsPage = ({ products }: ProductsListResponse) => {
 	);
 };
 
-ProductsPage.getInitialProps = async () => {
-	// const query = qs.stringify({
-	// 	filters: {
-	// 		color: {
-	// 			id: {
-	// 				$in: [1, 2],
-	// 			}
-	// 		}
-	// 	},
-	// 	populate: '*'
-	// })
-	const url = `/products?populate=*`;
-	const response = await fetchAPI(url);
+ProductsPage.getInitialProps = async (): Promise<ProductsPageProps> => {
+	const colorsUrl = `/colors`;
+	const colorsResponse = await fetchAPI(colorsUrl);
+	const colors = toColorsResponse(colorsResponse);
 
-	// console.log(response);
+	const categoriesUrl = `/categories`;
+	const categoriesResponse = await fetchAPI(categoriesUrl);
+	const categories = toCategoriesResponse(categoriesResponse);
+
+	const minSale = await getFirstListItemPrice('sale:asc');
+	const minPrice = await getFirstListItemPrice('price:asc') as number;
+
+	const maxSale = await getFirstListItemPrice('sale:desc');
+	const maxPrice = await getFirstListItemPrice('price:desc') as number;
 
 	return {
-		products: {
-			data: response.data.map((product: any) => {
-				const img = product.attributes.images.data[0].attributes.formats.medium;
-				return {
-					id: product.id,
-					title: product.attributes.title,
-					price: product.attributes.price,
-					sale: product.attributes.sale,
-					img: {
-						url: getStrapiMedia(img.url),
-						width: img.width,
-						height: img.height,
-					},
-				};
-			}),
-			meta: response.meta,
-		},
-	} as ProductsListResponse;
-};
+		colors: colors.colors,
+		categories: categories.categories,
+		minPrice: Math.min(minPrice, minSale || minPrice),
+		maxPrice: Math.min(maxPrice, maxSale || maxPrice),
+	};
+}
 
 export default ProductsPage;

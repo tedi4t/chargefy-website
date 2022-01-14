@@ -1,3 +1,6 @@
+import qs from 'qs';
+import { toProductsListResponse } from './formatter';
+
 export function getStrapiURL(path = "", isApi: boolean = false) {
   return `${ process.env.NEXT_PUBLIC_STRAPI_API_URL }${isApi ? '/api' : ''}${path}`;
 }
@@ -28,4 +31,27 @@ export async function fetchNovaPoschtaApi(body: any): Promise<any> {
   const responseData = await response.json();
 
   return responseData;
+}
+
+export async function getFirstListItemPrice(...sorting: Array<string>): Promise<number | undefined> {
+  const priceQueryObj = {
+    pagination: {
+      page: 1,
+      pageSize: 1,
+    },
+    populate: '*',
+  };
+
+  const priceQuery = qs.stringify({
+    ...priceQueryObj,
+    sort: [sorting],
+  });
+
+  const priceUrl = `/products?${priceQuery}`;
+  const priceResponse = await fetchAPI(priceUrl);
+  const priceProducts = toProductsListResponse(priceResponse);
+  const priceProduct = priceProducts.products.data[0];
+  const price = Math.min(priceProduct.price, priceProduct.sale || priceProduct.price);
+
+  return price;
 }

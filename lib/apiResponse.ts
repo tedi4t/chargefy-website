@@ -39,3 +39,21 @@ export interface ProductsListResponse {
 export interface ProductResponse {
 	product: Product;
 }
+
+export interface ColorResponse {
+	id: number;
+	name: string;
+}
+
+export interface ColorsResponse {
+	colors: Array<ColorResponse>
+}
+
+export interface CategoryResponse {
+	id: number;
+	name: string;
+}
+
+export interface CategoriesResponse {
+	categories: Array<CategoryResponse>
+}

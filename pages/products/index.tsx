@@ -1,3 +1,4 @@
+import qs from 'qs';
 import Head from 'next/head';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -67,8 +68,21 @@ const ProductsPage = ({ products }: ProductsListResponse) => {
 };
 
 ProductsPage.getInitialProps = async () => {
-	const url = '/products?populate=*';
+	// const query = qs.stringify({
+	// 	filters: {
+	// 		color: {
+	// 			id: {
+	// 				$in: [1, 2],
+	// 			}
+	// 		}
+	// 	},
+	// 	populate: '*'
+	// })
+	const url = `/products?populate=*`;
 	const response = await fetchAPI(url);
+
+	// console.log(response);
+
 	return {
 		products: {
 			data: response.data.map((product: any) => {

@@ -100,7 +100,9 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 										disabled={Object.values(order).some(value => !value)}
 										onClick={handleOrder}
 									>
-										замовити
+										<div>
+											замовити
+										</div>
 									</ActionButton>
 								</Grid>
 							</Grid>

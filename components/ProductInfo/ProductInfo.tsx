@@ -9,7 +9,7 @@ import {
 } from './ProductInfo.styles';
 import { ProductInfoProps } from './index';
 
-export default function (props: ProductInfoProps) {
+export default function ProductInfo(props: ProductInfoProps) {
 	return (
 		<div>
 			<Title>{props.title}</Title>

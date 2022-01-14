@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import { SlideContent, Title, Text } from './MainStyle.styles';
 import { SlideProps } from '.';
 
-export default function (slide: SlideProps) {
+export default function MainStyle (slide: SlideProps) {
 	return (
 		<SlideContent>
 			<Grid container spacing={2}>

@@ -40,7 +40,7 @@ export const FormSelect = (props: FormSelectProps) => {
 	);
 };
 
-export default function ({ areas, order, setOrder }: OrderFormProps) {
+export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 	const [cities, setCities] = useState<Array<NovaPoschtaInfo>>([]);
 	const [warehouses, setWarehouses] = useState<Array<NovaPoschtaInfo>>([]);
 

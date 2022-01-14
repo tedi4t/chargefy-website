@@ -73,7 +73,11 @@ const ShoppingCartPage = () => {
 								<Grid item xs={8}>
 									<Link href={'/shopping-cart/order'}>
 										<a>
-											<ActionButton>Оформити замовлення</ActionButton>
+											<ActionButton>
+												<div>
+													Оформити замовлення
+												</div>
+											</ActionButton>
 										</a>
 									</Link>
 								</Grid>

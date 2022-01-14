@@ -15,7 +15,7 @@ export interface ProductProps {
 	sale?: number;
 }
 
-export default function (props: ProductProps) {
+export default function Product(props: ProductProps) {
 	return (
 		<>
 			<Link

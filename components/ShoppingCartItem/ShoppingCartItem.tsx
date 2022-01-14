@@ -8,7 +8,7 @@ import { shoppingCartContext, ShoppingCartItem } from '../../contexts/shoppingCa
 import { Title, Price, Line } from './ShoppingCartItem.styles';
 import { BuyButton } from '../index';
 
-export default function ({ product, quantity }: ShoppingCartItem) {
+export default function ShoppingCartItemComponent({ product, quantity }: ShoppingCartItem) {
 	const titleImage = product.images[0];
 	const [, dispatch] = useContext(shoppingCartContext);
 

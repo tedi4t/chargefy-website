@@ -15,7 +15,7 @@ import {
 	Text,
 } from './Sidebar.styles';
 
-export default function () {
+export default function Sidebar () {
 	const [value, setValue] = useState([30, 40]);
 	const categories = ['charger', 'holder', 'cable', 'other'];
 	const colors = ['red', 'blue', 'green', 'yellow'];

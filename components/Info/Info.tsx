@@ -10,7 +10,7 @@ interface InfoProps {
 	link: string;
 }
 
-export default function (props: InfoProps) {
+export default function Info (props: InfoProps) {
 	return (
 		<Grid container spacing={2} position={'relative'}>
 			<Grid item container xs={6}>

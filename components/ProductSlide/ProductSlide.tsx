@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 import { ProductSlideProps } from '.';
 
-export default function (props: ProductSlideProps) {
+export default function ProductSlide(props: ProductSlideProps) {
 	return (
 		<Box height={'100%'} display={'flex'} alignItems={'center'}>
 			<Box sx={{ mx: '5rem', my: '4rem' }}>

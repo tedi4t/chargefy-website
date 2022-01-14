@@ -6,7 +6,7 @@ export interface ProductsProps {
 	products: Array<ProductProps>;
 }
 
-export default function (props: ProductsProps) {
+export default function Products (props: ProductsProps) {
 	return (
 		<Grid container spacing={2} justifyContent={'center'}>
 			{props.products.map((product: ProductProps) => (

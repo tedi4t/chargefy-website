@@ -9,14 +9,18 @@ export const Wrapper = styled.div`
 
 export const InsideWrapper = styled.div`
 	padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    padding-bottom: 1rem;
+  }
+
 `;
 
 export const Title = styled.div`
-	padding: 0 2rem;
+	padding: 0 2rem 0.5rem 2rem;
 	margin-bottom: 1rem;
 	position: relative;
 	text-transform: uppercase;
-	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -60,6 +64,11 @@ export const FooterText = styled(Typography)`
 	font-size: 0.9rem;
 	opacity: 0.5;
 	padding: 1.5rem;
+
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
+
 `;
 
 export const HighlightGrid = styled(Grid)`

@@ -56,7 +56,7 @@ const Home = ({
 					]}
 				/>
 
-				<Box sx={{ mb: '4rem' }}>
+				<Box sx={{ mb: { xs: '2rem', md: '4rem' }}}>
 					<Container>
 						<Title text={'Popular'} />
 						<Products products={popular.products.data} />
@@ -77,7 +77,7 @@ const Home = ({
 					}
 				/>
 
-				<Box sx={{ mb: '4rem' }}>
+				<Box sx={{ mb: { xs: '2rem', md: '4rem' }}}>
 					<Container>
 						<Title text={'Recommend'} />
 						<Products products={recommend.products.data} />

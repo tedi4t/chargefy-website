@@ -5,6 +5,10 @@ import Button from '@mui/material/Button';
 export const Wrapper = styled.div`
 	color: #fff;
 	padding: 3rem 0;
+
+  @media (max-width: 768px) {
+    padding: 0rem 0 1.5rem 0;
+  }
 `;
 
 export const Title = styled.h1`

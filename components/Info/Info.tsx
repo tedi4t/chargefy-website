@@ -13,7 +13,7 @@ interface InfoProps {
 export default function Info(props: InfoProps) {
 	return (
 		<Grid container spacing={2} position={'relative'}>
-			<Grid item container xs={6}>
+			<Grid item container xs={12} md={6}>
 				<Wrapper>
 					<Title>{props.title}</Title>
 					<Description>{props.description}</Description>

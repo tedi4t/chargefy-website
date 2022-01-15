@@ -87,67 +87,114 @@ export default function Footer() {
 				<Container>
 					<InsideWrapper>
 						<Grid container>
-							<Grid item xs={4}>
+							<Grid item xs={12} md={4}>
 								<Title>
 									<LogoWrapper>
 										<Image src={Logo} />
 									</LogoWrapper>
 								</Title>
+								<Box sx={{ display: { sm: 'block', md: 'none' }}}>
+									<Column>
+										{socials.map((social: Social) => (
+											<HighlightGrid
+												container
+												alignItems={'center'}
+												sx={{ my: '1rem' }}
+												key={social.text}
+											>
+												{social.icon}
+												<Box sx={{ ml: '1rem' }}>
+													<Link href={social.href}>
+														<a>{social.text}</a>
+													</Link>
+												</Box>
+											</HighlightGrid>
+										))}
+									</Column>
+								</Box>
 							</Grid>
-							<Grid item xs={4}>
+							<Grid item xs={12} md={4}>
 								<Title>links</Title>
+								<Box sx={{ display: { sm: 'block', md: 'none' }}}>
+									<Column>
+										{pages.map(page => (
+											<LinkWrapper key={page.name}>
+												<Highlight>
+													<Link href={page.href}>
+														<a>{page.name}</a>
+													</Link>
+												</Highlight>
+											</LinkWrapper>
+										))}
+									</Column>
+								</Box>
 							</Grid>
-							<Grid item xs={4}>
+							<Grid item xs={12} md={4}>
 								<Title>help</Title>
+								<Box sx={{ display: { sm: 'block', md: 'none' }}}>
+									<Column>
+										{helpPages.map(page => (
+											<LinkWrapper key={page.name}>
+												<Highlight>
+													<Link href={page.href}>
+														<a>{page.name}</a>
+													</Link>
+												</Highlight>
+											</LinkWrapper>
+										))}
+									</Column>
+								</Box>
 							</Grid>
 						</Grid>
-						<Grid container>
-							<Grid item xs={4}>
-								<Column>
-									{socials.map((social: Social) => (
-										<HighlightGrid
-											container
-											alignItems={'center'}
-											sx={{ my: '1rem' }}
-											key={social.text}
-										>
-											{social.icon}
-											<Box sx={{ ml: '1rem' }}>
-												<Link href={social.href}>
-													<a>{social.text}</a>
-												</Link>
-											</Box>
-										</HighlightGrid>
-									))}
-								</Column>
+						<Box sx={{ display: { xs: 'none', md: 'block' }}}>
+							<Grid container>
+								<Grid item xs={12} md={4}>
+									<Column>
+										{socials.map((social: Social) => (
+											<HighlightGrid
+												container
+												alignItems={'center'}
+												sx={{ my: '1rem' }}
+												key={social.text}
+											>
+												{social.icon}
+												<Box sx={{ ml: '1rem' }}>
+													<Link href={social.href}>
+														<a>{social.text}</a>
+													</Link>
+												</Box>
+											</HighlightGrid>
+										))}
+									</Column>
+								</Grid>
+								<Grid item xs={12} md={4}>
+									<Column>
+										{pages.map(page => (
+											<LinkWrapper key={page.name}>
+												<Highlight>
+													<Link href={page.href}>
+														<a>{page.name}</a>
+													</Link>
+												</Highlight>
+											</LinkWrapper>
+										))}
+									</Column>
+								</Grid>
+								<Grid item xs={12} md={4}>
+									<Column>
+										{helpPages.map(page => (
+											<LinkWrapper key={page.name}>
+												<Highlight>
+													<Link href={page.href}>
+														<a>{page.name}</a>
+													</Link>
+												</Highlight>
+											</LinkWrapper>
+										))}
+									</Column>
+								</Grid>
 							</Grid>
-							<Grid item xs={4}>
-								<Column>
-									{pages.map(page => (
-										<LinkWrapper key={page.name}>
-											<Highlight>
-												<Link href={page.href}>
-													<a>{page.name}</a>
-												</Link>
-											</Highlight>
-										</LinkWrapper>
-									))}
-								</Column>
-							</Grid>
-							<Grid item xs={4}>
-								<Column>
-									{helpPages.map(page => (
-										<LinkWrapper key={page.name}>
-											<Highlight>
-												<Link href={page.href}>
-													<a>{page.name}</a>
-												</Link>
-											</Highlight>
-										</LinkWrapper>
-									))}
-								</Column>
-							</Grid>
-						</Grid>
+						</Box>
 					</InsideWrapper>
 					<FooterText>©Copyright. Designed And Developed By Chargefy</FooterText>
 				</Container>

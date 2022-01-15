@@ -3,9 +3,10 @@ import Pagination from '@mui/material/Pagination';
 
 export interface PaginationProps {
 	page: number;
+	pageCount: number;
 }
 
-export default function PaginationComponent({ page }: PaginationProps) {
+export default function PaginationComponent({ page, pageCount }: PaginationProps) {
 	const router = useRouter();
 
 	const onChange = (e: any, value: any) => {
@@ -14,7 +15,7 @@ export default function PaginationComponent({ page }: PaginationProps) {
 
 	return (
 		<Pagination
-			count={10}
+			count={pageCount}
 			color="primary"
 			size="large"
 			page={page}

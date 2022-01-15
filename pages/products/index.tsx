@@ -26,6 +26,7 @@ export interface ProductsPageProps {
 const ProductsPage = (props: ProductsPageProps) => {
 	const router = useRouter();
 	const [page, setPage] = useState<number>(1);
+	const [pageCount, setPageCount] = useState<number>(10);
 	const [productsList, setProductsList] = useState<ProductsListResponse | null>(null);
 	const [filters, setFilters] = useState<FiltersProps>({
 		categories: null,
@@ -42,6 +43,12 @@ const ProductsPage = (props: ProductsPageProps) => {
 			setPage(parseInt(pageStr))
 		}
 	}, [router.query.page]);
+
+	useEffect(() => {
+		if (productsList?.products.meta.pagination.pageCount) {
+			setPageCount(productsList?.products.meta.pagination.pageCount);
+		}
+	}, [productsList?.products.meta.pagination.pageCount]);
 
 	useEffect(() => {
 		const queryFilters: any = {};
@@ -79,13 +86,17 @@ const ProductsPage = (props: ProductsPageProps) => {
 
 		const query = qs.stringify({
 			filters: queryFilters,
+			pagination: {
+				page: page,
+				rowsPerPage: 20,
+			},
 			populate: '*'
 		})
 		const url = `/products?${query}`;
 		fetchAPI(url).then((response: any) => {
 			setProductsList(toProductsListResponse(response));
 		});
-	}, [filters]);
+	}, [filters, page]);
 
 	return (
 		<div>
@@ -138,7 +149,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 							</Grid>
 						</Grid>
 						<Box sx={{ mt: '4rem', display: 'flex', justifyContent: 'center' }}>
-							<Pagination page={page} />
+							<Pagination page={page} pageCount={pageCount} />
 						</Box>
 					</Container>
 				</Box>

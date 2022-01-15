@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import { Carousel, Navbar, Products, Title, Footer, Sidebar, MainSlide } from '../../components';
+import { Carousel, Navbar, Products, Title, Footer, Sidebar, MainSlide, Pagination } from '../../components';
 import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
 import img1 from '../../media/carousel/1.png';
@@ -14,6 +14,7 @@ import { CategoryResponse, ColorResponse, ProductsListResponse } from '../../lib
 import { toCategoriesResponse, toColorsResponse, toProductsListResponse } from '../../lib/formatter';
 import { useEffect, useState } from 'react';
 import { FiltersProps } from '../../components/Sidebar';
+import { useRouter } from 'next/router';
 
 export interface ProductsPageProps {
 	colors: Array<ColorResponse>,
@@ -23,6 +24,8 @@ export interface ProductsPageProps {
 }
 
 const ProductsPage = (props: ProductsPageProps) => {
+	const router = useRouter();
+	const [page, setPage] = useState<number>(1);
 	const [productsList, setProductsList] = useState<ProductsListResponse | null>(null);
 	const [filters, setFilters] = useState<FiltersProps>({
 		categories: null,
@@ -30,6 +33,15 @@ const ProductsPage = (props: ProductsPageProps) => {
 		minPrice: null,
 		maxPrice: null,
 	});
+
+	useEffect(() => {
+		const queryPage = router.query.page;
+		const pageStr: string | undefined = Array.isArray(queryPage) ? queryPage[0] : queryPage;
+
+		if (pageStr) {
+			setPage(parseInt(pageStr))
+		}
+	}, [router.query.page]);
 
 	useEffect(() => {
 		const queryFilters: any = {};
@@ -125,6 +137,9 @@ const ProductsPage = (props: ProductsPageProps) => {
 								}
 							</Grid>
 						</Grid>
+						<Box sx={{ mt: '4rem', display: 'flex', justifyContent: 'center' }}>
+							<Pagination page={page} />
+						</Box>
 					</Container>
 				</Box>
 			</main>

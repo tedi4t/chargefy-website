@@ -14,6 +14,7 @@ import BuyButton from './BuyButton';
 import ShoppingCartItem from './ShoppingCartItem';
 import ShoppingCartChecker from './ShoppingCartChecker';
 import ActionButton from './ActionButton';
+import Pagination from './Pagination';
 
 export {
 	Carousel,
@@ -32,4 +33,5 @@ export {
 	ShoppingCartItem,
 	ShoppingCartChecker,
 	ActionButton,
+	Pagination,
 };

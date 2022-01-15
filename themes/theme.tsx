@@ -1,9 +1,13 @@
-import { ThemeOptions } from '@mui/material/styles';
+import { Theme, ThemeOptions } from '@mui/material/styles';
+
+export interface ThemeProps {
+	theme: Theme;
+}
 
 export const themeOptions: ThemeOptions = {
 	palette: {
 		primary: { contrastText: '#ffffff', main: '#e99c2e', light: '#F2F3FC' },
-		secondary: { contrastText: '#ffffff', main: '#E91E63' },
+		secondary: { contrastText: '#ffffff', main: '#efefef' },
 		background: { default: '#f4f5f7', paper: '#ffffff' },
 		text: { primary: '#253858', secondary: '#68758B' },
 		action: { active: '#6b778c' },

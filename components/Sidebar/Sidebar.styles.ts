@@ -9,15 +9,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 
 export const Wrapper = styled.div`
 	position: relative;
-	background: #efefef;
 	padding: 2.5rem;
 	height: 100%;
-`;
-
-export const Line = styled.div`
-	width: 100%;
-	height: 1px;
-	background: rgba(0, 0, 0, 0.5);
 `;
 
 export const Title = styled(Typography)`

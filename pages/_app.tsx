@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
+import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
 import uk from '../intl/uk.json';
 import { ShoppingCartProvider } from '../contexts/shoppingCart';
@@ -30,13 +31,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 	return (
 		<IntlProviderComponent>
-			<MuiThemeProvider theme={theme}>
-				<ShoppingCartProvider>
-					<ShoppingCartChecker>
-						<Component {...pageProps} />
-					</ShoppingCartChecker>
-				</ShoppingCartProvider>
-			</MuiThemeProvider>
+			<EmotionThemeProvider theme={theme}>
+				<MuiThemeProvider theme={theme}>
+					<ShoppingCartProvider>
+						<ShoppingCartChecker>
+							<Component {...pageProps} />
+						</ShoppingCartChecker>
+					</ShoppingCartProvider>
+				</MuiThemeProvider>
+			</EmotionThemeProvider>
 		</IntlProviderComponent>
 	);
 }

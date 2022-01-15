@@ -29,6 +29,7 @@ import {
 import { useEffect, useState } from 'react';
 import { FiltersProps } from '../../components/Sidebar';
 import { useRouter } from 'next/router';
+import { SidebarWrapper } from './index.styles';
 
 export interface ProductsPageProps {
 	colors: Array<ColorResponse>;
@@ -42,6 +43,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 	const [page, setPage] = useState<number>(1);
 	const [pageCount, setPageCount] = useState<number>(10);
 	const [productsList, setProductsList] = useState<ProductsListResponse | null>(null);
+	const [sorting, setSorting] = useState<string | undefined>();
 	const [filters, setFilters] = useState<FiltersProps>({
 		categories: null,
 		colors: null,
@@ -104,13 +106,14 @@ const ProductsPage = (props: ProductsPageProps) => {
 				page: page,
 				rowsPerPage: 20,
 			},
+			sort: sorting ? [sorting] : [],
 			populate: '*',
 		});
 		const url = `/products?${query}`;
 		fetchAPI(url).then((response: any) => {
 			setProductsList(toProductsListResponse(response));
 		});
-	}, [filters, page]);
+	}, [filters, page, sorting]);
 
 	return (
 		<div>
@@ -148,7 +151,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 				/>
 
 				<Box sx={{ display: { xs: 'block', md: 'none' }}}>
-					<FilterBar />
+					<FilterBar {...props} setFilters={setFilters} sorting={sorting} setSorting={setSorting} />
 				</Box>
 
 				<Box sx={{ mt: { xs: '0', md: '5rem' }, mb: { xs: '2rem', md: '5rem' }}}>
@@ -157,10 +160,12 @@ const ProductsPage = (props: ProductsPageProps) => {
 							<Title text={'Libero justo laoreet sit amet cursus'} />
 						</Box>
 						<Grid container spacing={2}>
-							<Grid item xs={4}>
-								<Sidebar {...props} setFilters={setFilters} />
+							<Grid item xs={0}>
+								<SidebarWrapper sx={{ display: { xs: 'none', md: 'block' }}}>
+									<Sidebar {...props} setFilters={setFilters} />
+								</SidebarWrapper>
 							</Grid>
-							<Grid item xs={8}>
+							<Grid item xs={12} md={8}>
 								{productsList && <Products products={productsList?.products.data} />}
 							</Grid>
 						</Grid>

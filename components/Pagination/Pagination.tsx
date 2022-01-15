@@ -10,16 +10,10 @@ export default function PaginationComponent({ page, pageCount }: PaginationProps
 	const router = useRouter();
 
 	const onChange = (e: any, value: any) => {
-		router.push({ query: { page: value }})
-	}
+		router.push({ query: { page: value } });
+	};
 
 	return (
-		<Pagination
-			count={pageCount}
-			color="primary"
-			size="large"
-			page={page}
-			onChange={onChange}
-		/>
+		<Pagination count={pageCount} color='primary' size='large' page={page} onChange={onChange} />
 	);
 }

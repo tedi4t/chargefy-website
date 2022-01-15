@@ -18,8 +18,8 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 	const [order, setOrder] = useState<OrderFormValue>({
 		name: null,
 		surname: null,
-		middleName:  null,
-		phoneNumber:  null,
+		middleName: null,
+		phoneNumber: null,
 		payment: null,
 		area: null,
 		city: null,
@@ -27,51 +27,50 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 	});
 
 	const handleOrder = async () => {
-		const orderResponse = await fetchAPI(
-			'/orders', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
+		const orderResponse = await fetchAPI('/orders', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				data: {
+					name: order.name,
+					surname: order.surname,
+					middlename: order.middleName,
+					phoneNumber: order.phoneNumber,
+					payment: order.payment,
+					area: order.area?.name,
+					city: order.city?.name,
+					warehouse: order.warehouse?.name,
 				},
-				body: JSON.stringify({
-					data: {
-						name: order.name,
-						surname: order.surname,
-						middlename: order.middleName,
-						phoneNumber: order.phoneNumber,
-						payment: order.payment,
-						area: order.area?.name,
-						city: order.city?.name,
-						warehouse: order.warehouse?.name,
-					}
-				})
-			}
-		);
+			}),
+		});
 		const orderId = orderResponse.data.id;
 
-		const promises = shoppingCart?.map(async item => {
-			await fetchAPI('/order-items', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					data: {
-						order: orderId,
-						product: item.product.id,
-						quantity: item.quantity,
-					}
-				})
-			})
-		}) || [];
+		const promises =
+			shoppingCart?.map(async item => {
+				await fetchAPI('/order-items', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						data: {
+							order: orderId,
+							product: item.product.id,
+							quantity: item.quantity,
+						},
+					}),
+				});
+			}) || [];
 
 		Promise.all(promises).then(() => {
 			if (dispatch) {
 				dispatch({ type: 'clearState' });
 			}
 			router.push('/');
-		})
-	}
+		});
+	};
 
 	return (
 		<>
@@ -100,9 +99,7 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 										disabled={Object.values(order).some(value => !value)}
 										onClick={handleOrder}
 									>
-										<div>
-											замовити
-										</div>
+										<div>замовити</div>
 									</ActionButton>
 								</Grid>
 							</Grid>

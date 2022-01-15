@@ -28,7 +28,7 @@ interface Social {
 	href: string;
 }
 
-export default function Footer () {
+export default function Footer() {
 	const socials = [
 		{
 			icon: <FacebookIcon />,

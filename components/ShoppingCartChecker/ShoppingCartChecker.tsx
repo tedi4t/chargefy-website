@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react';
 import { useCookies } from 'react-cookie';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
 
-export default function  ShoppingCartChecker({ children }: any) {
+export default function ShoppingCartChecker({ children }: any) {
 	const [shoppingCart, dispatch] = useContext(shoppingCartContext);
 	const key = 'shoppingCart';
 	const [cookies, setCookie] = useCookies([key]);
@@ -21,4 +21,4 @@ export default function  ShoppingCartChecker({ children }: any) {
 	}, [shoppingCart, setCookie]);
 
 	return children;
-};
+}

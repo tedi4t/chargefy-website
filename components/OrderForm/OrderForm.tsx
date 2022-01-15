@@ -29,7 +29,13 @@ export const FormSelect = (props: FormSelectProps) => {
 	return (
 		<WFormControl fullWidth>
 			<InputLabel id={props.id}>{props.label}</InputLabel>
-			<Select labelId={props.id} label={props.label} value={props.value?.ref || ''} onChange={props.onChange} disabled={!props.content.length}>
+			<Select
+				labelId={props.id}
+				label={props.label}
+				value={props.value?.ref || ''}
+				onChange={props.onChange}
+				disabled={!props.content.length}
+			>
 				{props.content.map((area: NovaPoschtaInfo) => (
 					<MenuItem value={area.ref} key={area.ref}>
 						{area.name}
@@ -121,58 +127,58 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 				<Grid item xs={6}>
 					<WTextField
 						fullWidth
-						label="Name"
-						variant="outlined"
+						label='Name'
+						variant='outlined'
 						// value={order.name || ''}
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
-								...order as OrderFormValue,
+								...(order as OrderFormValue),
 								name: e.target.value,
-							}))
+							}));
 						}}
 					/>
 					<WTextField
 						fullWidth
-						label="Surname"
-						variant="outlined"
+						label='Surname'
+						variant='outlined'
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
-								...order as OrderFormValue,
+								...(order as OrderFormValue),
 								surname: e.target.value,
-							}))
+							}));
 						}}
 					/>
 					<WTextField
 						fullWidth
 						label="Po bat'kovi"
-						variant="outlined"
+						variant='outlined'
 						// value={order.name || ''}
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
-								...order as OrderFormValue,
+								...(order as OrderFormValue),
 								middleName: e.target.value,
-							}))
+							}));
 						}}
 					/>
 					<WTextField
 						fullWidth
-						label="Phone Number"
-						variant="outlined"
+						label='Phone Number'
+						variant='outlined'
 						// value={order.name || ''}
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
-								...order as OrderFormValue,
+								...(order as OrderFormValue),
 								phoneNumber: e.target.value,
-							}))
+							}));
 						}}
 					/>
 					<WRadioGroup
 						row
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
-								...order as OrderFormValue,
+								...(order as OrderFormValue),
 								payment: e.target.value,
-							}))
+							}));
 						}}
 					>
 						<FormControlLabel

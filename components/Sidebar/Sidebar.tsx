@@ -26,7 +26,14 @@ export interface SidebarProps {
 	setFilters: Dispatch<SetStateAction<FiltersProps>>;
 }
 
-export default function Sidebar ({ colors, categories, minPrice, maxPrice, filters, setFilters }: SidebarProps) {
+export default function Sidebar({
+	colors,
+	categories,
+	minPrice,
+	maxPrice,
+	filters,
+	setFilters,
+}: SidebarProps) {
 	const offset = 50;
 	const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]);
 
@@ -47,12 +54,12 @@ export default function Sidebar ({ colors, categories, minPrice, maxPrice, filte
 		const range = maxPriceW - minPriceW;
 		const price = (a / 100) * range + minPriceW;
 		return `${price.toFixed(0)}`;
-	}
+	};
 
 	const onPriceChange = (e: any): void => {
 		const prices = e.target.value;
 		setPriceRange(prices);
-	}
+	};
 
 	useEffect(() => {
 		const range = maxPriceW - minPriceW;
@@ -60,27 +67,29 @@ export default function Sidebar ({ colors, categories, minPrice, maxPrice, filte
 			...filters,
 			minPrice: (priceRange[0] / 100) * range + minPriceW,
 			maxPrice: (priceRange[1] / 100) * range + minPriceW,
-		}))
+		}));
 	}, [priceRange]);
 
 	const onCategoryChange = (e: any): void => {
-		const category = e.target.value
+		const category = e.target.value;
 		setFilters((filters: FiltersProps) => ({
 			...filters,
 			categories: [category],
 		}));
-	}
+	};
 
 	const onColorChange = (e: any): void => {
-		const color = e.target.value
+		const color = e.target.value;
 		setFilters((filters: FiltersProps) => {
 			const colors = filters.colors || [];
 			return {
 				...filters,
-				colors: colors.includes(color) ? colors.filter(selectedColor => selectedColor !== color) : [...colors, color],
-			}
+				colors: colors.includes(color)
+					? colors.filter(selectedColor => selectedColor !== color)
+					: [...colors, color],
+			};
 		});
-	}
+	};
 
 	return (
 		<Wrapper>

@@ -4,7 +4,7 @@ interface TitleProps {
 	text: string;
 }
 
-export default function TitleComponent ({ text }: TitleProps) {
+export default function TitleComponent({ text }: TitleProps) {
 	return (
 		<Wrapper>
 			<Title>{text}</Title>

@@ -19,7 +19,9 @@ const reducer = (state: ShoppingCart, action: Action): ShoppingCart => {
 	const actions: Record<string, () => ShoppingCart> = {
 		addGood: () => {
 			const existingIds = state.map(item => item.product.id);
-			return !existingIds.includes(action.payload!.product.id) ? [...state, action.payload!] : state;
+			return !existingIds.includes(action.payload!.product.id)
+				? [...state, action.payload!]
+				: state;
 		},
 		updateQuantity: () => {
 			const {

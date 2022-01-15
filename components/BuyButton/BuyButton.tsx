@@ -5,7 +5,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 import { WButton, Wrapper, QuantityButton, Quantity } from './BuyButton.styles';
 
-export default function BuyButton ({
+export default function BuyButton({
 	quantity,
 	handleAddClick,
 	handleRemoveClick,

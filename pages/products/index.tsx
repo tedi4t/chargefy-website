@@ -4,21 +4,34 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import { Carousel, Navbar, Products, Title, Footer, Sidebar, MainSlide, Pagination } from '../../components';
+import {
+	Carousel,
+	Navbar,
+	Products,
+	Title,
+	Footer,
+	Sidebar,
+	MainSlide,
+	Pagination,
+} from '../../components';
 import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
 import img1 from '../../media/carousel/1.png';
 import img2 from '../../media/carousel/2.png';
 import img3 from '../../media/carousel/3.png';
 import { CategoryResponse, ColorResponse, ProductsListResponse } from '../../lib/apiResponse';
-import { toCategoriesResponse, toColorsResponse, toProductsListResponse } from '../../lib/formatter';
+import {
+	toCategoriesResponse,
+	toColorsResponse,
+	toProductsListResponse,
+} from '../../lib/formatter';
 import { useEffect, useState } from 'react';
 import { FiltersProps } from '../../components/Sidebar';
 import { useRouter } from 'next/router';
 
 export interface ProductsPageProps {
-	colors: Array<ColorResponse>,
-	categories: Array<CategoryResponse>,
+	colors: Array<ColorResponse>;
+	categories: Array<CategoryResponse>;
 	minPrice: number;
 	maxPrice: number;
 }
@@ -40,7 +53,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 		const pageStr: string | undefined = Array.isArray(queryPage) ? queryPage[0] : queryPage;
 
 		if (pageStr) {
-			setPage(parseInt(pageStr))
+			setPage(parseInt(pageStr));
 		}
 	}, [router.query.page]);
 
@@ -56,17 +69,17 @@ const ProductsPage = (props: ProductsPageProps) => {
 		if (filters.colors?.length) {
 			queryFilters.color = {
 				id: {
-					$in: filters.colors
-				}
-			}
+					$in: filters.colors,
+				},
+			};
 		}
 
 		if (filters.categories?.length) {
 			queryFilters.category = {
 				id: {
-					$in: filters.categories
-				}
-			}
+					$in: filters.categories,
+				},
+			};
 		}
 
 		if (filters.minPrice !== null && filters.maxPrice !== null) {
@@ -81,7 +94,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 						$between: [filters.minPrice, filters.maxPrice],
 					},
 				},
-			]
+			];
 		}
 
 		const query = qs.stringify({
@@ -90,8 +103,8 @@ const ProductsPage = (props: ProductsPageProps) => {
 				page: page,
 				rowsPerPage: 20,
 			},
-			populate: '*'
-		})
+			populate: '*',
+		});
 		const url = `/products?${query}`;
 		fetchAPI(url).then((response: any) => {
 			setProductsList(toProductsListResponse(response));
@@ -141,11 +154,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 								<Sidebar {...props} filters={filters} setFilters={setFilters} />
 							</Grid>
 							<Grid item xs={8}>
-								{
-									productsList && (
-										<Products products={productsList?.products.data} />
-									)
-								}
+								{productsList && <Products products={productsList?.products.data} />}
 							</Grid>
 						</Grid>
 						<Box sx={{ mt: '4rem', display: 'flex', justifyContent: 'center' }}>
@@ -169,10 +178,10 @@ ProductsPage.getInitialProps = async (): Promise<ProductsPageProps> => {
 	const categories = toCategoriesResponse(categoriesResponse);
 
 	const minSale = await getFirstListItemPrice('sale:asc');
-	const minPrice = await getFirstListItemPrice('price:asc') as number;
+	const minPrice = (await getFirstListItemPrice('price:asc')) as number;
 
 	const maxSale = await getFirstListItemPrice('sale:desc');
-	const maxPrice = await getFirstListItemPrice('price:desc') as number;
+	const maxPrice = (await getFirstListItemPrice('price:desc')) as number;
 
 	return {
 		colors: colors.colors,
@@ -180,6 +189,6 @@ ProductsPage.getInitialProps = async (): Promise<ProductsPageProps> => {
 		minPrice: Math.min(minPrice, minSale || minPrice),
 		maxPrice: Math.min(maxPrice, maxSale || maxPrice),
 	};
-}
+};
 
 export default ProductsPage;

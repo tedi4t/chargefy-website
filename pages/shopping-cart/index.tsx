@@ -74,9 +74,7 @@ const ShoppingCartPage = () => {
 									<Link href={'/shopping-cart/order'}>
 										<a>
 											<ActionButton>
-												<div>
-													Оформити замовлення
-												</div>
+												<div>Оформити замовлення</div>
 											</ActionButton>
 										</a>
 									</Link>

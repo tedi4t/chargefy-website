@@ -13,6 +13,7 @@ import {
 	Sidebar,
 	MainSlide,
 	Pagination,
+	FilterBar,
 } from '../../components';
 import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
@@ -146,12 +147,18 @@ const ProductsPage = (props: ProductsPageProps) => {
 					]}
 				/>
 
-				<Box sx={{ my: '5rem' }}>
+				<Box sx={{ display: { xs: 'block', md: 'none' }}}>
+					<FilterBar />
+				</Box>
+
+				<Box sx={{ mt: { xs: '0', md: '5rem' }, mb: { xs: '2rem', md: '5rem' }}}>
 					<Container>
-						<Title text={'Libero justo laoreet sit amet cursus'} />
+						<Box sx={{ display: { xs: 'none', md: 'block' }}}>
+							<Title text={'Libero justo laoreet sit amet cursus'} />
+						</Box>
 						<Grid container spacing={2}>
 							<Grid item xs={4}>
-								<Sidebar {...props} filters={filters} setFilters={setFilters} />
+								<Sidebar {...props} setFilters={setFilters} />
 							</Grid>
 							<Grid item xs={8}>
 								{productsList && <Products products={productsList?.products.data} />}

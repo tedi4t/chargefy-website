@@ -22,7 +22,6 @@ export interface SidebarProps {
 	categories: Array<CategoryResponse>;
 	minPrice: number;
 	maxPrice: number;
-	filters: FiltersProps;
 	setFilters: Dispatch<SetStateAction<FiltersProps>>;
 }
 
@@ -31,7 +30,6 @@ export default function Sidebar({
 	categories,
 	minPrice,
 	maxPrice,
-	filters,
 	setFilters,
 }: SidebarProps) {
 	const offset = 50;

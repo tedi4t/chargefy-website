@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Box from '@mui/material/Box';
 
 import { NovaPoschtaInfo, OrderFormValue } from './index';
 import { fetchNovaPoschtaApi } from '../../lib/api';
@@ -124,7 +125,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 	return (
 		<div>
 			<Grid container spacing={4}>
-				<Grid item xs={6}>
+				<Grid item xs={12} md={6}>
 					<WTextField
 						fullWidth
 						label='Name'
@@ -193,7 +194,12 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 						/>
 					</WRadioGroup>
 				</Grid>
-				<Grid item xs={6}>
+				<Grid item xs={12} md={6}>
+					<Typography fontWeight={300} variant={'h5'}>
+						<Box sx={{ display: { xs: 'block', md: 'none' }}}>
+							Nova Poschta Info
+						</Box>
+					</Typography>
 					<FormSelect
 						value={order.area}
 						onChange={onAreaChange}

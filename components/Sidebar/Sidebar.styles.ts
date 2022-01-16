@@ -19,8 +19,6 @@ export const Title = styled(Typography)`
 	letter-spacing: 0.2rem;
 `;
 
-export const Content = styled.div``;
-
 export const Text = styled(Typography)`
 	font-weight: 300;
 	text-transform: capitalize;

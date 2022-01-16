@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Box from '@mui/material/Box';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
@@ -19,7 +20,7 @@ export default function BuyButton({
 			{quantity === 0 ? (
 				<WButton onClick={handleAddClick}>Buy</WButton>
 			) : (
-				<>
+				<Box sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' }}}>
 					<QuantityButton onClick={handleRemoveClick}>
 						<RemoveOutlinedIcon />
 					</QuantityButton>
@@ -27,7 +28,7 @@ export default function BuyButton({
 					<QuantityButton onClick={handleAddClick}>
 						<AddOutlinedIcon />
 					</QuantityButton>
-				</>
+				</Box>
 			)}
 		</Wrapper>
 	);

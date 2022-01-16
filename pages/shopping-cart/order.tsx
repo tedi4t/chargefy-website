@@ -93,8 +93,8 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 
 						<Box sx={{ mt: '4rem' }}>
 							<Grid container>
-								<Grid item xs={2}></Grid>
-								<Grid item xs={8}>
+								<Grid item xs={0} md={2}></Grid>
+								<Grid item xs={12} md={8}>
 									<ActionButton
 										disabled={Object.values(order).some(value => !value)}
 										onClick={handleOrder}

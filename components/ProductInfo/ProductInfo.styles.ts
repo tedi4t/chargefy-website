@@ -10,6 +10,10 @@ Title.defaultProps = {
 
 export const Description = styled(Typography)`
 	margin: 3rem 0;
+
+  @media (max-width: 768px) {
+		margin: 1.5rem 0;
+  }
 `;
 Description.defaultProps = {
 	fontWeight: 300,

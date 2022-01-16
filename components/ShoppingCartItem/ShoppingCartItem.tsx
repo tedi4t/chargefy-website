@@ -33,30 +33,30 @@ export default function ShoppingCartItemComponent({ product, quantity }: Shoppin
 	};
 
 	return (
-		<Box sx={{ mt: '1rem' }}>
+		<Box sx={{ mt: { xs: '0', md: '1rem' }}}>
 			<Grid container spacing={4}>
-				<Grid item container xs={2} alignItems={'center'}>
+				<Grid item container xs={4} md={2} alignItems={'center'}>
 					<Link href={`/products/${product.id}`}>
 						<a>
 							<Image src={titleImage.url} width={titleImage.width} height={titleImage.height} />
 						</a>
 					</Link>
 				</Grid>
-				<Grid item container xs={5} alignItems={'center'}>
+				<Grid item container xs={8} md={5} alignItems={'center'}>
 					<Link href={`/products/${product.id}`}>
 						<a>
 							<Title>{product.title}</Title>
 						</a>
 					</Link>
 				</Grid>
-				<Grid item container xs={3} alignItems={'center'}>
+				<Grid item container xs={7} md={3} alignItems={'center'}>
 					<BuyButton
 						quantity={quantity}
 						handleAddClick={handleAddClick}
 						handleRemoveClick={handleRemoveClick}
 					/>
 				</Grid>
-				<Grid item container xs={2} alignItems={'center'}>
+				<Grid item container xs={5} md={2} alignItems={'center'}>
 					<Price>₴ {(product.price * quantity).toFixed(2)}</Price>
 				</Grid>
 			</Grid>

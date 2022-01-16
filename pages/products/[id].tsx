@@ -62,12 +62,12 @@ const ProductPage = ({ product }: ProductResponse) => {
 				<Paper img={sofaBg} element={<InfoTitle text={'chargefy'} />} />
 
 				<Container>
-					<Box sx={{ my: '5rem' }}>
+					<Box sx={{ my: { xs: '2rem', md: '5rem' }}}>
 						<Grid container spacing={4}>
-							<Grid item container xs={6} alignItems={'center'}>
+							<Grid item container xs={12} md={6} alignItems={'center'}>
 								<Carousel Slide={ProductSlide} content={product.images} />
 							</Grid>
-							<Grid item xs={6}>
+							<Grid item xs={12} md={6}>
 								<ProductInfo {...product} />
 								<Box sx={{ mt: '3rem' }}>
 									<BuyButton

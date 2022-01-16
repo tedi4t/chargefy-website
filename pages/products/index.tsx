@@ -160,12 +160,12 @@ const ProductsPage = (props: ProductsPageProps) => {
 							<Title text={'Libero justo laoreet sit amet cursus'} />
 						</Box>
 						<Grid container spacing={2}>
-							<Grid item xs={0}>
+							<Grid item xs={0} md={3}>
 								<SidebarWrapper sx={{ display: { xs: 'none', md: 'block' }}}>
 									<Sidebar {...props} setFilters={setFilters} />
 								</SidebarWrapper>
 							</Grid>
-							<Grid item xs={12} md={8}>
+							<Grid item xs={12} md={9}>
 								{productsList && <Products products={productsList?.products.data} />}
 							</Grid>
 						</Grid>

@@ -50,8 +50,7 @@ export async function getFirstListItemPrice(...sorting: Array<string>): Promise<
   const priceUrl = `/products?${priceQuery}`;
   const priceResponse = await fetchAPI(priceUrl);
   const priceProducts = toProductsListResponse(priceResponse);
-  const priceProduct = priceProducts.products.data[0];
-  const price = Math.min(priceProduct.price, priceProduct.sale || priceProduct.price);
+  const price = priceProducts.products.data[0].price;
 
   return price;
 }

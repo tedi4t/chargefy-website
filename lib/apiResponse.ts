@@ -1,15 +1,17 @@
+export interface ImageResponse {
+	url: string,
+	width: number,
+	height: number,
+}
+
 export interface Product {
 	id: string,
 	title: string,
 	description: string,
 	price: number,
-	sale?: number,
+	beforePrice?: number,
 	characteristic: Record<string, string>,
-	images: Array<{
-		url: string,
-		width: number,
-		height: number,
-	}>
+	images: Array<ImageResponse>
 }
 
 export interface ProductsListResponse {
@@ -18,12 +20,8 @@ export interface ProductsListResponse {
 			id: number,
 			title: string,
 			price: number,
-			sale?: number,
-			img: {
-				url: string,
-				width: number,
-				height: number,
-			}
+			beforePrice?: number,
+			mainImg: ImageResponse
 		}>,
 		meta: {
 			pagination: {

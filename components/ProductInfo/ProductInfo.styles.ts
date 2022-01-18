@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 
 export const Title = styled(Typography)``;
 Title.defaultProps = {

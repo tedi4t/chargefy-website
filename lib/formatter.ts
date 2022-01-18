@@ -1,21 +1,31 @@
-import { CategoriesResponse, ColorsResponse, ProductResponse, ProductsListResponse } from './apiResponse';
+import {
+	CategoriesResponse,
+	ColorsResponse,
+	ImageResponse,
+	ProductResponse,
+	ProductsListResponse,
+} from './apiResponse';
 import { getStrapiMedia } from './api';
+
+export const toImageResponse = (image: any): ImageResponse => {
+	return {
+		url: getStrapiMedia(image.url),
+		width: image.width,
+		height: image.height,
+	}
+}
 
 export const toProductsListResponse = (response: any): ProductsListResponse => {
 	return {
 		products: {
 			data: response.data.map((product: any) => {
-				const img = product.attributes.images.data[0].attributes.formats.small;
+				const mainImg = product.attributes.mainImage.data.attributes.formats.small || product.attributes.mainImage.data.attributes;
 				return {
 					id: product.id,
 					title: product.attributes.title,
 					price: product.attributes.price,
-					sale: product.attributes.sale,
-					img: {
-						url: getStrapiMedia(img.url),
-						width: img.width,
-						height: img.height,
-					},
+					beforePrice: product.attributes.beforePrice,
+					mainImg: toImageResponse(mainImg),
 				};
 			}),
 			meta: response.meta,
@@ -33,9 +43,9 @@ export const toProductResponse = (response: any): ProductResponse => {
 			title: product.title,
 			description: product.description,
 			price: product.price,
-			sale: product.sale,
+			beforePrice: product.beforePrice,
 			characteristic: product.characteristic,
-			images: images.map((image: any) => {
+			images: [product.mainImage.data, ...images].map((image: any) => {
 				const img = image.attributes.formats.small;
 				return {
 					url: getStrapiMedia(img.url),

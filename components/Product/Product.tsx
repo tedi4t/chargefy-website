@@ -5,14 +5,14 @@ import { Wrapper, Title, Price } from './Product.style';
 
 export interface ProductProps {
 	id: number;
-	img: {
+	mainImg: {
 		url: string;
 		width: number;
 		height: number;
 	};
 	title: string;
 	price: number;
-	sale?: number;
+	beforePrice?: number;
 }
 
 export default function Product(props: ProductProps) {
@@ -28,15 +28,15 @@ export default function Product(props: ProductProps) {
 					<Wrapper>
 						<div className={'hover_decoration'} />
 
-						<Image src={props.img.url} width={props.img.width} height={props.img.height} />
+						<Image src={props.mainImg.url} width={props.mainImg.width} height={props.mainImg.height} />
 
 						<Title>{props.title}</Title>
 
 						<Price>
-							{props.sale ? (
+							{props.beforePrice ? (
 								<>
-									<span className={'crossed'}>₴{props.price}</span>
-									<span className={'sale'}>₴{props.sale}</span>
+									<span className={'crossed'}>₴{props.beforePrice}</span>
+									<span className={'sale'}>₴{props.price}</span>
 								</>
 							) : (
 								<>₴{props.price}</>

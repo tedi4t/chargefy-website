@@ -86,18 +86,9 @@ const ProductsPage = (props: ProductsPageProps) => {
 		}
 
 		if (filters.minPrice !== null && filters.maxPrice !== null) {
-			queryFilters.$or = [
-				{
-					price: {
-						$between: [filters.minPrice, filters.maxPrice],
-					},
-				},
-				{
-					sale: {
-						$between: [filters.minPrice, filters.maxPrice],
-					},
-				},
-			];
+			queryFilters.price = {
+				$between: [filters.minPrice, filters.maxPrice],
+			};
 		}
 
 		const query = qs.stringify({
@@ -189,17 +180,14 @@ ProductsPage.getInitialProps = async (): Promise<ProductsPageProps> => {
 	const categoriesResponse = await fetchAPI(categoriesUrl);
 	const categories = toCategoriesResponse(categoriesResponse);
 
-	const minSale = await getFirstListItemPrice('sale:asc');
 	const minPrice = (await getFirstListItemPrice('price:asc')) as number;
-
-	const maxSale = await getFirstListItemPrice('sale:desc');
 	const maxPrice = (await getFirstListItemPrice('price:desc')) as number;
 
 	return {
 		colors: colors.colors,
 		categories: categories.categories,
-		minPrice: Math.min(minPrice, minSale || minPrice),
-		maxPrice: Math.min(maxPrice, maxSale || maxPrice),
+		minPrice,
+		maxPrice,
 	};
 };
 

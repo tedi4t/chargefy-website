@@ -14,6 +14,7 @@ import {
 	MainSlide,
 	Pagination,
 	FilterBar,
+	SidebarWrapper,
 } from '../../components';
 import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
@@ -29,7 +30,6 @@ import {
 import { useEffect, useState } from 'react';
 import { FiltersProps } from '../../components/Sidebar';
 import { useRouter } from 'next/router';
-import { SidebarWrapper } from './index.styles';
 
 export interface ProductsPageProps {
 	colors: Array<ColorResponse>;

@@ -16,6 +16,7 @@ import ShoppingCartChecker from './ShoppingCartChecker';
 import ActionButton from './ActionButton';
 import Pagination from './Pagination';
 import FilterBar from './FilterBar';
+import SidebarWrapper from './SidebarWrapper';
 
 export {
 	Carousel,
@@ -36,4 +37,5 @@ export {
 	ActionButton,
 	Pagination,
 	FilterBar,
+	SidebarWrapper,
 };

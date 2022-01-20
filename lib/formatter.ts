@@ -46,7 +46,7 @@ export const toProductResponse = (response: any): ProductResponse => {
 			beforePrice: product.beforePrice,
 			characteristic: product.characteristic,
 			images: [product.mainImage.data, ...images].map((image: any) => {
-				const img = image.attributes.formats.small;
+				const img = image.attributes.formats.medium || image.attributes;
 				return {
 					url: getStrapiMedia(img.url),
 					width: img.width,

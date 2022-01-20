@@ -48,12 +48,12 @@ const Home = ({
 					img={sofaBg}
 					element={
 						<Info
-							title={'Lorem ipsum dolor'}
+							title={'Товари за акційною ціною'}
 							description={
-								'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa laboriosam laborum laudantium nam quam ullam unde! Ad autem reiciendis tempora. Aut ex impedit laudantium voluptate?'
+								'Стильні автомобільні тримувач для телефону забезпечують сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
 							}
-							price={249}
-							link={'/'}
+							price={149}
+							link={'/products'}
 						/>
 					}
 				/>

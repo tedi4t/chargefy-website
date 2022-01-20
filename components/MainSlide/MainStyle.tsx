@@ -22,13 +22,23 @@ export default function MainStyle(slide: SlideProps) {
 						</Grid>
 						<Grid item xs={12} md={6} justifyContent={'center'} alignItems={'center'}>
 							<ImageWrapper>
-								<Image
-									src={slide.img.url}
-									width={slide.img.width}
-									height={slide.img.height}
-									layout='fill'
-									objectFit='contain'
-								/>
+								<Box sx={{ display: { xs: 'block', md: 'none' }}}>
+									<Image
+										src={slide.img.url}
+										width={slide.img.width}
+										height={slide.img.height}
+									/>
+								</Box>
+
+								<Box sx={{ display: { xs: 'none', md: 'block' }}}>
+									<Image
+										src={slide.img.url}
+										width={slide.img.width}
+										height={slide.img.height}
+										layout='fill'
+										objectFit='contain'
+									/>
+								</Box>
 							</ImageWrapper>
 						</Grid>
 					</GridContainer>

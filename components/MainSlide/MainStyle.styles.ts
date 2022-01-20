@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Grid from '@mui/material/Grid';
+import Image from 'next/image';
 
 export const SlideContent = styled.div`
 	height: 100%;
@@ -27,10 +28,13 @@ export const Text = styled.p`
 `;
 
 export const GridContainer = styled(Grid)`
-	height: 100%;
 	@media (max-width: 768px) {
 		flex-direction: column-reverse;
 	}
+
+  @media (min-width: 768px) {
+    height: 100%;
+  }
 `;
 
 export const ImageWrapper = styled.div`

@@ -1,5 +1,5 @@
 import { SidebarWrapper } from './SidebarWrapper.styles';
 
-export default function SidebarWrapperComponent({ children }: any) {
-	return <SidebarWrapper>{children}</SidebarWrapper>;
+export default function SidebarWrapperComponent({ children, ...props }: any) {
+	return <SidebarWrapper {...props}>{children}</SidebarWrapper>;
 }

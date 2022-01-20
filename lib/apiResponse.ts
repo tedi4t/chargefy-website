@@ -34,6 +34,15 @@ export interface ProductsListResponse {
 	}
 }
 
+export interface TitleProductsListResponse {
+	products: Array<{
+		id: number;
+		title: string;
+		description: string;
+		img: ImageResponse;
+	}>
+}
+
 export interface ProductResponse {
 	product: Product;
 }

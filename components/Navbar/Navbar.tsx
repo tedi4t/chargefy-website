@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-// import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
 
@@ -24,19 +23,19 @@ export default function Navbar() {
 	const [shoppingCart] = useContext(shoppingCartContext);
 	const pages: Array<{ name: string; href: string }> = [
 		{
-			name: 'Home',
+			name: 'Домашня сторінка',
 			href: '/',
 		},
 		{
-			name: 'Products',
+			name: 'Продукти',
 			href: '/products',
 		},
 		{
-			name: 'About Us',
+			name: 'Про нас',
 			href: '/about',
 		},
 		{
-			name: 'Contacts',
+			name: 'Контакти',
 			href: '/contacts',
 		},
 	];

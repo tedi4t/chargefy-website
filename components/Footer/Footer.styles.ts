@@ -10,10 +10,9 @@ export const Wrapper = styled.div`
 export const InsideWrapper = styled.div`
 	padding: 2rem 0;
 
-  @media (max-width: 768px) {
-    padding-bottom: 1rem;
-  }
-
+	@media (max-width: 768px) {
+		padding-bottom: 1rem;
+	}
 `;
 
 export const Title = styled.div`
@@ -65,10 +64,9 @@ export const FooterText = styled(Typography)`
 	opacity: 0.5;
 	padding: 1.5rem;
 
-  @media (max-width: 768px) {
-    padding-top: 0;
-  }
-
+	@media (max-width: 768px) {
+		padding-top: 0;
+	}
 `;
 
 export const HighlightGrid = styled(Grid)`

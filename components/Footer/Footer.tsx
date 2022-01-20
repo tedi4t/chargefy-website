@@ -49,34 +49,34 @@ export default function Footer() {
 
 	const pages: Array<{ name: string; href: string }> = [
 		{
-			name: 'Home',
+			name: 'Домашня сторінка',
 			href: '/',
 		},
 		{
-			name: 'Products',
+			name: 'Продукти',
 			href: '/products',
 		},
 		{
-			name: 'About Us',
+			name: 'Про нас',
 			href: '/about',
 		},
 		{
-			name: 'Contacts',
+			name: 'Контакти',
 			href: '/contacts',
 		},
 	];
 
 	const helpPages: Array<{ name: string; href: string }> = [
 		{
-			name: 'Delivery',
+			name: 'Доставка',
 			href: '/delivery',
 		},
 		{
-			name: 'Return',
+			name: 'Повернення',
 			href: '/return',
 		},
 		{
-			name: 'FAQ',
+			name: 'Запитання',
 			href: '/faq',
 		},
 	];
@@ -93,7 +93,7 @@ export default function Footer() {
 										<Image src={Logo} />
 									</LogoWrapper>
 								</Title>
-								<Box sx={{ display: { sm: 'block', md: 'none' }}}>
+								<Box sx={{ display: { sm: 'block', md: 'none' } }}>
 									<Column>
 										{socials.map((social: Social) => (
 											<HighlightGrid
@@ -114,8 +114,8 @@ export default function Footer() {
 								</Box>
 							</Grid>
 							<Grid item xs={12} md={4}>
-								<Title>links</Title>
-								<Box sx={{ display: { sm: 'block', md: 'none' }}}>
+								<Title>сторінки</Title>
+								<Box sx={{ display: { sm: 'block', md: 'none' } }}>
 									<Column>
 										{pages.map(page => (
 											<LinkWrapper key={page.name}>
@@ -130,8 +130,8 @@ export default function Footer() {
 								</Box>
 							</Grid>
 							<Grid item xs={12} md={4}>
-								<Title>help</Title>
-								<Box sx={{ display: { sm: 'block', md: 'none' }}}>
+								<Title>допомога</Title>
+								<Box sx={{ display: { sm: 'block', md: 'none' } }}>
 									<Column>
 										{helpPages.map(page => (
 											<LinkWrapper key={page.name}>
@@ -146,7 +146,7 @@ export default function Footer() {
 								</Box>
 							</Grid>
 						</Grid>
-						<Box sx={{ display: { xs: 'none', md: 'block' }}}>
+						<Box sx={{ display: { xs: 'none', md: 'block' } }}>
 							<Grid container>
 								<Grid item xs={12} md={4}>
 									<Column>

@@ -1,7 +1,12 @@
 export interface SlideProps {
-	img: any;
+	img: {
+		url: string;
+		width: number;
+		height: number;
+	};
 	title: string;
 	description: string;
+	id: number;
 }
 
 import MainSlide from './MainStyle';

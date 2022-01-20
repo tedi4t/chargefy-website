@@ -3,7 +3,7 @@ import {
 	ColorsResponse,
 	ImageResponse,
 	ProductResponse,
-	ProductsListResponse,
+	ProductsListResponse, TitleProductsListResponse,
 } from './apiResponse';
 import { getStrapiMedia } from './api';
 
@@ -15,11 +15,11 @@ export const toImageResponse = (image: any): ImageResponse => {
 	}
 }
 
-export const toProductsListResponse = (response: any): ProductsListResponse => {
+export const toProductsListResponse = (response: any, size: string = 'small'): ProductsListResponse => {
 	return {
 		products: {
 			data: response.data.map((product: any) => {
-				const mainImg = product.attributes.mainImage.data.attributes.formats.small || product.attributes.mainImage.data.attributes;
+				const mainImg = product.attributes.mainImage.data.attributes.formats[size] || product.attributes.mainImage.data.attributes;
 				return {
 					id: product.id,
 					title: product.attributes.title,
@@ -30,6 +30,22 @@ export const toProductsListResponse = (response: any): ProductsListResponse => {
 			}),
 			meta: response.meta,
 		},
+	};
+}
+
+export const toTitleProductsListResponse = (response: any): TitleProductsListResponse => {
+	return {
+		products: response.data.map((product: any) => {
+			const img = product.attributes.mainImage.data.attributes;
+			const attributes = product.attributes;
+
+			return {
+				id: product.id,
+				title: attributes.title,
+				description: attributes.shortDescription,
+				img: toImageResponse(img),
+			}
+		}),
 	};
 }
 

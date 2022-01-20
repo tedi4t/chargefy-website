@@ -28,7 +28,11 @@ export default function Product(props: ProductProps) {
 					<Wrapper>
 						<div className={'hover_decoration'} />
 
-						<Image src={props.mainImg.url} width={props.mainImg.width} height={props.mainImg.height} />
+						<Image
+							src={props.mainImg.url}
+							width={props.mainImg.width}
+							height={props.mainImg.height}
+						/>
 
 						<Title>{props.title}</Title>
 

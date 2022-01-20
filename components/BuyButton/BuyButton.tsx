@@ -20,7 +20,15 @@ export default function BuyButton({
 			{quantity === 0 ? (
 				<WButton onClick={handleAddClick}>Buy</WButton>
 			) : (
-				<Box sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' }}}>
+				<Box
+					sx={{
+						width: '100%',
+						display: 'flex',
+						flexDirection: 'row',
+						alignItems: 'center',
+						justifyContent: { xs: 'center', md: 'flex-start' },
+					}}
+				>
 					<QuantityButton onClick={handleRemoveClick}>
 						<RemoveOutlinedIcon />
 					</QuantityButton>

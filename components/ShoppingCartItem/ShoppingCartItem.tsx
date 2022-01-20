@@ -33,7 +33,7 @@ export default function ShoppingCartItemComponent({ product, quantity }: Shoppin
 	};
 
 	return (
-		<Box sx={{ mt: { xs: '0', md: '1rem' }}}>
+		<Box sx={{ mt: { xs: '0', md: '1rem' } }}>
 			<Grid container spacing={4}>
 				<Grid item container xs={4} md={2} alignItems={'center'}>
 					<Link href={`/products/${product.id}`}>

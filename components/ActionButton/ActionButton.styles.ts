@@ -14,7 +14,7 @@ export const WButton = styled(Button)`
 
 	&:disabled {
 		background: #fff;
-		border-color: rgba(0, 0, 0, 0.26);;
+		border-color: rgba(0, 0, 0, 0.26);
 	}
 
 	&:hover {

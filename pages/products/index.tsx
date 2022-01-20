@@ -18,14 +18,17 @@ import {
 } from '../../components';
 import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
-import img1 from '../../media/carousel/1.png';
-import img2 from '../../media/carousel/2.png';
-import img3 from '../../media/carousel/3.png';
-import { CategoryResponse, ColorResponse, ProductsListResponse } from '../../lib/apiResponse';
+import {
+	CategoryResponse,
+	ColorResponse,
+	ProductsListResponse,
+	TitleProductsListResponse,
+} from '../../lib/apiResponse';
 import {
 	toCategoriesResponse,
 	toColorsResponse,
 	toProductsListResponse,
+	toTitleProductsListResponse,
 } from '../../lib/formatter';
 import { useEffect, useState } from 'react';
 import { FiltersProps } from '../../components/Sidebar';
@@ -36,6 +39,7 @@ export interface ProductsPageProps {
 	categories: Array<CategoryResponse>;
 	minPrice: number;
 	maxPrice: number;
+	title: TitleProductsListResponse,
 }
 
 const ProductsPage = (props: ProductsPageProps) => {
@@ -117,42 +121,20 @@ const ProductsPage = (props: ProductsPageProps) => {
 			<main>
 				<Navbar />
 
-				<Carousel
-					Slide={MainSlide}
-					content={[
-						{
-							title: 'Lorem ipsum dolor sit amet',
-							description:
-								'Lacus sed viverra tellus in hac habitasse. Sem nulla pharetra diam sit. Enim diam vulputate ut pharetra sit amet aliquam id. Scelerisque in dictum non consectetur a erat nam. ',
-							img: img1,
-						},
-						{
-							title: 'Excepteur sint occaecat cupidatat',
-							description:
-								'Viverra nam libero justo laoreet sit amet cursus. Tincidunt vitae semper quis lectus nulla at volutpat diam. Nulla aliquet enim tortor at. Aliquet enim tortor at auctor urna nunc id cursus.',
-							img: img2,
-						},
-						{
-							title: 'Vulputate odio ut enim blandit volutpat',
-							description:
-								'Non consectetur a erat nam. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Ante metus dictum at tempor.',
-							img: img3,
-						},
-					]}
-				/>
+				<Carousel Slide={MainSlide} content={props.title.products} />
 
-				<Box sx={{ display: { xs: 'block', md: 'none' }}}>
+				<Box sx={{ display: { xs: 'block', md: 'none' } }}>
 					<FilterBar {...props} setFilters={setFilters} sorting={sorting} setSorting={setSorting} />
 				</Box>
 
-				<Box sx={{ mt: { xs: '0', md: '5rem' }, mb: { xs: '2rem', md: '5rem' }}}>
+				<Box sx={{ mt: { xs: '0', md: '5rem' }, mb: { xs: '2rem', md: '5rem' } }}>
 					<Container>
-						<Box sx={{ display: { xs: 'none', md: 'block' }}}>
+						<Box sx={{ display: { xs: 'none', md: 'block' } }}>
 							<Title text={'Libero justo laoreet sit amet cursus'} />
 						</Box>
 						<Grid container spacing={2}>
 							<Grid item xs={0} md={3}>
-								<SidebarWrapper sx={{ display: { xs: 'none', md: 'block' }}}>
+								<SidebarWrapper sx={{ display: { xs: 'none', md: 'block' } }}>
 									<Sidebar {...props} setFilters={setFilters} />
 								</SidebarWrapper>
 							</Grid>
@@ -183,11 +165,28 @@ ProductsPage.getInitialProps = async (): Promise<ProductsPageProps> => {
 	const minPrice = (await getFirstListItemPrice('price:asc')) as number;
 	const maxPrice = (await getFirstListItemPrice('price:desc')) as number;
 
+	const queryTitle = qs.stringify({
+		filters: {
+			isTitle: {
+				$eq: true,
+			},
+		},
+		populate: '*',
+	});
+
+	const url = '/products?';
+	const titleUrl = `${url}${queryTitle}`;
+
+	const titleResponse = await fetchAPI(titleUrl);
+
+	const titleProducts = toTitleProductsListResponse(titleResponse);
+
 	return {
 		colors: colors.colors,
 		categories: categories.categories,
 		minPrice,
 		maxPrice,
+		title: titleProducts,
 	};
 };
 

@@ -9,10 +9,11 @@ export const SlideContent = styled.div`
 	justify-content: center;
 	height: 80vh;
 	background: #efefef;
+	position: relative;
 
-  @media (max-width: 768px) {
-    height: 70vh;
-  }
+	@media (max-width: 768px) {
+		height: 70vh;
+	}
 `;
 
 export const Title = styled.h1`
@@ -26,7 +27,14 @@ export const Text = styled.p`
 `;
 
 export const GridContainer = styled(Grid)`
-  @media (max-width: 768px) {
+	height: 100%;
+	@media (max-width: 768px) {
 		flex-direction: column-reverse;
-  }
+	}
+`;
+
+export const ImageWrapper = styled.div`
+	height: 100%;
+	width: 100%;
+	position: relative;
 `;

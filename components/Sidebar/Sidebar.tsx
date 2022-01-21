@@ -66,7 +66,7 @@ export default function Sidebar({
 			minPrice: (priceRange[0] / 100) * range + minPriceW,
 			maxPrice: (priceRange[1] / 100) * range + minPriceW,
 		}));
-	}, [priceRange]);
+	}, [priceRange, maxPriceW, minPriceW, setFilters]);
 
 	const onCategoryChange = (e: any): void => {
 		const category = e.target.value;

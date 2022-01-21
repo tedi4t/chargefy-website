@@ -28,7 +28,7 @@ const About: NextPage = () => {
 					<Box sx={{ my: '5rem' }}>
 						<Grid container spacing={4}>
 							<Grid item container xs={4} alignItems={'center'}>
-								<Image src={logo} />
+								<Image src={logo} alt={"chargefy"} />
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>

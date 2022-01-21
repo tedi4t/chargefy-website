@@ -27,6 +27,7 @@ export default function MainStyle(slide: SlideProps) {
 										src={slide.img.url}
 										width={slide.img.width}
 										height={slide.img.height}
+										alt={slide.img.alternativeText}
 									/>
 								</Box>
 
@@ -35,6 +36,7 @@ export default function MainStyle(slide: SlideProps) {
 										src={slide.img.url}
 										width={slide.img.width}
 										height={slide.img.height}
+										alt={'зарядка'}
 										layout='fill'
 										objectFit='contain'
 									/>

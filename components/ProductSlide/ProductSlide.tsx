@@ -7,7 +7,7 @@ export default function ProductSlide(props: ProductSlideProps) {
 	return (
 		<Box height={'100%'} display={'flex'} alignItems={'center'}>
 			<Box sx={{ mx: { xs: '3rem', md: '5rem' }, my: { xs: '2rem', md: '4rem' } }}>
-				<Image src={props.url} width={props.width} height={props.height} />
+				<Image src={props.url} width={props.width} height={props.height} alt={props.alternativeText} />
 			</Box>
 		</Box>
 	);

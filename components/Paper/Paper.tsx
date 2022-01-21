@@ -14,7 +14,7 @@ export default function Paper(props: PaperProps) {
 	return (
 		<div style={{ position: 'relative' }}>
 			<div>
-				<Image alt='Mountains' src={props.img} layout='fill' objectFit='cover' />
+				<Image src={props.img} layout='fill' objectFit='cover' alt={'тримач'} />
 			</div>
 
 			<Overlay />

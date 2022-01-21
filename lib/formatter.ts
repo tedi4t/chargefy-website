@@ -7,11 +7,14 @@ import {
 } from './apiResponse';
 import { getStrapiMedia } from './api';
 
-export const toImageResponse = (image: any): ImageResponse => {
+export const toImageResponse = (image: any, size: string = 'small'): ImageResponse => {
+	const formatImg = image.formats[size] || image;
+
 	return {
-		url: getStrapiMedia(image.url),
-		width: image.width,
-		height: image.height,
+		url: getStrapiMedia(formatImg.url),
+		width: formatImg.width,
+		height: formatImg.height,
+		alternativeText: image.alternativeText,
 	}
 }
 
@@ -19,7 +22,7 @@ export const toProductsListResponse = (response: any, size: string = 'small'): P
 	return {
 		products: {
 			data: response.data.map((product: any) => {
-				const mainImg = product.attributes.mainImage.data.attributes.formats[size] || product.attributes.mainImage.data.attributes;
+				const mainImg = product.attributes.mainImage.data.attributes;
 				return {
 					id: product.id,
 					title: product.attributes.title,
@@ -61,14 +64,7 @@ export const toProductResponse = (response: any): ProductResponse => {
 			price: product.price,
 			beforePrice: product.beforePrice,
 			characteristic: product.characteristic,
-			images: [product.mainImage.data, ...images].map((image: any) => {
-				const img = image.attributes.formats.medium || image.attributes;
-				return {
-					url: getStrapiMedia(img.url),
-					width: img.width,
-					height: img.height,
-				};
-			}),
+			images: [product.mainImage.data, ...images].map((image: any) => toImageResponse(image.attributes)),
 		},
 	} as ProductResponse;
 }

@@ -1,9 +1,7 @@
+import { ImageResponse } from '../../lib/apiResponse';
+
 export interface SlideProps {
-	img: {
-		url: string;
-		width: number;
-		height: number;
-	};
+	img: ImageResponse;
 	title: string;
 	description: string;
 	id: number;

@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
@@ -12,7 +11,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import MailIcon from '@mui/icons-material/Mail';
 
-import { Carousel, Navbar, Paper, Info, Products, Title, Footer, InfoTitle } from '../components';
+import { Navbar, Paper, Footer, InfoTitle } from '../components';
 import { HighlightGrid } from '../components/Footer';
 
 import banner from '../media/banner/main.jpeg';
@@ -58,7 +57,7 @@ const Contacts: NextPage = () => {
 					<Box sx={{ my: '5rem' }}>
 						<Grid container spacing={4}>
 							<Grid item container xs={4} alignItems={'center'}>
-								<Image src={logo} />
+								<Image src={logo} alt={'chargefy'} />
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>

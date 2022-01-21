@@ -68,7 +68,7 @@ export default function Navbar() {
 					<Link href={'/'}>
 						<a>
 							<LogoWrapper sx={{ display: { xs: 'none', md: 'flex' } }}>
-								<Image src={Logo} />
+								<Image src={Logo} alt={'зарядка'} />
 							</LogoWrapper>
 						</a>
 					</Link>
@@ -110,7 +110,7 @@ export default function Navbar() {
 						<LogoWrapper>
 							<Link href={'/'}>
 								<a>
-									<Image src={Logo} />
+									<Image src={Logo} alt={'тримач для телефону'} />
 								</a>
 							</Link>
 						</LogoWrapper>

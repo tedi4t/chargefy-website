@@ -1,8 +1,6 @@
-export interface ProductSlideProps {
-	url: string;
-	width: number;
-	height: number;
-}
+import { ImageResponse } from '../../lib/apiResponse';
+
+export interface ProductSlideProps extends ImageResponse{}
 
 import ProductSlide from './ProductSlide';
 

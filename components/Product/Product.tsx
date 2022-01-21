@@ -2,14 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Wrapper, Title, Price } from './Product.style';
+import { ImageResponse } from '../../lib/apiResponse';
 
 export interface ProductProps {
 	id: number;
-	mainImg: {
-		url: string;
-		width: number;
-		height: number;
-	};
+	mainImg: ImageResponse;
 	title: string;
 	price: number;
 	beforePrice?: number;
@@ -32,6 +29,7 @@ export default function Product(props: ProductProps) {
 							src={props.mainImg.url}
 							width={props.mainImg.width}
 							height={props.mainImg.height}
+							alt={props.mainImg.alternativeText}
 						/>
 
 						<Title>{props.title}</Title>

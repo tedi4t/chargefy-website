@@ -15,7 +15,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import { Carousel, Navbar, Paper, Info, Products, Title, Footer, InfoTitle } from '../components';
 import { HighlightGrid } from '../components/Footer';
 
-import sofaBg from '../media/banner/sofa.jpeg';
+import banner from '../media/banner/main.jpeg';
 import logo from '../media/logo.png';
 
 const Contacts: NextPage = () => {
@@ -52,7 +52,7 @@ const Contacts: NextPage = () => {
 			<main>
 				<Navbar />
 
-				<Paper img={sofaBg} element={<InfoTitle text={'contact us'} />} />
+				<Paper img={banner} element={<InfoTitle text={'contact us'} />} />
 
 				<Container>
 					<Box sx={{ my: '5rem' }}>

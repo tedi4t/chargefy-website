@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 import { Navbar, Paper, Footer, InfoTitle } from '../components';
 
-import sofaBg from '../media/banner/sofa.jpeg';
+import banner from '../media/banner/main.jpeg';
 import logo from '../media/logo.png';
 
 const About: NextPage = () => {
@@ -22,7 +22,7 @@ const About: NextPage = () => {
 			<main>
 				<Navbar />
 
-				<Paper img={sofaBg} element={<InfoTitle text={'about'} />} />
+				<Paper img={banner} element={<InfoTitle text={'about'} />} />
 
 				<Container>
 					<Box sx={{ my: '5rem' }}>

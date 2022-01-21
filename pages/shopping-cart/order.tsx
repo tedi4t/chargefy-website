@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 
 import { Navbar, Footer, Paper, InfoTitle, Title, ActionButton } from '../../components';
 
-import sofaBg from '../../media/banner/sofa.jpeg';
+import banner from '../../media/banner/main.jpeg';
 import OrderForm, { NovaPoschtaInfo, OrderFormValue } from '../../components/OrderForm';
 import { fetchAPI, fetchNovaPoschtaApi } from '../../lib/api';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
@@ -83,7 +83,7 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 			<main>
 				<Navbar />
 
-				<Paper img={sofaBg} element={<InfoTitle text={'Замовлення'} />} />
+				<Paper img={banner} element={<InfoTitle text={'Замовлення'} />} />
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>

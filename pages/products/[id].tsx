@@ -18,7 +18,7 @@ import {
 import { fetchAPI } from '../../lib/api';
 import { ProductResponse } from '../../lib/apiResponse';
 
-import sofaBg from '../../media/banner/sofa.jpeg';
+import banner from '../../media/banner/main.jpeg';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
 import { toProductResponse } from '../../lib/formatter';
 
@@ -59,7 +59,7 @@ const ProductPage = ({ product }: ProductResponse) => {
 			<main>
 				<Navbar />
 
-				<Paper img={sofaBg} element={<InfoTitle text={'chargefy'} />} />
+				<Paper img={banner} element={<InfoTitle text={'chargefy'} />} />
 
 				<Container>
 					<Box sx={{ my: { xs: '2rem', md: '5rem' } }}>

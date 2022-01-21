@@ -16,7 +16,7 @@ import {
 	ActionButton,
 } from '../../components';
 
-import sofaBg from '../../media/banner/sofa.jpeg';
+import banner from '../../media/banner/main.jpeg';
 import {
 	shoppingCartContext,
 	ShoppingCartItem as ShoppingCartItemType,
@@ -47,7 +47,7 @@ const ShoppingCartPage = () => {
 			<main>
 				<Navbar />
 
-				<Paper img={sofaBg} element={<InfoTitle text={'Корзина'} />} />
+				<Paper img={banner} element={<InfoTitle text={'Корзина'} />} />
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>

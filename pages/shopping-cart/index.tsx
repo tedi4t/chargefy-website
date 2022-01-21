@@ -9,7 +9,6 @@ import Grid from '@mui/material/Grid';
 
 import {
 	Navbar,
-	Title,
 	Footer,
 	Paper,
 	InfoTitle,
@@ -48,13 +47,7 @@ const ShoppingCartPage = () => {
 			<main>
 				<Navbar />
 
-				<Paper img={sofaBg} element={<InfoTitle text={'shopping cart'} />} />
-
-				<Box sx={{ mt: '5rem' }}>
-					<Container>
-						<Title text={'Libero justo laoreet sit amet cursus'} />
-					</Container>
-				</Box>
+				<Paper img={sofaBg} element={<InfoTitle text={'Корзина'} />} />
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>

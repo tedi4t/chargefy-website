@@ -83,11 +83,11 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 			<main>
 				<Navbar />
 
-				<Paper img={sofaBg} element={<InfoTitle text={'order'} />} />
+				<Paper img={sofaBg} element={<InfoTitle text={'Замовлення'} />} />
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>
-						<Title text={'Order info'} />
+						<Title text={'Інформація про замовлення'} />
 
 						<OrderForm areas={areas} order={order} setOrder={setOrder} />
 

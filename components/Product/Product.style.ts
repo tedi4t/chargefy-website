@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
 	padding: 2rem;
-	max-width: 300px;
+	max-width: 250px;
 	transition-duration: 0.3s;
 	position: relative;
 	height: 100%;

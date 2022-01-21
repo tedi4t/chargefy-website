@@ -128,9 +128,8 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 				<Grid item xs={12} md={6}>
 					<WTextField
 						fullWidth
-						label='Name'
+						label={`Ім'я`}
 						variant='outlined'
-						// value={order.name || ''}
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
 								...(order as OrderFormValue),
@@ -140,7 +139,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 					/>
 					<WTextField
 						fullWidth
-						label='Surname'
+						label='Прізвище'
 						variant='outlined'
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
@@ -151,7 +150,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 					/>
 					<WTextField
 						fullWidth
-						label="Po bat'kovi"
+						label="По батькові"
 						variant='outlined'
 						// value={order.name || ''}
 						onChange={(e: any) => {
@@ -163,7 +162,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 					/>
 					<WTextField
 						fullWidth
-						label='Phone Number'
+						label='Номер телефону	'
 						variant='outlined'
 						// value={order.name || ''}
 						onChange={(e: any) => {
@@ -185,12 +184,12 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 						<FormControlLabel
 							value={'cash'}
 							control={<Radio />}
-							label={<Typography>Cash</Typography>}
+							label={<Typography>Готівка</Typography>}
 						/>
 						<FormControlLabel
 							value={'card'}
 							control={<Radio />}
-							label={<Typography>Card</Typography>}
+							label={<Typography>Карта</Typography>}
 						/>
 					</WRadioGroup>
 				</Grid>
@@ -203,7 +202,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 						onChange={onAreaChange}
 						content={areas}
 						id={'area-select-label'}
-						label={'Area'}
+						label={'Область'}
 					/>
 
 					<FormSelect
@@ -211,7 +210,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 						onChange={onCityChange}
 						content={cities}
 						id={'city-select-label'}
-						label={'City'}
+						label={'Місто'}
 					/>
 
 					<FormSelect
@@ -219,7 +218,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 						onChange={onWarehouseChange}
 						content={warehouses}
 						id={'warehouse-select-label'}
-						label={'Warehouse'}
+						label={'Склад'}
 					/>
 				</Grid>
 			</Grid>

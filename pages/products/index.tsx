@@ -129,19 +129,18 @@ const ProductsPage = (props: ProductsPageProps) => {
 
 				<Box sx={{ mt: { xs: '0', md: '5rem' }, mb: { xs: '2rem', md: '5rem' } }}>
 					<Container>
-						<Box sx={{ display: { xs: 'none', md: 'block' } }}>
-							<Title text={'Libero justo laoreet sit amet cursus'} />
+						<Box sx={{ mt: { xs: '0', md: '4rem' } }}>
+							<Grid container spacing={2}>
+								<Grid item xs={0} md={3}>
+									<SidebarWrapper sx={{ display: { xs: 'none', md: 'block' } }}>
+										<Sidebar {...props} setFilters={setFilters} />
+									</SidebarWrapper>
+								</Grid>
+								<Grid item xs={12} md={9}>
+									{productsList && <Products products={productsList?.products.data} />}
+								</Grid>
+							</Grid>
 						</Box>
-						<Grid container spacing={2}>
-							<Grid item xs={0} md={3}>
-								<SidebarWrapper sx={{ display: { xs: 'none', md: 'block' } }}>
-									<Sidebar {...props} setFilters={setFilters} />
-								</SidebarWrapper>
-							</Grid>
-							<Grid item xs={12} md={9}>
-								{productsList && <Products products={productsList?.products.data} />}
-							</Grid>
-						</Grid>
 						<Box sx={{ mt: '4rem', display: 'flex', justifyContent: 'center' }}>
 							<Pagination page={page} pageCount={pageCount} />
 						</Box>

@@ -93,7 +93,7 @@ export default function Sidebar({
 		<Wrapper>
 			<WAccordion>
 				<WAccordionSummary>
-					<Title>Categories</Title>
+					<Title>Категорії</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
 					<RadioGroup onChange={onCategoryChange}>
@@ -111,7 +111,7 @@ export default function Sidebar({
 
 			<WAccordion>
 				<WAccordionSummary>
-					<Title>Price</Title>
+					<Title>Ціна</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
 					<PriceSlider
@@ -126,7 +126,7 @@ export default function Sidebar({
 
 			<WAccordion>
 				<WAccordionSummary>
-					<Title>Color</Title>
+					<Title>Колір</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
 					<FormGroup onChange={onColorChange}>

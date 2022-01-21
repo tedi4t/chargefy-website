@@ -18,7 +18,7 @@ export default function BuyButton({
 	return (
 		<Wrapper>
 			{quantity === 0 ? (
-				<WButton onClick={handleAddClick}>Buy</WButton>
+				<WButton onClick={handleAddClick}>купити</WButton>
 			) : (
 				<Box
 					sx={{

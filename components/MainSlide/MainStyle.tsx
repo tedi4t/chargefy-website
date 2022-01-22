@@ -22,7 +22,7 @@ export default function MainStyle(slide: SlideProps) {
 						</Grid>
 						<Grid item xs={12} md={6} justifyContent={'center'} alignItems={'center'}>
 							<ImageWrapper>
-								<Box sx={{ display: { xs: 'block', md: 'none' }}}>
+								<Box sx={{ display: { xs: 'block', md: 'none' } }}>
 									<Image
 										src={slide.img.url}
 										width={slide.img.width}
@@ -31,7 +31,7 @@ export default function MainStyle(slide: SlideProps) {
 									/>
 								</Box>
 
-								<Box sx={{ display: { xs: 'none', md: 'block' }}}>
+								<Box sx={{ display: { xs: 'none', md: 'block' } }}>
 									<Image
 										src={slide.img.url}
 										width={slide.img.width}

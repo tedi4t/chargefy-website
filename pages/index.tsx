@@ -23,14 +23,20 @@ const Home = ({
 		<div>
 			<Head>
 				<title>Автомобільна зарядка | Chargefy</title>
-				<meta name='description' content='Стильні автомобільні тримувач для телефону забезпечують сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу.' />
+				<meta
+					name='description'
+					content='Стильні автомобільні тримувач для телефону забезпечують сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу.'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 
 				<meta
 					name='google-site-verification'
 					content='c9x12pPL48BJUGucRAlZMWDnoC0asWeSj2wiVC0GU1Q'
 				/>
-				<meta name="google-site-verification" content="Fllf2vlWaN50hobrJyv8-G-_AweAvE_mu76wrNTpuck" />
+				<meta
+					name='google-site-verification'
+					content='Fllf2vlWaN50hobrJyv8-G-_AweAvE_mu76wrNTpuck'
+				/>
 			</Head>
 
 			<main>

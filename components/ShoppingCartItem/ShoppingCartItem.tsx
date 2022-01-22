@@ -38,7 +38,12 @@ export default function ShoppingCartItemComponent({ product, quantity }: Shoppin
 				<Grid item container xs={4} md={2} alignItems={'center'}>
 					<Link href={`/products/${product.id}`}>
 						<a>
-							<Image src={titleImage.url} width={titleImage.width} height={titleImage.height} alt={titleImage.alternativeText} />
+							<Image
+								src={titleImage.url}
+								width={titleImage.width}
+								height={titleImage.height}
+								alt={titleImage.alternativeText}
+							/>
 						</a>
 					</Link>
 				</Grid>

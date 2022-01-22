@@ -90,7 +90,7 @@ export default function Footer() {
 							<Grid item xs={12} md={4}>
 								<Title>
 									<LogoWrapper>
-										<Image src={Logo} alt={'безпроводна зарядка'}/>
+										<Image src={Logo} alt={'безпроводна зарядка'} />
 									</LogoWrapper>
 								</Title>
 								<Box sx={{ display: { sm: 'block', md: 'none' } }}>

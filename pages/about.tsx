@@ -15,7 +15,10 @@ const About: NextPage = () => {
 		<div>
 			<Head>
 				<title>Безпроводна зарядка | Chargefy</title>
-				<meta name='description' content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.' />
+				<meta
+					name='description'
+					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
@@ -28,7 +31,7 @@ const About: NextPage = () => {
 					<Box sx={{ my: '5rem' }}>
 						<Grid container spacing={4}>
 							<Grid item container xs={4} alignItems={'center'}>
-								<Image src={logo} alt={"chargefy"} />
+								<Image src={logo} alt={'chargefy'} />
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>

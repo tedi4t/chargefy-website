@@ -32,9 +32,9 @@ export const GridContainer = styled(Grid)`
 		flex-direction: column-reverse;
 	}
 
-  @media (min-width: 768px) {
-    height: 100%;
-  }
+	@media (min-width: 768px) {
+		height: 100%;
+	}
 `;
 
 export const ImageWrapper = styled.div`

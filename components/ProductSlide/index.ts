@@ -1,6 +1,6 @@
 import { ImageResponse } from '../../lib/apiResponse';
 
-export interface ProductSlideProps extends ImageResponse{}
+export interface ProductSlideProps extends ImageResponse {}
 
 import ProductSlide from './ProductSlide';
 

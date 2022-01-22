@@ -7,14 +7,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-import {
-	Navbar,
-	Footer,
-	Paper,
-	InfoTitle,
-	ShoppingCartItem,
-	ActionButton,
-} from '../../components';
+import { Navbar, Footer, Paper, InfoTitle, ShoppingCartItem, ActionButton } from '../../components';
 
 import banner from '../../media/banner/main.jpeg';
 import {
@@ -40,7 +33,10 @@ const ShoppingCartPage = () => {
 		<>
 			<Head>
 				<title>Тримач для телефону | Chargefy</title>
-				<meta name='description' content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.' />
+				<meta
+					name='description'
+					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 

@@ -150,7 +150,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 					/>
 					<WTextField
 						fullWidth
-						label="По батькові"
+						label='По батькові'
 						variant='outlined'
 						// value={order.name || ''}
 						onChange={(e: any) => {

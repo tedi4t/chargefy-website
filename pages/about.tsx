@@ -35,17 +35,9 @@ const About: NextPage = () => {
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
-									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Our Story</Box>
+									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Про нас</Box>
 									<Box sx={{ lineHeight: '2rem', mt: '3rem' }}>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium
-										adipisci aliquid atque autem, corporis, earum eligendi incidunt laudantium
-										molestiae nulla pariatur placeat quaerat qui quia quod sed sint tempore ullam
-										unde. Amet animi delectus deserunt doloremque doloribus error esse ex id iste
-										maiores maxime necessitatibus obcaecati odio quae quasi quibusdam reiciendis
-										totam, velit voluptas, voluptatum? Dolor enim fugit laboriosam magni, odio odit
-										perferendis praesentium recusandae temporibus voluptatem. Animi atque dolorem
-										eius, enim eum expedita in maiores maxime minima nisi officiis quam repellat
-										rerum sapiente sit, veritatis voluptatibus. Aperiam, soluta.
+										Ми новий магазин. Наша ціль - бути корисними для наших покупців, надавати якісні товари разом з зручним сервісом. Ми надаємо гарантію, тому що вважаємо, що онлайн-шопінг має бути максимально безпечним. Ми допогаємо знайти максимально якісні аксесуари для вашого телефону швидко та зручно.
 									</Box>
 								</Box>
 							</Grid>

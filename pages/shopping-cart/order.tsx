@@ -20,7 +20,7 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 		surname: null,
 		middleName: null,
 		phoneNumber: null,
-		payment: null,
+		payment: 'cash',
 		area: null,
 		city: null,
 		warehouse: null,

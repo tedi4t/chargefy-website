@@ -172,26 +172,26 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 							}));
 						}}
 					/>
-					<WRadioGroup
-						row
-						onChange={(e: any) => {
-							setOrder((order: OrderFormValue) => ({
-								...(order as OrderFormValue),
-								payment: e.target.value,
-							}));
-						}}
-					>
-						<FormControlLabel
-							value={'cash'}
-							control={<Radio />}
-							label={<Typography>Готівка</Typography>}
-						/>
-						<FormControlLabel
-							value={'card'}
-							control={<Radio />}
-							label={<Typography>Карта</Typography>}
-						/>
-					</WRadioGroup>
+					{/*<WRadioGroup*/}
+					{/*	row*/}
+					{/*	onChange={(e: any) => {*/}
+					{/*		setOrder((order: OrderFormValue) => ({*/}
+					{/*			...(order as OrderFormValue),*/}
+					{/*			payment: e.target.value,*/}
+					{/*		}));*/}
+					{/*	}}*/}
+					{/*>*/}
+					{/*	<FormControlLabel*/}
+					{/*		value={'cash'}*/}
+					{/*		control={<Radio />}*/}
+					{/*		label={<Typography>Готівка</Typography>}*/}
+					{/*	/>*/}
+					{/*	<FormControlLabel*/}
+					{/*		value={'card'}*/}
+					{/*		control={<Radio />}*/}
+					{/*		label={<Typography>Карта</Typography>}*/}
+					{/*	/>*/}
+					{/*</WRadioGroup>*/}
 				</Grid>
 				<Grid item xs={12} md={6}>
 					<Typography fontWeight={300} variant={'h5'}>

@@ -10,6 +10,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import MailIcon from '@mui/icons-material/Mail';
+import PhoneIcon from '@mui/icons-material/LocalPhone';
 
 import { Navbar, Paper, Footer, InfoTitle } from '../components';
 import { HighlightGrid } from '../components/Footer';
@@ -22,12 +23,12 @@ const Contacts: NextPage = () => {
 		{
 			icon: <FacebookIcon />,
 			text: 'Facebook',
-			href: 'https://facebook.com',
+			href: 'https://www.facebook.com/Chargefy-107689585112679/',
 		},
 		{
 			icon: <InstagramIcon />,
 			text: 'Instagram',
-			href: 'https://instagram.com',
+			href: 'https://www.instagram.com/chargefy/',
 		},
 		{
 			icon: <TelegramIcon />,
@@ -37,6 +38,10 @@ const Contacts: NextPage = () => {
 		{
 			icon: <MailIcon />,
 			text: 'chargefy.mail@gmail.com',
+		},
+		{
+			icon: <PhoneIcon />,
+			text: '+38 063 039 90 93',
 		},
 	];
 

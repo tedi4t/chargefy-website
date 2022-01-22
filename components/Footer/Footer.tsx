@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import PhoneIcon from '@mui/icons-material/LocalPhone';
 
 import {
 	Wrapper,
@@ -25,25 +26,29 @@ import Logo from '../../media/logo.png';
 interface Social {
 	icon: JSX.Element;
 	text: string;
-	href: string;
+	href?: string;
 }
 
 export default function Footer() {
-	const socials = [
+	const socials: Array<Social> = [
 		{
 			icon: <FacebookIcon />,
 			text: 'Facebook',
-			href: 'https://facebook.com',
+			href: 'https://www.facebook.com/Chargefy-107689585112679/',
 		},
 		{
 			icon: <InstagramIcon />,
 			text: 'Instagram',
-			href: 'https://instagram.com',
+			href: 'https://www.instagram.com/chargefy/',
 		},
 		{
 			icon: <TelegramIcon />,
 			text: 'Telegram',
 			href: 'https://telegram.com',
+		},
+		{
+			icon: <PhoneIcon />,
+			text: '+38 063 039 90 93',
 		},
 	];
 
@@ -104,9 +109,17 @@ export default function Footer() {
 											>
 												{social.icon}
 												<Box sx={{ ml: '1rem' }}>
-													<Link href={social.href}>
-														<a>{social.text}</a>
-													</Link>
+													{
+														social.href ? (
+															<Link href={social.href}>
+																<a>{social.text}</a>
+															</Link>
+														) : (
+															<>
+																{social.text}
+															</>
+														)
+													}
 												</Box>
 											</HighlightGrid>
 										))}
@@ -159,9 +172,17 @@ export default function Footer() {
 											>
 												{social.icon}
 												<Box sx={{ ml: '1rem' }}>
-													<Link href={social.href}>
-														<a>{social.text}</a>
-													</Link>
+													{
+														social.href ? (
+															<Link href={social.href}>
+																<a>{social.text}</a>
+															</Link>
+														) : (
+															<>
+																{social.text}
+															</>
+														)
+													}
 												</Box>
 											</HighlightGrid>
 										))}

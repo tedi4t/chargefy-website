@@ -11,7 +11,7 @@ import { ShoppingCartProvider } from '../contexts/shoppingCart';
 import { ShoppingCartChecker } from '../components';
 import { themeOptions } from '../themes/theme';
 import { useEffect } from 'react';
-import { GTMPageView } from '../utils/gtag';
+import { pageview } from '../utils/gtag';
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -22,7 +22,7 @@ const IntlProviderComponent = ({ children }: any) => {
 		const handleRouteChange = (url: URL) => {
 			/* invoke analytics function only for production */
 			if (isProduction)
-				GTMPageView(url);
+				pageview(url);
 		};
 		router.events.on("routeChangeComplete", handleRouteChange);
 		return () => {

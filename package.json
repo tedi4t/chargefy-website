@@ -23,6 +23,7 @@
     "swiper": "^7.4.1"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.8",
     "@types/node": "17.0.6",
     "@types/qs": "^6.9.7",
     "@types/react": "17.0.38",

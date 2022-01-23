@@ -1,14 +1,26 @@
-export const GTMPageView = (url: URL) => {
-	interface PageEventProps {
-		event: string;
-		page: string;
-	}
+const GA_TRACKING_ID = process.env.GA_TRACKING_ID
 
-	const pageEvent: PageEventProps = {
-		event: 'pageview',
-		page: url.href,
-	};
+// https://developers.google.com/analytics/devguides/collection/gtagjs/pages
+export const pageview = (url: URL): void => {
 	//@ts-ignore
-	window && window.dataLayer && window.dataLayer.push(pageEvent);
-	return pageEvent;
+	window.gtag("config", GA_TRACKING_ID, {
+		page_path: url,
+	});
+};
+
+type GTagEvent = {
+	action: string;
+	category: string;
+	label: string;
+	value: number;
+};
+
+// https://developers.google.com/analytics/devguides/collection/gtagjs/events
+export const event = ({ action, category, label, value }: GTagEvent): void => {
+	//@ts-ignore
+	window.gtag("event", action, {
+		event_category: category,
+		event_label: label,
+		value,
+	});
 };

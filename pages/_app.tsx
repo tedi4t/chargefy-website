@@ -13,7 +13,7 @@ import { themeOptions } from '../themes/theme';
 import { useEffect } from 'react';
 import { pageview } from '../utils/gtag';
 
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === 'production';
 
 const IntlProviderComponent = ({ children }: any) => {
 	const router = useRouter();
@@ -21,12 +21,11 @@ const IntlProviderComponent = ({ children }: any) => {
 	useEffect(() => {
 		const handleRouteChange = (url: URL) => {
 			/* invoke analytics function only for production */
-			if (isProduction)
-				pageview(url);
+			if (isProduction) pageview(url);
 		};
-		router.events.on("routeChangeComplete", handleRouteChange);
+		router.events.on('routeChangeComplete', handleRouteChange);
 		return () => {
-			router.events.off("routeChangeComplete", handleRouteChange);
+			router.events.off('routeChangeComplete', handleRouteChange);
 		};
 	}, [router.events]);
 

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
-const GA_TRACKING_ID = process.env.GA_TRACKING_ID
+const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
 class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
-		const initialProps = await Document.getInitialProps(ctx)
-		return { ...initialProps }
+		const initialProps = await Document.getInitialProps(ctx);
+		return { ...initialProps };
 	}
 
 	render() {
@@ -21,17 +21,14 @@ class MyDocument extends Document {
 								j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 								})(window,document,'script','dataLayer','GTM-TFRJCFL');
-							`
+							`,
 						}}
 					/>
 
-					<meta charSet="utf-8" />
+					<meta charSet='utf-8' />
 					<link rel='icon' href='/favicon.ico' />
 
-					<script
-						async
-						src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-					/>
+					<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `
@@ -46,12 +43,12 @@ class MyDocument extends Document {
 					/>
 				</Head>
 				<body>
-				<Main />
-				<NextScript />
+					<Main />
+					<NextScript />
 				</body>
 			</Html>
-		)
+		);
 	}
 }
 
-export default MyDocument
+export default MyDocument;

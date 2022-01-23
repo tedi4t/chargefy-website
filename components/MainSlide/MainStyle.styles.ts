@@ -27,7 +27,7 @@ export const Text = styled.p`
 `;
 
 export const GridContainer = styled(Grid)`
-  height: 100%;
+	height: 100%;
 
 	@media (max-width: 768px) {
 		flex-direction: column-reverse;
@@ -35,10 +35,10 @@ export const GridContainer = styled(Grid)`
 `;
 
 export const ImageContainer = styled.div`
-  @media (max-width: 768px) {
-    flex-grow: 1;
-    position: relative;
-  }
+	@media (max-width: 768px) {
+		flex-grow: 1;
+		position: relative;
+	}
 `;
 
 export const ContentContainer = styled.div`
@@ -47,9 +47,9 @@ export const ContentContainer = styled.div`
 	grid-template-columns: 1fr 1fr;
 	position: relative;
 
-  @media (max-width: 768px) {
+	@media (max-width: 768px) {
 		display: flex;
 		flex-direction: column-reverse;
 		height: 100%;
-  }
+	}
 `;

@@ -109,17 +109,13 @@ export default function Footer() {
 											>
 												{social.icon}
 												<Box sx={{ ml: '1rem' }}>
-													{
-														social.href ? (
-															<Link href={social.href}>
-																<a>{social.text}</a>
-															</Link>
-														) : (
-															<>
-																{social.text}
-															</>
-														)
-													}
+													{social.href ? (
+														<Link href={social.href}>
+															<a>{social.text}</a>
+														</Link>
+													) : (
+														<>{social.text}</>
+													)}
 												</Box>
 											</HighlightGrid>
 										))}
@@ -172,17 +168,13 @@ export default function Footer() {
 											>
 												{social.icon}
 												<Box sx={{ ml: '1rem' }}>
-													{
-														social.href ? (
-															<Link href={social.href}>
-																<a>{social.text}</a>
-															</Link>
-														) : (
-															<>
-																{social.text}
-															</>
-														)
-													}
+													{social.href ? (
+														<Link href={social.href}>
+															<a>{social.text}</a>
+														</Link>
+													) : (
+														<>{social.text}</>
+													)}
 												</Box>
 											</HighlightGrid>
 										))}

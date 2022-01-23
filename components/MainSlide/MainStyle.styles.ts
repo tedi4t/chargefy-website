@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import Grid from '@mui/material/Grid';
-import Image from 'next/image';
 
 export const SlideContent = styled.div`
 	height: 100%;
@@ -28,17 +27,29 @@ export const Text = styled.p`
 `;
 
 export const GridContainer = styled(Grid)`
+  height: 100%;
+
 	@media (max-width: 768px) {
 		flex-direction: column-reverse;
 	}
-
-	@media (min-width: 768px) {
-		height: 100%;
-	}
 `;
 
-export const ImageWrapper = styled.div`
-	height: 100%;
-	width: 100%;
+export const ImageContainer = styled.div`
+  @media (max-width: 768px) {
+    flex-grow: 1;
+    position: relative;
+  }
+`;
+
+export const ContentContainer = styled.div`
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: 1fr 1fr;
 	position: relative;
+
+  @media (max-width: 768px) {
+		display: flex;
+		flex-direction: column-reverse;
+		height: 100%;
+  }
 `;

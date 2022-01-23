@@ -113,7 +113,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 	return (
 		<div>
 			<Head>
-				<title>Магнітний тримач | Chargefy</title>
+				<title>Chargefy</title>
 				<meta
 					name='description'
 					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'

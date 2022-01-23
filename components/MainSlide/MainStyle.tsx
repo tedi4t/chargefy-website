@@ -23,12 +23,14 @@ export default function MainStyle(slide: SlideProps) {
 						<ImageContainer>
 							{typeof window !== 'undefined' ? (
 								window.innerWidth > 768 ? (
-									<Image
-										src={slide.img.url}
-										width={slide.img.width}
-										height={slide.img.height}
-										alt={slide.img.alternativeText}
-									/>
+									<Grid container alignItems={'center'} justifyContent={'center'}>
+										<Image
+											src={slide.img.url}
+											width={slide.img.width}
+											height={slide.img.height}
+											alt={slide.img.alternativeText}
+										/>
+									</Grid>
 								) : (
 									<Image src={slide.img.url} alt={'зарядка'} layout={'fill'} objectFit='contain' />
 								)

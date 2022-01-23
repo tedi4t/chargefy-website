@@ -11,6 +11,7 @@ import banner from '../../media/banner/main.jpeg';
 import OrderForm, { NovaPoschtaInfo, OrderFormValue } from '../../components/OrderForm';
 import { fetchAPI, fetchNovaPoschtaApi } from '../../lib/api';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
+import { event } from '../../utils/gtag';
 
 const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 	const router = useRouter();
@@ -65,6 +66,7 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 			}) || [];
 
 		Promise.all(promises).then(() => {
+			event({ action: 'add', category: 'ecommerce', label: 'purchase', value: 0 })
 			if (dispatch) {
 				dispatch({ type: 'clearState' });
 			}
@@ -75,7 +77,7 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 	return (
 		<>
 			<Head>
-				<title>Магнітний тримач | Chargefy</title>
+				<title>Замовити | Chargefy</title>
 				<meta
 					name='description'
 					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'

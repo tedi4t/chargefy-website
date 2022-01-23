@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
 
 export const Title = styled(Typography)`
 	font-weight: 300;
+
+  @media (max-width: 768px) {
+    font-size: 2.75rem !important;
+  }
 `;
 Title.defaultProps = {
 	variant: 'h2',

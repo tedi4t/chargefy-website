@@ -8,7 +8,6 @@ import {
 	Carousel,
 	Navbar,
 	Products,
-	Title,
 	Footer,
 	Sidebar,
 	MainSlide,
@@ -91,7 +90,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 
 		if (filters.minPrice !== null && filters.maxPrice !== null) {
 			queryFilters.price = {
-				$between: [filters.minPrice, filters.maxPrice],
+				$between: [filters.minPrice, filters.maxPrice].map(Math.floor),
 			};
 		}
 

@@ -16,6 +16,7 @@ import {
 } from './Sidebar.styles';
 import { CategoryResponse, ColorResponse } from '../../lib/apiResponse';
 import { FiltersProps } from './index';
+import useDebounce from '../../hooks/useDebounce';
 
 export interface SidebarProps {
 	colors: Array<ColorResponse>;
@@ -34,6 +35,7 @@ export default function Sidebar({
 }: SidebarProps) {
 	const offset = 50;
 	const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]);
+	const debouncedPriceRange = useDebounce(priceRange, 1000);
 
 	const minPriceW = Math.max(minPrice - offset, 0);
 	const maxPriceW = maxPrice + offset;
@@ -63,10 +65,10 @@ export default function Sidebar({
 		const range = maxPriceW - minPriceW;
 		setFilters((filters: FiltersProps) => ({
 			...filters,
-			minPrice: (priceRange[0] / 100) * range + minPriceW,
-			maxPrice: (priceRange[1] / 100) * range + minPriceW,
+			minPrice: Math.floor((debouncedPriceRange[0] / 100) * range + minPriceW),
+			maxPrice: Math.floor((debouncedPriceRange[1] / 100) * range + minPriceW),
 		}));
-	}, [priceRange, maxPriceW, minPriceW, setFilters]);
+	}, [debouncedPriceRange, maxPriceW, minPriceW, setFilters]);
 
 	const onCategoryChange = (e: any): void => {
 		const category = e.target.value;

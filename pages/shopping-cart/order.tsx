@@ -10,7 +10,7 @@ import { Navbar, Footer, Paper, InfoTitle, Title, ActionButton } from '../../com
 import banner from '../../media/banner/main.jpeg';
 import OrderForm, { NovaPoschtaInfo, OrderFormValue } from '../../components/OrderForm';
 import { fetchAPI, fetchNovaPoschtaApi } from '../../lib/api';
-import { shoppingCartContext } from '../../contexts/shoppingCart';
+import { shoppingCartContext, ShoppingCartItem } from '../../contexts/shoppingCart';
 import { event } from '../../utils/gtag';
 
 const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
@@ -66,7 +66,10 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 			}) || [];
 
 		Promise.all(promises).then(() => {
-			event({ action: 'purchase', category: 'ecommerce', label: 'purchase', value: 0 })
+			const totalPrice: number = shoppingCart?.reduce((acc: number, shoppingCartItem: ShoppingCartItem) => {
+				return acc + (shoppingCartItem.product.price * shoppingCartItem.quantity);
+			}, 0) || 0
+			event({ action: 'purchase', category: 'ecommerce', label: 'purchase', value: totalPrice })
 			if (dispatch) {
 				dispatch({ type: 'clearState' });
 			}

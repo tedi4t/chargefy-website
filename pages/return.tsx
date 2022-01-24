@@ -14,10 +14,10 @@ const About: NextPage = () => {
 	return (
 		<div>
 			<Head>
-				<title>Доставка | Chargefy</title>
+				<title>Повернення | Chargefy</title>
 				<meta
 					name='description'
-					content='Безпровідна автомобільна зарядка швидко зарядить ваш телефон а також буде надійно тримати його у дорозі.'
+					content='Безпровідна зарядка тримач для телефона швидко зарядить ваш телефон. Індукційна зарядка тримач. Тримач з безпроводною зарядкою.'
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
@@ -25,7 +25,7 @@ const About: NextPage = () => {
 			<main>
 				<Navbar />
 
-				<Paper img={banner} element={<InfoTitle text={'доставка'} />} />
+				<Paper img={banner} element={<InfoTitle text={'Повернення'} />} />
 
 				<Container>
 					<Box sx={{ my: '5rem' }}>
@@ -35,13 +35,11 @@ const About: NextPage = () => {
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
-									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Доставка</Box>
+									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Повернення</Box>
 									<Box sx={{ lineHeight: '2rem', mt: '3rem' }}>
-										Доставку здійснюємо через поштовий сервіс «Нова Пошта».
-										Пріоритетною для нас є оплата через наложений платіж,
-										адже так ви можете особисто переконатися в якості товару перед його оплатою,
-										але також можлива оплата картою за Вашим бажанням. Також будемо раді
-										відправити іншим сервісом доставки який Ви вкажете.
+										Розділ повернення зараз знаходиться у розробці, але Ви можете
+										повернути товар зв'язавшись з нами за контактними телефонами.
+										Наші менеджери будуть завжди раді допомогти Вам.
 									</Box>
 								</Box>
 							</Grid>

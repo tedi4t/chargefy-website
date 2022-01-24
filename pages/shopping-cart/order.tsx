@@ -66,7 +66,7 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 			}) || [];
 
 		Promise.all(promises).then(() => {
-			event({ action: 'add', category: 'ecommerce', label: 'purchase', value: 0 })
+			event({ action: 'purchase', category: 'ecommerce', label: 'purchase', value: 0 })
 			if (dispatch) {
 				dispatch({ type: 'clearState' });
 			}

@@ -42,6 +42,7 @@ const Contacts: NextPage = () => {
 		{
 			icon: <PhoneIcon />,
 			text: '+38 063 039 90 93',
+			href: 'tel:+380630399093',
 		},
 	];
 

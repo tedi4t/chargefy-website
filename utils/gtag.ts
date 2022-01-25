@@ -13,14 +13,16 @@ type GTagEvent = {
 	category: string;
 	label: string;
 	value: number;
+	[key: string]: any;
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({ action, category, label, value }: GTagEvent): void => {
+export const event = ({ action, category, label, value, ...rest }: GTagEvent): void => {
 	//@ts-ignore
 	window.gtag('event', action, {
 		event_category: category,
 		event_label: label,
 		value,
+		...rest,
 	});
 };

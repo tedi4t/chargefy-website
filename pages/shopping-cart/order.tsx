@@ -66,10 +66,17 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 			}) || [];
 
 		Promise.all(promises).then(() => {
-			const totalPrice: number = shoppingCart?.reduce((acc: number, shoppingCartItem: ShoppingCartItem) => {
-				return acc + (shoppingCartItem.product.price * shoppingCartItem.quantity);
-			}, 0) || 0
-			event({ action: 'purchase', category: 'ecommerce', label: 'purchase', value: totalPrice })
+			const totalPrice: number =
+				shoppingCart?.reduce((acc: number, shoppingCartItem: ShoppingCartItem) => {
+					return acc + shoppingCartItem.product.price * shoppingCartItem.quantity;
+				}, 0) || 0;
+			event({
+				action: 'purchase',
+				category: 'ecommerce',
+				label: 'purchase',
+				value: totalPrice,
+				currency: 'UAH',
+			});
 			if (dispatch) {
 				dispatch({ type: 'clearState' });
 			}

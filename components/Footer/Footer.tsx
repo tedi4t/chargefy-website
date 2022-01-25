@@ -44,7 +44,7 @@ export default function Footer() {
 		{
 			icon: <TelegramIcon />,
 			text: 'Telegram',
-			href: 'https://telegram.com',
+			href: 'https://t.me/chargefy',
 		},
 		{
 			icon: <PhoneIcon />,

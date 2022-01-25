@@ -10,7 +10,7 @@ import { Navbar, Paper, Footer, InfoTitle } from '../components';
 import banner from '../media/banner/main.jpeg';
 import logo from '../media/logo.png';
 
-const About: NextPage = () => {
+const Return: NextPage = () => {
 	return (
 		<div>
 			<Head>
@@ -53,4 +53,4 @@ const About: NextPage = () => {
 	);
 };
 
-export default About;
+export default Return;

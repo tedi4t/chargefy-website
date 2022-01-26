@@ -22,11 +22,13 @@ import {
 } from './Footer.styles';
 
 import Logo from '../../media/logo.png';
+import { event } from '../../utils/gtag';
 
 interface Social {
 	icon: JSX.Element;
 	text: string;
 	href?: string;
+	cb?: () => void;
 }
 
 export default function Footer() {
@@ -45,11 +47,29 @@ export default function Footer() {
 			icon: <TelegramIcon />,
 			text: 'Telegram',
 			href: 'https://t.me/chargefy',
+			cb: () => {
+				event({
+					action: 'telegram_click',
+					category: 'ecommerce',
+					label: 'telegram_click',
+					value: 300,
+					currency: 'UAH',
+				});
+			},
 		},
 		{
 			icon: <PhoneIcon />,
 			text: '+38 063 039 90 93',
 			href: 'tel:+380630399093',
+			cb: () => {
+				event({
+					action: 'phone_call',
+					category: 'ecommerce',
+					label: 'phone_call',
+					value: 300,
+					currency: 'UAH',
+				});
+			},
 		},
 	];
 
@@ -109,7 +129,7 @@ export default function Footer() {
 												key={social.text}
 											>
 												{social.icon}
-												<Box sx={{ ml: '1rem' }}>
+												<Box sx={{ ml: '1rem' }} onClick={social.cb}>
 													{social.href ? (
 														<Link href={social.href}>
 															<a>{social.text}</a>

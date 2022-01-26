@@ -17,6 +17,7 @@ import { HighlightGrid } from '../components/Footer';
 
 import banner from '../media/banner/main.jpeg';
 import logo from '../media/logo.png';
+import { event } from '../utils/gtag';
 
 const Contacts: NextPage = () => {
 	const socials = [
@@ -34,6 +35,15 @@ const Contacts: NextPage = () => {
 			icon: <TelegramIcon />,
 			text: 'Telegram',
 			href: 'https://t.me/chargefy',
+			cb: () => {
+				event({
+					action: 'telegram_click',
+					category: 'ecommerce',
+					label: 'telegram_click',
+					value: 300,
+					currency: 'UAH',
+				});
+			}
 		},
 		{
 			icon: <MailIcon />,
@@ -43,6 +53,15 @@ const Contacts: NextPage = () => {
 			icon: <PhoneIcon />,
 			text: '+38 063 039 90 93',
 			href: 'tel:+380630399093',
+			cb: () => {
+				event({
+					action: 'phone_call',
+					category: 'ecommerce',
+					label: 'phone_call',
+					value: 300,
+					currency: 'UAH',
+				});
+			}
 		},
 	];
 
@@ -77,7 +96,7 @@ const Contacts: NextPage = () => {
 												{social.href ? (
 													<Link href={social.href}>
 														<a>
-															<Box sx={{ my: '1rem' }}>
+															<Box sx={{ my: '1rem' }} onClick={social.cb}>
 																<HighlightGrid container alignItems={'center'}>
 																	{social.icon}
 																	<Box sx={{ ml: '1rem' }}>{social.text}</Box>

@@ -49,9 +49,9 @@ export default function Footer() {
 			href: 'https://t.me/chargefy',
 			cb: () => {
 				event({
-					action: 'telegram_click',
+					action: 'purchase',
 					category: 'ecommerce',
-					label: 'telegram_click',
+					label: 'purchase',
 					value: 300,
 					currency: 'UAH',
 				});
@@ -63,9 +63,9 @@ export default function Footer() {
 			href: 'tel:+380630399093',
 			cb: () => {
 				event({
-					action: 'phone_call',
+					action: 'purchase',
 					category: 'ecommerce',
-					label: 'phone_call',
+					label: 'purchase',
 					value: 300,
 					currency: 'UAH',
 				});

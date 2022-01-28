@@ -18,7 +18,7 @@ type GTagEvent = {
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({ action, category, label, value, ...rest }: GTagEvent): void => {
+export const event = ({ action, category, label, value, ...rest }: GTagEvent, cb?: () => void): void => {
 	//@ts-ignore
 	window.gtag('event', action, {
 		event_category: category,
@@ -33,6 +33,7 @@ export const event = ({ action, category, label, value, ...rest }: GTagEvent): v
 			'value': value,
 			'currency': 'UAH',
 			'transaction_id': '',
+			'event_callback': cb
 		});
 	}
 };

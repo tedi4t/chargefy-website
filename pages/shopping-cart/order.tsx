@@ -76,11 +76,14 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 				label: 'purchase',
 				value: totalPrice,
 				currency: 'UAH',
-			});
-			if (dispatch) {
-				dispatch({ type: 'clearState' });
-			}
-			router.push('/');
+			},
+				() => {
+					if (dispatch) {
+						dispatch({ type: 'clearState' });
+					}
+					router.push('/');
+				}
+			);
 		});
 	};
 

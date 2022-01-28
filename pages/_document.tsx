@@ -2,7 +2,6 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
-const ADS_ID = process.env.ADS_ID;
 
 class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
@@ -40,20 +39,6 @@ class MyDocument extends Document {
               page_path: window.location.pathname,
             });
           `,
-						}}
-					/>
-
-					{/* Google ADS */}
-					<script async src={`https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`}></script>
-					<script
-						dangerouslySetInnerHTML={{
-							__html: `
-								window.dataLayer = window.dataLayer || [];
-								function gtag(){dataLayer.push(arguments);}
-								gtag('js', new Date());
-
-								gtag('config', '${ADS_ID}');
-							`
 						}}
 					/>
 

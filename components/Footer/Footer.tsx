@@ -101,10 +101,10 @@ export default function Footer() {
 			name: 'Повернення',
 			href: '/return',
 		},
-		{
-			name: 'Запитання',
-			href: '/faq',
-		},
+		// {
+		// 	name: 'Запитання',
+		// 	href: '/faq',
+		// },
 	];
 
 	return (

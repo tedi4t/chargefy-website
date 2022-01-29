@@ -27,7 +27,7 @@ export default function Navbar() {
 			href: '/',
 		},
 		{
-			name: 'Продукти',
+			name: 'Товари',
 			href: '/products',
 		},
 		{

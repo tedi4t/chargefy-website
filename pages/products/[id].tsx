@@ -1,16 +1,18 @@
 import { useContext, useState } from 'react';
 import type { NextPageContext } from 'next';
+import Link from 'next/link';
 import Head from 'next/head';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Typography from '@mui/material/Typography';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import {
 	Carousel,
 	Navbar,
-	Paper,
 	Footer,
-	InfoTitle,
 	ProductSlide,
 	ProductInfo,
 	BuyButton,
@@ -18,7 +20,6 @@ import {
 import { fetchAPI } from '../../lib/api';
 import { ProductResponse } from '../../lib/apiResponse';
 
-import banner from '../../media/banner/main.jpeg';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
 import { toProductResponse } from '../../lib/formatter';
 
@@ -48,6 +49,21 @@ const ProductPage = ({ product }: ProductResponse) => {
 		setQuantity(quantity - 1);
 	};
 
+	const stages = {
+		mainPage: {
+			name: 'Головна сторінка',
+			path: '/',
+		},
+		products: {
+			name: 'Товари',
+			path: '/products',
+		},
+		currentProduct: {
+			name: product.title,
+			path: `/products/${product.id}`,
+		}
+	}
+
 	return (
 		<div>
 			<Head>
@@ -59,10 +75,21 @@ const ProductPage = ({ product }: ProductResponse) => {
 			<main>
 				<Navbar />
 
-				<Paper img={banner} element={<InfoTitle text={'chargefy'} />} />
-
 				<Container>
-					<Box sx={{ my: { xs: '2rem', md: '5rem' } }}>
+					<Box sx={{ mt: { xs: '6rem', md: '8rem' }}}>
+						<Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
+							{
+								Object.values(stages).map(stage => (
+									<Link href={stage.path} key={stage.path}>
+										<a>
+											{stage.name}
+										</a>
+									</Link>
+								))
+							}
+						</Breadcrumbs>
+					</Box>
+					<Box sx={{ mt: { xs: '1rem', md: '3rem' }, mb: { xs: '2rem', md: '5rem' }}}>
 						<Grid container spacing={4}>
 							<Grid item container xs={12} md={6} alignItems={'center'}>
 								<Carousel Slide={ProductSlide} content={product.images} />

@@ -79,7 +79,7 @@ export default function Footer() {
 			href: '/',
 		},
 		{
-			name: 'Продукти',
+			name: 'Товари',
 			href: '/products',
 		},
 		{

@@ -1,5 +1,5 @@
 import {
-	CategoriesResponse,
+	CategoriesResponse, Category,
 	ColorsResponse,
 	ImageResponse,
 	ProductResponse,
@@ -28,7 +28,7 @@ export const toProductsListResponse = (response: any, size: string = 'small'): P
 					title: product.attributes.title,
 					price: product.attributes.price,
 					beforePrice: product.attributes.beforePrice,
-					mainImg: toImageResponse(mainImg),
+					mainImg: toImageResponse(mainImg, size),
 				};
 			}),
 			meta: response.meta,
@@ -52,6 +52,13 @@ export const toTitleProductsListResponse = (response: any): TitleProductsListRes
 	};
 }
 
+export const toCategoryResponse = (response: any): Category => {
+	return {
+		id: response.data.id,
+		name: response.data.attributes.name,
+	}
+}
+
 export const toProductResponse = (response: any): ProductResponse => {
 	const product = response.data.attributes;
 	const images = product.images.data;
@@ -65,6 +72,7 @@ export const toProductResponse = (response: any): ProductResponse => {
 			beforePrice: product.beforePrice,
 			characteristic: product.characteristic,
 			images: [product.mainImage.data, ...images].map((image: any) => toImageResponse(image.attributes)),
+			category: toCategoryResponse(product.category)
 		},
 	} as ProductResponse;
 }

@@ -5,6 +5,11 @@ export interface ImageResponse {
 	alternativeText: string;
 }
 
+export interface Category {
+	id: number;
+	name: string;
+}
+
 export interface Product {
 	id: string,
 	title: string,
@@ -12,7 +17,8 @@ export interface Product {
 	price: number,
 	beforePrice?: number,
 	characteristic: Record<string, string>,
-	images: Array<ImageResponse>
+	images: Array<ImageResponse>,
+	category: Category;
 }
 
 export interface ProductsListResponse {

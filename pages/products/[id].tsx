@@ -6,7 +6,6 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Typography from '@mui/material/Typography';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import {
@@ -16,14 +15,22 @@ import {
 	ProductSlide,
 	ProductInfo,
 	BuyButton,
+	Title,
+	Products,
 } from '../../components';
 import { fetchAPI } from '../../lib/api';
-import { ProductResponse } from '../../lib/apiResponse';
+import { ProductResponse, ProductsListResponse } from '../../lib/apiResponse';
 
 import { shoppingCartContext } from '../../contexts/shoppingCart';
-import { toProductResponse } from '../../lib/formatter';
+import { toProductResponse, toProductsListResponse } from '../../lib/formatter';
+import qs from 'qs';
 
-const ProductPage = ({ product }: ProductResponse) => {
+export interface ProductPageProps {
+	productResponse: ProductResponse;
+	categoryProducts: ProductsListResponse;
+}
+
+const ProductPage = ({ productResponse: { product }, categoryProducts: { products: categoryProducts } }: ProductPageProps) => {
 	const [quantity, setQuantity] = useState(0);
 	const [, dispatch] = useContext(shoppingCartContext);
 
@@ -62,7 +69,7 @@ const ProductPage = ({ product }: ProductResponse) => {
 			name: product.title,
 			path: `/products/${product.id}`,
 		}
-	}
+	};
 
 	return (
 		<div>
@@ -106,6 +113,17 @@ const ProductPage = ({ product }: ProductResponse) => {
 							</Grid>
 						</Grid>
 					</Box>
+
+					{
+						!!categoryProducts.data.length && (
+							<>
+								<Title text={'Схожі товари'} />
+								<Box sx={{ my: '2rem' }}>
+									<Products products={categoryProducts.data} />
+								</Box>
+							</>
+						)
+					}
 				</Container>
 			</main>
 
@@ -114,11 +132,37 @@ const ProductPage = ({ product }: ProductResponse) => {
 	);
 };
 
-ProductPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductResponse> => {
+ProductPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductPageProps> => {
 	const id = ctx.query.id;
-	const url = `/products/${id}?populate=*`;
-	const response = await fetchAPI(url);
-	return toProductResponse(response);
+	const productUrl = `/products/${id}?populate=*`;
+	const response = await fetchAPI(productUrl);
+	const productResponse = toProductResponse(response);
+
+	const categoryQuery = qs.stringify({
+		filters: {
+			category: {
+				id: {
+					$eq: productResponse.product.category.id,
+				},
+			},
+			id: {
+				$ne: productResponse.product.id,
+			}
+		},
+		pagination: {
+			page: 1,
+			rowsPerPage: 4,
+		},
+		populate: '*',
+	});
+	const categoryUrl = `/products?${categoryQuery}`;
+	const categoryResponse = await fetchAPI(categoryUrl);
+	const categoryProducts = toProductsListResponse(categoryResponse);
+
+	return {
+		productResponse,
+		categoryProducts,
+	}
 };
 
 export default ProductPage;

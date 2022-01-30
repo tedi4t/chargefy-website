@@ -2,7 +2,7 @@ export interface ProductInfoProps {
 	title: string;
 	description: string;
 	price: number;
-	sale?: number;
+	beforePrice?: number;
 	characteristic: Record<string, string>;
 }
 

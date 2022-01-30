@@ -23,10 +23,10 @@ export default function ProductInfo(props: ProductInfoProps) {
 				))}
 			</Characheristics>
 			<Price>
-				{props.sale ? (
+				{props.beforePrice ? (
 					<>
-						<span className={'crossed'}>₴{props.price}</span>
-						<span className={'sale'}>₴{props.sale}</span>
+						<span className={'crossed'}>₴{props.beforePrice}</span>
+						<span className={'sale'}>₴{props.price}</span>
 					</>
 				) : (
 					<>₴{props.price}</>

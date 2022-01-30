@@ -43,7 +43,7 @@ const Contacts: NextPage = () => {
 					value: 300,
 					currency: 'UAH',
 				});
-			}
+			},
 		},
 		{
 			icon: <MailIcon />,
@@ -61,7 +61,7 @@ const Contacts: NextPage = () => {
 					value: 300,
 					currency: 'UAH',
 				});
-			}
+			},
 		},
 	];
 

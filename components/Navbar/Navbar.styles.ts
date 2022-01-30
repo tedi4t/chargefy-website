@@ -58,4 +58,4 @@ export const GridMenuItem = styled(Grid)`
 `;
 GridMenuItem.defaultProps = {
 	item: true,
-}
+};

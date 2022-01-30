@@ -10,7 +10,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import { WAppBar, LogoWrapper, PageName, WShoppingCartIcon, GridFullHeight, GridMenuItem } from './Navbar.styles';
+import {
+	WAppBar,
+	LogoWrapper,
+	PageName,
+	WShoppingCartIcon,
+	GridFullHeight,
+	GridMenuItem,
+} from './Navbar.styles';
 
 import Logo from '../../media/logo.png';
 import { useContext, useState } from 'react';
@@ -78,19 +85,22 @@ export default function Navbar() {
 						</IconButton>
 						<Overlay opened={isMenuOpened} onClose={handleCloseNavMenu}>
 							<GridFullHeight container>
-								{
-									pages.map(page => (
-										<GridMenuItem key={page.href}>
-											<Link href={page.href}>
-												<a>
-													<Typography color={'primary'} fontWeight={'light'} fontSize={'1.2rem'} textAlign={'center'}>
-														{page.name}
-													</Typography>
-												</a>
-											</Link>
-										</GridMenuItem>
-									))
-								}
+								{pages.map(page => (
+									<GridMenuItem key={page.href}>
+										<Link href={page.href}>
+											<a>
+												<Typography
+													color={'primary'}
+													fontWeight={'light'}
+													fontSize={'1.2rem'}
+													textAlign={'center'}
+												>
+													{page.name}
+												</Typography>
+											</a>
+										</Link>
+									</GridMenuItem>
+								))}
 							</GridFullHeight>
 						</Overlay>
 					</Box>

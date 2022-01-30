@@ -18,14 +18,14 @@ import { ProductInfoProps } from './index';
 
 export default function ProductInfo(props: ProductInfoProps) {
 	const advantages: Array<{
-		icon: JSX.Element,
+		icon: JSX.Element;
 		text: string;
 	}> = [
 		{
 			icon: <LocalShippingIcon color={'primary'} />,
 			text: 'Безкоштовна доставка від 790 гривень',
 		},
-	]
+	];
 
 	return (
 		<div>
@@ -50,22 +50,16 @@ export default function ProductInfo(props: ProductInfoProps) {
 				)}
 			</Price>
 			<Advantages>
-				{
-					advantages.map(advantage => (
-						<Box sx={{ mt: '0.5rem' }} key={advantage.text}>
-							<Grid container spacing={2}>
-								<Grid item>
-									{advantage.icon}
-								</Grid>
-								<Grid item>
-									<Typography fontWeight={'light'}>
-										{advantage.text}
-									</Typography>
-								</Grid>
+				{advantages.map(advantage => (
+					<Box sx={{ mt: '0.5rem' }} key={advantage.text}>
+						<Grid container spacing={2}>
+							<Grid item>{advantage.icon}</Grid>
+							<Grid item>
+								<Typography fontWeight={'light'}>{advantage.text}</Typography>
 							</Grid>
-						</Box>
-					))
-				}
+						</Grid>
+					</Box>
+				))}
 			</Advantages>
 		</div>
 	);

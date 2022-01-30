@@ -20,5 +20,5 @@ export default function OverlayComponent({ opened, children, onClose }: OverlayC
 			</Box>
 			{children}
 		</Overlay>
-	)
+	);
 }

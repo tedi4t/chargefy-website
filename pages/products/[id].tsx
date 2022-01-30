@@ -32,7 +32,10 @@ export interface ProductPageProps {
 	categoryProducts: ProductsListResponse;
 }
 
-const ProductPage = ({ productResponse: { product }, categoryProducts: { products: categoryProducts } }: ProductPageProps) => {
+const ProductPage = ({
+	productResponse: { product },
+	categoryProducts: { products: categoryProducts },
+}: ProductPageProps) => {
 	const [quantity, setQuantity] = useState(0);
 	const [, dispatch] = useContext(shoppingCartContext);
 
@@ -70,7 +73,7 @@ const ProductPage = ({ productResponse: { product }, categoryProducts: { product
 		currentProduct: {
 			name: product.title,
 			path: `/products/${product.id}`,
-		}
+		},
 	};
 
 	return (
@@ -85,20 +88,16 @@ const ProductPage = ({ productResponse: { product }, categoryProducts: { product
 				<Navbar />
 
 				<Container>
-					<Box sx={{ mt: { xs: '6rem', md: '8rem' }}}>
-						<Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
-							{
-								Object.values(stages).map(stage => (
-									<Link href={stage.path} key={stage.path}>
-										<a>
-											{stage.name}
-										</a>
-									</Link>
-								))
-							}
+					<Box sx={{ mt: { xs: '6rem', md: '8rem' } }}>
+						<Breadcrumbs separator={<NavigateNextIcon fontSize='small' />}>
+							{Object.values(stages).map(stage => (
+								<Link href={stage.path} key={stage.path}>
+									<a>{stage.name}</a>
+								</Link>
+							))}
 						</Breadcrumbs>
 					</Box>
-					<Box sx={{ mt: { xs: '1rem', md: '3rem' }, mb: { xs: '2rem', md: '5rem' }}}>
+					<Box sx={{ mt: { xs: '1rem', md: '3rem' }, mb: { xs: '2rem', md: '5rem' } }}>
 						<Grid container spacing={4}>
 							<Grid item container xs={12} md={6} alignItems={'center'}>
 								<Carousel Slide={ProductSlide} content={product.images} />
@@ -119,9 +118,7 @@ const ProductPage = ({ productResponse: { product }, categoryProducts: { product
 										</Grid>
 										<Grid item>
 											<Grid container alignItems={'center'} height={'100%'}>
-												<Typography fontWeight={'light'}>
-													+380 63 039 90 93
-												</Typography>
+												<Typography fontWeight={'light'}>+380 63 039 90 93</Typography>
 											</Grid>
 										</Grid>
 									</Grid>
@@ -130,16 +127,14 @@ const ProductPage = ({ productResponse: { product }, categoryProducts: { product
 						</Grid>
 					</Box>
 
-					{
-						!!categoryProducts.data.length && (
-							<>
-								<Title text={'Схожі товари'} />
-								<Box sx={{ my: '2rem' }}>
-									<Products products={categoryProducts.data} />
-								</Box>
-							</>
-						)
-					}
+					{!!categoryProducts.data.length && (
+						<>
+							<Title text={'Схожі товари'} />
+							<Box sx={{ my: '2rem' }}>
+								<Products products={categoryProducts.data} />
+							</Box>
+						</>
+					)}
 				</Container>
 			</main>
 
@@ -163,7 +158,7 @@ ProductPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductPageP
 			},
 			id: {
 				$ne: productResponse.product.id,
-			}
+			},
 		},
 		pagination: {
 			page: 1,
@@ -178,7 +173,7 @@ ProductPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductPageP
 	return {
 		productResponse,
 		categoryProducts,
-	}
+	};
 };
 
 export default ProductPage;

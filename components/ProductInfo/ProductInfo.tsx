@@ -1,3 +1,9 @@
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import PercentIcon from '@mui/icons-material/Percent';
+
 import {
 	Title,
 	Description,
@@ -6,10 +12,21 @@ import {
 	Key,
 	Value,
 	Price,
+	Advantages,
 } from './ProductInfo.styles';
 import { ProductInfoProps } from './index';
 
 export default function ProductInfo(props: ProductInfoProps) {
+	const advantages: Array<{
+		icon: JSX.Element,
+		text: string;
+	}> = [
+		{
+			icon: <LocalShippingIcon color={'primary'} />,
+			text: 'Безкоштовна доставка від 790 гривень',
+		},
+	]
+
 	return (
 		<div>
 			<Title>{props.title}</Title>
@@ -32,6 +49,24 @@ export default function ProductInfo(props: ProductInfoProps) {
 					<>₴{props.price}</>
 				)}
 			</Price>
+			<Advantages>
+				{
+					advantages.map(advantage => (
+						<Box sx={{ mt: '0.5rem' }} key={advantage.text}>
+							<Grid container spacing={2}>
+								<Grid item>
+									{advantage.icon}
+								</Grid>
+								<Grid item>
+									<Typography fontWeight={'light'}>
+										{advantage.text}
+									</Typography>
+								</Grid>
+							</Grid>
+						</Box>
+					))
+				}
+			</Advantages>
 		</div>
 	);
 }

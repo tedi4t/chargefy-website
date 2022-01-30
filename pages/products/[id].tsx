@@ -7,6 +7,8 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import PhoneIcon from '@mui/icons-material/Phone';
+import Typography from '@mui/material/Typography';
 
 import {
 	Carousel,
@@ -109,6 +111,20 @@ const ProductPage = ({ productResponse: { product }, categoryProducts: { product
 										handleAddClick={handleAddClick}
 										handleRemoveClick={handleRemoveClick}
 									/>
+								</Box>
+								<Box sx={{ mt: '1.2rem' }}>
+									<Grid container spacing={2}>
+										<Grid item alignItems={'center'}>
+											<PhoneIcon color={'primary'} />
+										</Grid>
+										<Grid item>
+											<Grid container alignItems={'center'} height={'100%'}>
+												<Typography fontWeight={'light'}>
+													+380 63 039 90 93
+												</Typography>
+											</Grid>
+										</Grid>
+									</Grid>
 								</Box>
 							</Grid>
 						</Grid>

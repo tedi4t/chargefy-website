@@ -49,3 +49,7 @@ export const Price = styled.h3`
 		color: #e99c2e;
 	}
 `;
+
+export const Advantages = styled.div`
+	//margin-top: 2.5rem;
+`;

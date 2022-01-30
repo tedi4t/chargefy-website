@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -44,3 +45,17 @@ export const WShoppingCartIcon = styled(ShoppingCartIcon)`
 		color: #e99c2e;
 	}
 `;
+
+export const GridFullHeight = styled(Grid)`
+	height: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+`;
+
+export const GridMenuItem = styled(Grid)`
+	margin-top: 1.5rem;
+`;
+GridMenuItem.defaultProps = {
+	item: true,
+}

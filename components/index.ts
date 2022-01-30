@@ -17,6 +17,7 @@ import ActionButton from './ActionButton';
 import Pagination from './Pagination';
 import FilterBar from './FilterBar';
 import SidebarWrapper from './SidebarWrapper';
+import Overlay from './Overlay';
 
 export {
 	Carousel,
@@ -38,4 +39,5 @@ export {
 	Pagination,
 	FilterBar,
 	SidebarWrapper,
+	Overlay,
 };

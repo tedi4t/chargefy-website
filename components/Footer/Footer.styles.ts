@@ -5,6 +5,8 @@ import Grid from '@mui/material/Grid';
 export const Wrapper = styled.div`
 	background: #efefef;
 	font-weight: 300;
+	position: sticky;
+	top: 0;
 `;
 
 export const InsideWrapper = styled.div`

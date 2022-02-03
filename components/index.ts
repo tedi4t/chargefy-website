@@ -18,6 +18,7 @@ import Pagination from './Pagination';
 import FilterBar from './FilterBar';
 import SidebarWrapper from './SidebarWrapper';
 import Overlay from './Overlay';
+import SpaceBetweenWrapper from './SpaceBetweenWrapper';
 
 export {
 	Carousel,
@@ -40,4 +41,5 @@ export {
 	FilterBar,
 	SidebarWrapper,
 	Overlay,
+	SpaceBetweenWrapper,
 };

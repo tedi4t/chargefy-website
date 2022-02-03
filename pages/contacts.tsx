@@ -12,10 +12,9 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/LocalPhone';
 
-import { Navbar, Paper, Footer, InfoTitle } from '../components';
+import { Navbar, Footer, SpaceBetweenWrapper } from '../components';
 import { HighlightGrid } from '../components/Footer';
 
-import banner from '../media/banner/main.jpeg';
 import logo from '../media/logo.png';
 import { event } from '../utils/gtag';
 
@@ -66,7 +65,7 @@ const Contacts: NextPage = () => {
 	];
 
 	return (
-		<div>
+		<>
 			<Head>
 				<title>Автомобільний тримач | Chargefy</title>
 				<meta
@@ -76,20 +75,19 @@ const Contacts: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
+			<SpaceBetweenWrapper>
 			<main>
 				<Navbar />
 
-				<Paper img={banner} element={<InfoTitle text={'contact us'} />} />
-
 				<Container>
-					<Box sx={{ my: '5rem' }}>
+					<Box sx={{ py: '7rem' }}>
 						<Grid container spacing={4}>
 							<Grid item container xs={4} alignItems={'center'}>
 								<Image src={logo} alt={'chargefy'} />
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
-									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Contact Us</Box>
+									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Контакти</Box>
 									<Box sx={{ mt: '3rem' }}>
 										{socials.map(social => (
 											<Box key={social.text}>
@@ -123,7 +121,8 @@ const Contacts: NextPage = () => {
 			</main>
 
 			<Footer />
-		</div>
+			</SpaceBetweenWrapper>
+		</>
 	);
 };
 

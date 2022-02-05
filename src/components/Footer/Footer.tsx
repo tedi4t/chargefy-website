@@ -21,7 +21,7 @@ import {
 	HighlightGrid,
 } from './Footer.styles';
 
-import Logo from '../../media/logo.png';
+import Logo from '../../../media/logo.png';
 import { event } from '../../utils/gtag';
 
 interface Social {

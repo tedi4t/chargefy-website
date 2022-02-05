@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 import { SlideContent, Title, Text, ImageContainer, ContentContainer } from './MainStyle.styles';
-import { SlideProps } from '.';
+import { SlideProps } from './index';
 
 export default function MainStyle(slide: SlideProps) {
 	return (

@@ -7,8 +7,8 @@ import Box from '@mui/material/Box';
 
 import { Navbar, Paper, Footer, InfoTitle } from '../components';
 
-import banner from '../media/banner/main.jpeg';
-import logo from '../media/logo.png';
+import banner from '../../media/banner/main.jpeg';
+import logo from '../../media/logo.png';
 
 const About: NextPage = () => {
 	return (

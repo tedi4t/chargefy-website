@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 
 import { Navbar, Footer, Paper, InfoTitle, Title, ActionButton } from '../../components';
 
-import banner from '../../media/banner/main.jpeg';
+import banner from '../../../media/banner/main.jpeg';
 import OrderForm, { NovaPoschtaInfo, OrderFormValue } from '../../components/OrderForm';
 import { fetchAPI, fetchNovaPoschtaApi } from '../../lib/api';
 import { shoppingCartContext, ShoppingCartItem } from '../../contexts/shoppingCart';

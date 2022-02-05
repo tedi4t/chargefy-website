@@ -15,7 +15,7 @@ import PhoneIcon from '@mui/icons-material/LocalPhone';
 import { Navbar, Footer, SpaceBetweenWrapper } from '../components';
 import { HighlightGrid } from '../components/Footer';
 
-import logo from '../media/logo.png';
+import logo from '../../media/logo.png';
 import { event } from '../utils/gtag';
 
 const Contacts: NextPage = () => {

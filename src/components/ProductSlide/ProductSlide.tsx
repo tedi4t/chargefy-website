@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Box from '@mui/material/Box';
 
-import { ProductSlideProps } from '.';
+import { ProductSlideProps } from './index';
 
 export default function ProductSlide(props: ProductSlideProps) {
 	return (

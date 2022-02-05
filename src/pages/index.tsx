@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 
 import { Carousel, Navbar, Paper, Info, Products, Title, Footer, MainSlide } from '../components';
 
-import banner from '../media/banner/main.jpeg';
+import banner from '../../media/banner/main.jpeg';
 import { fetchAPI } from '../lib/api';
 import { ProductsListResponse, TitleProductsListResponse } from '../lib/apiResponse';
 import { toProductsListResponse, toTitleProductsListResponse } from '../lib/formatter';

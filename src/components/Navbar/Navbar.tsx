@@ -19,7 +19,7 @@ import {
 	GridMenuItem,
 } from './Navbar.styles';
 
-import Logo from '../../media/logo.png';
+import Logo from '../../../media/logo.png';
 import { useContext, useState } from 'react';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
 import { Overlay } from '../index';

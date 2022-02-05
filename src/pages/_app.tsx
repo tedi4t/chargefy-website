@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '../../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
@@ -6,10 +6,10 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
-import uk from '../lang/uk.json';
+import uk from '../../lang/uk.json';
 import { ShoppingCartProvider } from '../contexts/shoppingCart';
 import { ShoppingCartChecker } from '../components';
-import { themeOptions } from '../themes/theme';
+import { themeOptions } from '../../themes/theme';
 import { useEffect } from 'react';
 import { pageview } from '../utils/gtag';
 

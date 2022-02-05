@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 
 import { Navbar, Footer, Paper, InfoTitle, ShoppingCartItem, ActionButton } from '../../components';
 
-import banner from '../../media/banner/main.jpeg';
+import banner from '../../../media/banner/main.jpeg';
 import {
 	shoppingCartContext,
 	ShoppingCartItem as ShoppingCartItemType,

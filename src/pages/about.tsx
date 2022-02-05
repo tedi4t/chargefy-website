@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 import { Navbar, Footer, SpaceBetweenWrapper } from '../components';
 
-import logo from '../media/logo.png';
+import logo from '../../media/logo.png';
 import { FormattedMessage } from 'react-intl';
 
 const About: NextPage = () => {

@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "extract": "formatjs extract"
+    "extract": "formatjs extract 'src/**/*.ts*' --ignore='**/*.d.ts' --out-file lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",

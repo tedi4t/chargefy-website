@@ -7,6 +7,7 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
 import uk from '../../lang/uk.json';
+import ru from '../../lang/ru.json';
 import { ShoppingCartProvider } from '../contexts/shoppingCart';
 import { ShoppingCartChecker } from '../components';
 import { themeOptions } from '../../themes/theme';
@@ -34,7 +35,7 @@ const IntlProviderComponent = ({ children }: any) => {
 			key={router.locale}
 			locale={router.locale || 'uk'}
 			defaultLocale={router.locale}
-			messages={uk}
+			messages={router.locale === 'ru' ? ru : uk}
 		>
 			{children}
 		</IntlProvider>

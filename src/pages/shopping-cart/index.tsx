@@ -14,10 +14,13 @@ import {
 	shoppingCartContext,
 	ShoppingCartItem as ShoppingCartItemType,
 } from '../../contexts/shoppingCart';
+import { useIntl } from 'react-intl';
 
 const ShoppingCartPage = () => {
-	const [shoppingCart] = useContext(shoppingCartContext);
 	const router = useRouter();
+	const intl = useIntl();
+
+	const [shoppingCart] = useContext(shoppingCartContext);
 	const totalPrice =
 		shoppingCart?.reduce((acc: number, item: ShoppingCartItemType) => {
 			return acc + item.product.price * item.quantity;
@@ -32,10 +35,12 @@ const ShoppingCartPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Тримач для телефону | Chargefy</title>
+				<title>{
+					intl.formatMessage({ id: 'shoppingCart.title' })
+				}</title>
 				<meta
 					name='description'
-					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
+					content={intl.formatMessage({ id: 'shoppingCart.description' })}
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
@@ -43,7 +48,7 @@ const ShoppingCartPage = () => {
 			<main>
 				<Navbar />
 
-				<Paper img={banner} element={<InfoTitle text={'Корзина'} />} />
+				<Paper img={banner} element={<InfoTitle text={intl.formatMessage({ id: 'shoppingCart.header.title' })} />} />
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>
@@ -63,7 +68,7 @@ const ShoppingCartPage = () => {
 									<Link href={'/shopping-cart/order'}>
 										<a>
 											<ActionButton>
-												<div>Оформити замовлення</div>
+												<div>{intl.formatMessage({ id: 'shoppingCart.button.text' })}</div>
 											</ActionButton>
 										</a>
 									</Link>

@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import type { NextPageContext } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -26,6 +27,7 @@ import { ProductResponse, ProductsListResponse } from '../../lib/apiResponse';
 import { shoppingCartContext } from '../../contexts/shoppingCart';
 import { toProductResponse, toProductsListResponse } from '../../lib/formatter';
 import qs from 'qs';
+import { useIntl } from 'react-intl';
 
 export interface ProductPageProps {
 	productResponse: ProductResponse;
@@ -36,6 +38,11 @@ const ProductPage = ({
 	productResponse: { product },
 	categoryProducts: { products: categoryProducts },
 }: ProductPageProps) => {
+	const intl = useIntl();
+
+	const router = useRouter();
+	const isUkLocale = router.locale === 'uk';
+
 	const [quantity, setQuantity] = useState(0);
 	const [, dispatch] = useContext(shoppingCartContext);
 
@@ -63,11 +70,11 @@ const ProductPage = ({
 
 	const stages = {
 		mainPage: {
-			name: 'Головна сторінка',
+			name: isUkLocale ? 'Головна сторінка' : '',
 			path: '/',
 		},
 		products: {
-			name: 'Товари',
+			name: isUkLocale ? 'Товари' : '',
 			path: '/products',
 		},
 		currentProduct: {
@@ -129,7 +136,7 @@ const ProductPage = ({
 
 					{!!categoryProducts.data.length && (
 						<>
-							<Title text={'Схожі товари'} />
+							<Title text={intl.formatMessage({ id: 'product.similar.title' })} />
 							<Box sx={{ my: '2rem' }}>
 								<Products products={categoryProducts.data} />
 							</Box>

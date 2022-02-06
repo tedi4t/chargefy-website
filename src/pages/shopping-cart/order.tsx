@@ -12,10 +12,11 @@ import OrderForm, { NovaPoschtaInfo, OrderFormValue } from '../../components/Ord
 import { fetchAPI, fetchNovaPoschtaApi } from '../../lib/api';
 import { shoppingCartContext, ShoppingCartItem } from '../../contexts/shoppingCart';
 import { event } from '../../utils/gtag';
+import { useIntl } from 'react-intl';
 
 const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
-	const router = useRouter();
-	const [shoppingCart, dispatch] = useContext(shoppingCartContext);
+	const intl = useIntl();
+	const [shoppingCart] = useContext(shoppingCartContext);
 	const [order, setOrder] = useState<OrderFormValue>({
 		name: null,
 		surname: null,
@@ -83,10 +84,10 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 	return (
 		<>
 			<Head>
-				<title>Замовити | Chargefy</title>
+				<title>{intl.formatMessage({ id: 'order.title' })}</title>
 				<meta
 					name='description'
-					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
+					content={intl.formatMessage({ id: 'order.description' })}
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
@@ -94,11 +95,11 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 			<main>
 				<Navbar />
 
-				<Paper img={banner} element={<InfoTitle text={'Замовлення'} />} />
+				<Paper img={banner} element={<InfoTitle text={intl.formatMessage({ id: 'order.header.title' })} />} />
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>
-						<Title text={'Інформація про замовлення'} />
+						<Title text={intl.formatMessage({ id: 'order.main.title' })} />
 
 						<OrderForm areas={areas} order={order} setOrder={setOrder} />
 
@@ -110,7 +111,7 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 										disabled={Object.values(order).some(value => !value)}
 										onClick={handleOrder}
 									>
-										<div>замовити</div>
+										<div>{intl.formatMessage({ id: 'order.button.text' })}</div>
 									</ActionButton>
 								</Grid>
 							</Grid>

@@ -32,6 +32,7 @@ import {
 import { useEffect, useState } from 'react';
 import { FiltersProps } from '../../components/Sidebar';
 import { useRouter } from 'next/router';
+import { useIntl } from 'react-intl';
 
 export interface ProductsPageProps {
 	colors: Array<ColorResponse>;
@@ -43,6 +44,7 @@ export interface ProductsPageProps {
 
 const ProductsPage = (props: ProductsPageProps) => {
 	const router = useRouter();
+	const intl = useIntl();
 	const [page, setPage] = useState<number>(1);
 	const [pageCount, setPageCount] = useState<number>(10);
 	const [productsList, setProductsList] = useState<ProductsListResponse | null>(null);
@@ -112,10 +114,12 @@ const ProductsPage = (props: ProductsPageProps) => {
 	return (
 		<div>
 			<Head>
-				<title>Chargefy</title>
+				<title>
+					{intl.formatMessage({ id: 'products.title' })}
+				</title>
 				<meta
 					name='description'
-					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
+					content={intl.formatMessage({ id: 'products.description' })}
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>

@@ -9,6 +9,7 @@ import banner from '../../media/banner/main.jpeg';
 import { fetchAPI } from '../lib/api';
 import { ProductsListResponse, TitleProductsListResponse } from '../lib/apiResponse';
 import { toProductsListResponse, toTitleProductsListResponse } from '../lib/formatter';
+import { useIntl } from 'react-intl';
 
 const Home = ({
 	popular,
@@ -19,13 +20,17 @@ const Home = ({
 	recommend: ProductsListResponse;
 	title: TitleProductsListResponse;
 }) => {
+	const intl = useIntl();
+
 	return (
 		<div>
 			<Head>
-				<title>Chargefy</title>
+				<title>
+					{intl.formatMessage({ id: 'index.title' })}
+				</title>
 				<meta
 					name='description'
-					content='Стильні автомобільні тримувач для телефону забезпечують сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу.'
+					content={intl.formatMessage({ id: 'index.description' })}
 				/>
 				<link rel='icon' href='/favicon.ico' />
 
@@ -46,7 +51,7 @@ const Home = ({
 
 				<Box sx={{ mb: { xs: '2rem', md: '4rem' } }}>
 					<Container>
-						<Title text={'Популярні'} />
+						<Title text={intl.formatMessage({ id: 'index.popular.title' })} />
 						<Products products={popular.products.data} />
 					</Container>
 				</Box>
@@ -55,10 +60,8 @@ const Home = ({
 					img={banner}
 					element={
 						<Info
-							title={'Товари за акційною ціною'}
-							description={
-								'Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
-							}
+							title={intl.formatMessage({ id: 'index.sale.title' })}
+							description={intl.formatMessage({ id: 'index.sale.description' })}
 							price={149}
 							link={'/products'}
 						/>
@@ -67,7 +70,8 @@ const Home = ({
 
 				<Box sx={{ mb: { xs: '2rem', md: '4rem' } }}>
 					<Container>
-						<Title text={'Рекомендовані'} />
+						{/*<Title text={'Рекомендовані'} />*/}
+						<Title text={intl.formatMessage({ id: 'index.recommended.title' })} />
 						<Products products={recommend.products.data} />
 					</Container>
 				</Box>

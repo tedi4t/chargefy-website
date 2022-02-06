@@ -9,15 +9,20 @@ import { Navbar, Paper, Footer, InfoTitle } from '../components';
 
 import banner from '../../media/banner/main.jpeg';
 import logo from '../../media/logo.png';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const Return: NextPage = () => {
+	const intl = useIntl();
+
 	return (
 		<div>
 			<Head>
-				<title>Повернення | Chargefy</title>
+				<title>
+					{intl.formatMessage({ id: 'return.title' })}
+				</title>
 				<meta
 					name='description'
-					content='Безпровідна зарядка тримач для телефона швидко зарядить ваш телефон. Індукційна зарядка тримач. Тримач з безпроводною зарядкою.'
+					content={intl.formatMessage({ id: 'return.description' })}
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
@@ -35,11 +40,11 @@ const Return: NextPage = () => {
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
-									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Повернення</Box>
+									<Box sx={{ typography: 'h4', fontWeight: 300 }}>
+										<FormattedMessage id='return.mainBlock.title' />
+									</Box>
 									<Box sx={{ lineHeight: '2rem', mt: '3rem' }}>
-										Розділ повернення зараз знаходиться у розробці, але Ви можете повернути товар
-										зв&apos;язавшись з нами за контактними телефонами. Наші менеджери будуть завжди
-										раді допомогти Вам.
+										<FormattedMessage id='return.mainBlock.description' />
 									</Box>
 								</Box>
 							</Grid>

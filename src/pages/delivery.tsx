@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -11,13 +12,17 @@ import banner from '../../media/banner/main.jpeg';
 import logo from '../../media/logo.png';
 
 const About: NextPage = () => {
+	const intl = useIntl();
+
 	return (
 		<div>
 			<Head>
-				<title>Доставка | Chargefy</title>
+				<title>
+					{intl.formatMessage({ id: 'delivery.title' })}
+				</title>
 				<meta
 					name='description'
-					content='Безпровідна автомобільна зарядка швидко зарядить ваш телефон а також буде надійно тримати його у дорозі.'
+					content={intl.formatMessage({ id: 'delivery.description' })}
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
@@ -35,12 +40,11 @@ const About: NextPage = () => {
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
-									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Доставка</Box>
+									<Box sx={{ typography: 'h4', fontWeight: 300 }}>
+										<FormattedMessage id='delivery.mainBlock.title' />
+									</Box>
 									<Box sx={{ lineHeight: '2rem', mt: '3rem' }}>
-										Доставку здійснюємо через поштовий сервіс «Нова Пошта». Пріоритетною для нас є
-										оплата через наложений платіж, адже так ви можете особисто переконатися в якості
-										товару перед його оплатою, але також можлива оплата картою за Вашим бажанням.
-										Також будемо раді відправити іншим сервісом доставки який Ви вкажете.
+										<FormattedMessage id='delivery.mainBlock.description' />
 									</Box>
 								</Box>
 							</Grid>

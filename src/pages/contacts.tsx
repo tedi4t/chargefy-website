@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -19,6 +20,8 @@ import logo from '../../media/logo.png';
 import { event } from '../utils/gtag';
 
 const Contacts: NextPage = () => {
+	const intl = useIntl();
+
 	const socials = [
 		{
 			icon: <FacebookIcon />,
@@ -67,10 +70,12 @@ const Contacts: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Автомобільний тримач | Chargefy</title>
+				<title>
+					{intl.formatMessage({ id: 'contacts.title' })}
+				</title>
 				<meta
 					name='description'
-					content='Стильний автомобільний тримач для телефону забезпечує сильне та надійне кріплення телефону, а розширені металеві пластини додатково підсилюють магнітну силу. Також є тримачі з безпровідною зарядкою які швидко зарядять ваш телефон.'
+					content={intl.formatMessage({ id: 'contacts.description' })}
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
@@ -87,7 +92,9 @@ const Contacts: NextPage = () => {
 							</Grid>
 							<Grid item xs={8}>
 								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
-									<Box sx={{ typography: 'h4', fontWeight: 300 }}>Контакти</Box>
+									<Box sx={{ typography: 'h4', fontWeight: 300 }}>
+										<FormattedMessage id='contacts.mainBlock.title' />
+									</Box>
 									<Box sx={{ mt: '3rem' }}>
 										{socials.map(social => (
 											<Box key={social.text}>

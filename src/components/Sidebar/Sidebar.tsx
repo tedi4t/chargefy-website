@@ -17,6 +17,7 @@ import {
 import { CategoryResponse, ColorResponse } from '../../lib/apiResponse';
 import { FiltersProps } from './index';
 import useDebounce from '../../hooks/useDebounce';
+import { useIntl } from 'react-intl';
 
 export interface SidebarProps {
 	colors: Array<ColorResponse>;
@@ -33,6 +34,7 @@ export default function Sidebar({
 	maxPrice,
 	setFilters,
 }: SidebarProps) {
+	const intl = useIntl();
 	const offset = 50;
 	const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]);
 	const debouncedPriceRange = useDebounce(priceRange, 1000);
@@ -95,7 +97,7 @@ export default function Sidebar({
 		<Wrapper>
 			<WAccordion>
 				<WAccordionSummary>
-					<Title>Категорії</Title>
+					<Title>{intl.formatMessage({ id: 'sidebar.categories.title' })}</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
 					<RadioGroup onChange={onCategoryChange}>
@@ -113,7 +115,7 @@ export default function Sidebar({
 
 			<WAccordion>
 				<WAccordionSummary>
-					<Title>Ціна</Title>
+					<Title>{intl.formatMessage({ id: 'sidebar.price.title' })}</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
 					<PriceSlider
@@ -128,7 +130,7 @@ export default function Sidebar({
 
 			<WAccordion>
 				<WAccordionSummary>
-					<Title>Колір</Title>
+					<Title>{intl.formatMessage({ id: 'sidebar.color.title' })}</Title>
 				</WAccordionSummary>
 				<WAccordionDetails>
 					<FormGroup onChange={onColorChange}>

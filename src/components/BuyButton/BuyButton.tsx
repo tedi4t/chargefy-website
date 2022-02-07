@@ -5,6 +5,7 @@ import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 import { WButton, Wrapper, QuantityButton, Quantity } from './BuyButton.styles';
+import { useIntl } from 'react-intl';
 
 export default function BuyButton({
 	quantity,
@@ -15,10 +16,14 @@ export default function BuyButton({
 	handleAddClick: () => void;
 	handleRemoveClick: () => void;
 }) {
+	const intl = useIntl();
+
 	return (
 		<Wrapper>
 			{quantity === 0 ? (
-				<WButton onClick={handleAddClick}>купити</WButton>
+				<WButton onClick={handleAddClick}>
+					{intl.formatMessage({ id: 'buyButton.text' })}
+				</WButton>
 			) : (
 				<Box
 					sx={{

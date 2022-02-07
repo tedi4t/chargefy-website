@@ -2,7 +2,6 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import PercentIcon from '@mui/icons-material/Percent';
 
 import {
 	Title,
@@ -15,15 +14,19 @@ import {
 	Advantages,
 } from './ProductInfo.styles';
 import { ProductInfoProps } from './index';
+import { useRouter } from 'next/router';
 
 export default function ProductInfo(props: ProductInfoProps) {
+	const router = useRouter();
 	const advantages: Array<{
 		icon: JSX.Element;
 		text: string;
 	}> = [
 		{
 			icon: <LocalShippingIcon color={'primary'} />,
-			text: 'Безкоштовна доставка від 790 гривень',
+			text: router.locale === 'uk' ?
+				'Безкоштовна доставка від 790 гривень' :
+				'Бесплатная доставка от 790 гривен',
 		},
 	];
 

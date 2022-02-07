@@ -3,14 +3,12 @@ import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
-import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Box from '@mui/material/Box';
 
 import { NovaPoschtaInfo, OrderFormValue } from './index';
 import { fetchNovaPoschtaApi } from '../../lib/api';
-import { WFormControl, WTextField, WRadioGroup } from './OrderForm.styles';
+import { WFormControl, WTextField } from './OrderForm.styles';
 
 interface OrderFormProps {
 	areas: Array<NovaPoschtaInfo>;

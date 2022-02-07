@@ -39,5 +39,22 @@
   "order.description": "Магазин аксесуарів для телефону Chargefy. Наша ціль - бути корисними для наших покупців, надавати якісні товари разом з зручним сервісом. Ми допогаємо знайти максимально якісні аксесуари для вашого телефону швидко та зручно.",
   "order.button.text": "Оформити замовлення",
   "order.header.title": "Оформлення замовлення",
-  "order.main.title": "Інформація про замовлення"
+  "order.main.title": "Інформація про замовлення",
+
+  "info.from": "Від",
+  "info.go": "Перейти",
+
+  "sidebar.categories.title": "Категорія",
+  "sidebar.color.title": "Колір",
+  "sidebar.price.title": "Ціна",
+
+  "buyButton.text": "Купити",
+
+  "filterBar.apply": "Застосувати",
+  "filterBar.default": "Сортування",
+  "filterBar.filter.text": "Фільтр",
+  "filterBar.menu.price.asc": "За зростанням ціни",
+  "filterBar.menu.price.desc": "За зменшенням ціни",
+  "filterBar.price.asc": "За зростанням ціни",
+  "filterBar.price.desc": "За зменшенням ціни"
 }

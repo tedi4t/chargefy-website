@@ -23,6 +23,7 @@ import { CategoryResponse, ColorResponse } from '../../lib/apiResponse';
 import Sidebar, { FiltersProps } from '../Sidebar';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import { useIntl } from 'react-intl';
 
 export interface FilterBarProps {
 	colors: Array<ColorResponse>;
@@ -35,6 +36,7 @@ export interface FilterBarProps {
 }
 
 export default function FilterBar(props: FilterBarProps) {
+	const intl = useIntl();
 	const [opened, setOpened] = useState<boolean>(false);
 
 	const handleFilterClick = () => {
@@ -56,13 +58,13 @@ export default function FilterBar(props: FilterBarProps) {
 	const rendererValue = () => {
 		switch (props.sorting) {
 			case 'price:desc': {
-				return <Box sx={{ mt: '0.1rem' }}>зменшення ціни</Box>;
+				return <Box sx={{ mt: '0.1rem' }}>{intl.formatMessage({ id: 'filterBar.price.desc' })}</Box>;
 			}
 			case 'price:asc': {
-				return <Box sx={{ mt: '0.1rem' }}>зростання ціни</Box>;
+				return <Box sx={{ mt: '0.1rem' }}>{intl.formatMessage({ id: 'filterBar.price.asc' })}</Box>;
 			}
 			default: {
-				return <Box sx={{ mt: '0.1rem' }}>Сортувати</Box>;
+				return <Box sx={{ mt: '0.1rem' }}>{intl.formatMessage({ id: 'filterBar.default' })}</Box>;
 			}
 		}
 	};
@@ -77,7 +79,7 @@ export default function FilterBar(props: FilterBarProps) {
 							<WButton onClick={handleFilterClick}>
 								<Grid container sx={{ width: 'unset' }} alignItems={'center'}>
 									<FilterIcon />
-									<Text>Filter</Text>
+									<Text>{intl.formatMessage({ id: 'filterBar.filter.text' })}</Text>
 								</Grid>
 							</WButton>
 						</Grid>
@@ -93,8 +95,8 @@ export default function FilterBar(props: FilterBarProps) {
 											variant={'standard'}
 											renderValue={rendererValue}
 										>
-											<MenuItem value={'price:asc'}>Price Ascending</MenuItem>
-											<MenuItem value={'price:desc'}>Price Descending</MenuItem>
+											<MenuItem value={'price:asc'}>{intl.formatMessage({ id: 'filterBar.menu.price.asc' })}</MenuItem>
+											<MenuItem value={'price:desc'}>{intl.formatMessage({ id: 'filterBar.menu.price.desc' })}</MenuItem>
 										</WSelect>
 									</FormControl>
 								</Grid>
@@ -119,7 +121,7 @@ export default function FilterBar(props: FilterBarProps) {
 						<Grid item container flexGrow={1} alignItems={'flex-end'}>
 							<Box sx={{ p: '2rem', width: '100%' }}>
 								<Button variant={'outlined'} fullWidth onClick={handleApplyFiltersClick}>
-									apply filters
+									{intl.formatMessage({ id: 'filterBar.apply' })}
 								</Button>
 							</Box>
 						</Grid>

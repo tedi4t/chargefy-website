@@ -135,6 +135,7 @@ OrderPage.getInitialProps = async () => {
 		areas: response.data.map((area: any) => ({
 			ref: area.Ref,
 			name: area.Description,
+			nameRu: area.DescriptionRu,
 		})),
 	};
 };

@@ -23,6 +23,7 @@ import {
 
 import Logo from '../../../media/logo.png';
 import { event } from '../../utils/gtag';
+import { useRouter } from 'next/router';
 
 interface Social {
 	icon: JSX.Element;
@@ -32,6 +33,9 @@ interface Social {
 }
 
 export default function Footer() {
+	const router = useRouter();
+	const isUkLocale = router.locale === 'uk';
+
 	const socials: Array<Social> = [
 		{
 			icon: <FacebookIcon />,
@@ -75,19 +79,19 @@ export default function Footer() {
 
 	const pages: Array<{ name: string; href: string }> = [
 		{
-			name: 'Домашня сторінка',
+			name: isUkLocale ? 'Домашня сторінка' : 'Домашняя страница',
 			href: '/',
 		},
 		{
-			name: 'Товари',
+			name: isUkLocale ? 'Товари' : 'Товары',
 			href: '/products',
 		},
 		{
-			name: 'Про нас',
+			name: isUkLocale ? 'Про нас' : 'О нас',
 			href: '/about',
 		},
 		{
-			name: 'Контакти',
+			name: isUkLocale ? 'Контакти' : 'Контакты',
 			href: '/contacts',
 		},
 	];

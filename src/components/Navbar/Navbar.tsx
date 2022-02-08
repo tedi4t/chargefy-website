@@ -26,28 +26,29 @@ import { Overlay } from '../index';
 import Typography from '@mui/material/Typography';
 
 export default function Navbar() {
+	const router = useRouter();
+	const isUkLocale = router.locale === 'uk';
+
 	const [shoppingCart] = useContext(shoppingCartContext);
 	const pages: Array<{ name: string; href: string }> = [
 		{
-			name: 'Домашня сторінка',
+			name: isUkLocale ? 'Домашня сторінка' : 'Домашняя страница',
 			href: '/',
 		},
 		{
-			name: 'Товари',
+			name: isUkLocale ? 'Товари' : 'Товары',
 			href: '/products',
 		},
 		{
-			name: 'Про нас',
+			name: isUkLocale ? 'Про нас' : 'О нас',
 			href: '/about',
 		},
 		{
-			name: 'Контакти',
+			name: isUkLocale ? 'Контакти' : 'Контакты',
 			href: '/contacts',
 		},
 	];
 	// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-	const router = useRouter();
 
 	const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
 	// const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);

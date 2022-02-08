@@ -4,6 +4,7 @@ export default OrderForm;
 
 export interface NovaPoschtaInfo {
 	name: string;
+	nameRu: string;
 	ref: string;
 }
 

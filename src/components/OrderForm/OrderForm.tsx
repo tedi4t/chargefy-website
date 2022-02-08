@@ -1,4 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useIntl } from 'react-intl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
@@ -25,6 +27,9 @@ interface FormSelectProps {
 }
 
 export const FormSelect = (props: FormSelectProps) => {
+	const router = useRouter();
+	const isUkLocale = router.locale === 'uk';
+
 	return (
 		<WFormControl fullWidth>
 			<InputLabel id={props.id}>{props.label}</InputLabel>
@@ -37,7 +42,7 @@ export const FormSelect = (props: FormSelectProps) => {
 			>
 				{props.content.map((area: NovaPoschtaInfo) => (
 					<MenuItem value={area.ref} key={area.ref}>
-						{area.name}
+						{isUkLocale ? area.name : area.nameRu}
 					</MenuItem>
 				))}
 			</Select>
@@ -46,6 +51,7 @@ export const FormSelect = (props: FormSelectProps) => {
 };
 
 export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
+	const intl = useIntl();
 	const [cities, setCities] = useState<Array<NovaPoschtaInfo>>([]);
 	const [warehouses, setWarehouses] = useState<Array<NovaPoschtaInfo>>([]);
 
@@ -61,6 +67,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 				setCities(
 					response.data.map((area: any) => ({
 						name: area.Description,
+						nameRu: area.DescriptionRu,
 						ref: area.Ref,
 					})),
 				);
@@ -80,6 +87,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 				setWarehouses(
 					response.data.map((warehouse: any) => ({
 						name: warehouse.Description,
+						nameRu: warehouse.DescriptionRu,
 						ref: warehouse.Ref,
 					})),
 				);
@@ -126,7 +134,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 				<Grid item xs={12} md={6}>
 					<WTextField
 						fullWidth
-						label={`Ім'я`}
+						label={intl.formatMessage({ id: 'orderForm.name' })}
 						variant='outlined'
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
@@ -137,7 +145,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 					/>
 					<WTextField
 						fullWidth
-						label='Прізвище'
+						label={intl.formatMessage({ id: 'orderForm.surname' })}
 						variant='outlined'
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
@@ -148,9 +156,8 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 					/>
 					<WTextField
 						fullWidth
-						label='По батькові'
+						label={intl.formatMessage({ id: 'orderForm.secondName' })}
 						variant='outlined'
-						// value={order.name || ''}
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
 								...(order as OrderFormValue),
@@ -160,9 +167,8 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 					/>
 					<WTextField
 						fullWidth
-						label='Номер телефону	'
+						label={intl.formatMessage({ id: 'orderForm.phoneNumber' })}
 						variant='outlined'
-						// value={order.name || ''}
 						onChange={(e: any) => {
 							setOrder((order: OrderFormValue) => ({
 								...(order as OrderFormValue),
@@ -193,14 +199,14 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 				</Grid>
 				<Grid item xs={12} md={6}>
 					<Typography fontWeight={300} variant={'h5'}>
-						<Box sx={{ display: { xs: 'block', md: 'none' } }}>Відділення Нової Пошти</Box>
+						<Box sx={{ display: { xs: 'block', md: 'none' } }}>{intl.formatMessage({ id: 'orderForm.novaPoschtaTitle' })}</Box>
 					</Typography>
 					<FormSelect
 						value={order.area}
 						onChange={onAreaChange}
 						content={areas}
 						id={'area-select-label'}
-						label={'Область'}
+						label={intl.formatMessage({ id: 'orderForm.region' })}
 					/>
 
 					<FormSelect
@@ -208,7 +214,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 						onChange={onCityChange}
 						content={cities}
 						id={'city-select-label'}
-						label={'Місто'}
+						label={intl.formatMessage({ id: 'orderForm.city' })}
 					/>
 
 					<FormSelect
@@ -216,7 +222,7 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 						onChange={onWarehouseChange}
 						content={warehouses}
 						id={'warehouse-select-label'}
-						label={'Склад'}
+						label={intl.formatMessage({ id: 'orderForm.warehouse' })}
 					/>
 				</Grid>
 			</Grid>

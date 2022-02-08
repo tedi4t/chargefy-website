@@ -56,5 +56,14 @@
   "filterBar.menu.price.asc": "За зростанням ціни",
   "filterBar.menu.price.desc": "За зменшенням ціни",
   "filterBar.price.asc": "За зростанням ціни",
-  "filterBar.price.desc": "За зменшенням ціни"
+  "filterBar.price.desc": "За зменшенням ціни",
+
+  "orderForm.city": "Місто",
+  "orderForm.name": "Ім'я",
+  "orderForm.novaPoschtaTitle": "Відділення Нової Пошти",
+  "orderForm.phoneNumber": "Мобільний телефон",
+  "orderForm.region": "Область",
+  "orderForm.secondName": "По батькові",
+  "orderForm.surname": "Прізвище",
+  "orderForm.warehouse": "Склад"
 }

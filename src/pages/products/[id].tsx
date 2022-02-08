@@ -70,11 +70,11 @@ const ProductPage = ({
 
 	const stages = {
 		mainPage: {
-			name: isUkLocale ? 'Головна сторінка' : '',
+			name: isUkLocale ? 'Головна сторінка' : 'Главная страница',
 			path: '/',
 		},
 		products: {
-			name: isUkLocale ? 'Товари' : '',
+			name: isUkLocale ? 'Товари' : 'Товары',
 			path: '/products',
 		},
 		currentProduct: {

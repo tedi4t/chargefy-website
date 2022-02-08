@@ -59,3 +59,22 @@ export const GridMenuItem = styled(Grid)`
 GridMenuItem.defaultProps = {
 	item: true,
 };
+
+export const Language = styled.h3`
+	font-size: 1rem;
+	font-weight: lighter;
+	color: #000;
+
+  &.active {
+    color: ${({ theme }) => theme.palette.primary.main};
+    font-weight: normal;
+  }
+`;
+
+export const LanguageSplitter = styled.div`
+	width: 1px;
+	height: 1rem;
+  font-weight: lighter;
+	margin: 0 0.5rem;
+  background: #000;
+`;

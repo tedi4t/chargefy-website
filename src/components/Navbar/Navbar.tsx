@@ -17,6 +17,8 @@ import {
 	WShoppingCartIcon,
 	GridFullHeight,
 	GridMenuItem,
+	Language,
+	LanguageSplitter,
 } from './Navbar.styles';
 
 import Logo from '../../../media/logo.png';
@@ -129,6 +131,26 @@ export default function Navbar() {
 					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>
+						<Grid container alignItems={'center'}>
+							<Link href={'/'} locale={'uk'}>
+								<a>
+									<Language className={router.locale === 'uk' ? 'active' : ''}>
+										UA
+									</Language>
+								</a>
+							</Link>
+							<LanguageSplitter />
+							<Link href={'/'} locale={'ru'}>
+								<a>
+									<Language className={router.locale === 'ru' ? 'active' : ''}>
+										RU
+									</Language>
+								</a>
+							</Link>
+						</Grid>
+					</Box>
+
+					<Box sx={{ flexGrow: 0, ml: '1.5rem' }}>
 						<Grid container alignItems={'center'}>
 							{shoppingCart?.length && (
 								<Link href={'/shopping-cart'}>

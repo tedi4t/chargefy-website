@@ -172,6 +172,7 @@ ProductPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductPageP
 			rowsPerPage: 4,
 		},
 		populate: '*',
+		locale: ctx.locale || 'uk',
 	});
 	const categoryUrl = `/products?${categoryQuery}`;
 	const categoryResponse = await fetchAPI(categoryUrl);

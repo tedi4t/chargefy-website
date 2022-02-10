@@ -10,6 +10,7 @@ import { fetchAPI } from '../lib/api';
 import { ProductsListResponse, TitleProductsListResponse } from '../lib/apiResponse';
 import { toProductsListResponse, toTitleProductsListResponse } from '../lib/formatter';
 import { useIntl } from 'react-intl';
+import { NextPageContext } from 'next';
 
 const Home = ({
 	popular,
@@ -70,7 +71,6 @@ const Home = ({
 
 				<Box sx={{ mb: { xs: '2rem', md: '4rem' } }}>
 					<Container>
-						{/*<Title text={'Рекомендовані'} />*/}
 						<Title text={intl.formatMessage({ id: 'index.recommended.title' })} />
 						<Products products={recommend.products.data} />
 					</Container>
@@ -82,7 +82,7 @@ const Home = ({
 	);
 };
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async (ctx: NextPageContext) => {
 	const queryPopular = qs.stringify({
 		filters: {
 			isPopular: {
@@ -90,6 +90,7 @@ Home.getInitialProps = async () => {
 			},
 		},
 		populate: '*',
+		locale: ctx.locale || 'uk',
 	});
 
 	const queryRecommend = qs.stringify({
@@ -99,6 +100,7 @@ Home.getInitialProps = async () => {
 			},
 		},
 		populate: '*',
+		locale: ctx.locale || 'uk',
 	});
 
 	const queryTitle = qs.stringify({
@@ -108,6 +110,7 @@ Home.getInitialProps = async () => {
 			},
 		},
 		populate: '*',
+		locale: ctx.locale || 'uk',
 	});
 
 	const url = '/products?';

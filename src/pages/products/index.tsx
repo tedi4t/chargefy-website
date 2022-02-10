@@ -33,6 +33,7 @@ import { useEffect, useState } from 'react';
 import { FiltersProps } from '../../components/Sidebar';
 import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
+import { NextPageContext } from 'next';
 
 export interface ProductsPageProps {
 	colors: Array<ColorResponse>;
@@ -104,6 +105,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 			},
 			sort: sorting ? [sorting] : [],
 			populate: '*',
+			locale: router.locale || 'uk',
 		});
 		const url = `/products?${query}`;
 		fetchAPI(url).then((response: any) => {
@@ -158,13 +160,23 @@ const ProductsPage = (props: ProductsPageProps) => {
 	);
 };
 
-ProductsPage.getInitialProps = async (): Promise<ProductsPageProps> => {
-	const colorsUrl = `/colors`;
-	const colorsResponse = await fetchAPI(colorsUrl);
+ProductsPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductsPageProps> => {
+	const colorsUrl = `/colors?`;
+	const colorsQuery = qs.stringify({
+		populate: '*',
+		locale: ctx.locale || 'uk',
+	});
+
+	const colorsResponse = await fetchAPI(`${colorsUrl}${colorsQuery}`);
 	const colors = toColorsResponse(colorsResponse);
 
-	const categoriesUrl = `/categories`;
-	const categoriesResponse = await fetchAPI(categoriesUrl);
+	const categoriesUrl = `/categories?`;
+	const categoriesQuery = qs.stringify({
+		populate: '*',
+		locale: ctx.locale || 'uk',
+	});
+
+	const categoriesResponse = await fetchAPI(`${categoriesUrl}${categoriesQuery}`);
 	const categories = toCategoriesResponse(categoriesResponse);
 
 	const minPrice = (await getFirstListItemPrice('price:asc')) as number;
@@ -177,6 +189,7 @@ ProductsPage.getInitialProps = async (): Promise<ProductsPageProps> => {
 			},
 		},
 		populate: '*',
+		locale: ctx.locale || 'uk',
 	});
 
 	const url = '/products?';

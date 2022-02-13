@@ -134,17 +134,13 @@ export default function Navbar() {
 						<Grid container alignItems={'center'}>
 							<Link href={'/'} locale={'uk'}>
 								<a>
-									<Language className={router.locale === 'uk' ? 'active' : ''}>
-										UA
-									</Language>
+									<Language className={router.locale === 'uk' ? 'active' : ''}>UA</Language>
 								</a>
 							</Link>
 							<LanguageSplitter />
 							<Link href={'/'} locale={'ru'}>
 								<a>
-									<Language className={router.locale === 'ru' ? 'active' : ''}>
-										RU
-									</Language>
+									<Language className={router.locale === 'ru' ? 'active' : ''}>RU</Language>
 								</a>
 							</Link>
 						</Grid>

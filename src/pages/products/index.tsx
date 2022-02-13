@@ -68,9 +68,11 @@ const ProductsPage = (props: ProductsPageProps) => {
 
 	useEffect(() => {
 		const categoriesQuery = router.query.categories;
-		const categoriesStr: Array<string> = categoriesQuery ?
-			(Array.isArray(categoriesQuery) ? categoriesQuery : [categoriesQuery]) :
-			[];
+		const categoriesStr: Array<string> = categoriesQuery
+			? Array.isArray(categoriesQuery)
+				? categoriesQuery
+				: [categoriesQuery]
+			: [];
 		const categories = categoriesStr.map(category => parseInt(category));
 
 		setFilters(filters => {
@@ -78,8 +80,8 @@ const ProductsPage = (props: ProductsPageProps) => {
 			return {
 				...filters,
 				categories: Array.from(new Set([...existingCategories, ...categories])),
-			}
-		})
+			};
+		});
 	}, [router.query.categories]);
 
 	useEffect(() => {
@@ -117,7 +119,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 			filters: queryFilters,
 			pagination: {
 				page: page,
-				pageSize: 15
+				pageSize: 15,
 			},
 			sort: sorting ? [sorting] : [],
 			populate: '*',
@@ -132,13 +134,8 @@ const ProductsPage = (props: ProductsPageProps) => {
 	return (
 		<div>
 			<Head>
-				<title>
-					{intl.formatMessage({ id: 'products.title' })}
-				</title>
-				<meta
-					name='description'
-					content={intl.formatMessage({ id: 'products.description' })}
-				/>
+				<title>{intl.formatMessage({ id: 'products.title' })}</title>
+				<meta name='description' content={intl.formatMessage({ id: 'products.description' })} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
@@ -148,7 +145,13 @@ const ProductsPage = (props: ProductsPageProps) => {
 				<Carousel Slide={MainSlide} content={props.title.products} />
 
 				<Box sx={{ display: { xs: 'block', md: 'none' } }}>
-					<FilterBar {...props} filters={filters} setFilters={setFilters} sorting={sorting} setSorting={setSorting} />
+					<FilterBar
+						{...props}
+						filters={filters}
+						setFilters={setFilters}
+						sorting={sorting}
+						setSorting={setSorting}
+					/>
 				</Box>
 
 				<Box sx={{ mt: { xs: '0', md: '5rem' }, mb: { xs: '2rem', md: '5rem' } }}>

@@ -85,17 +85,17 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 		<>
 			<Head>
 				<title>{intl.formatMessage({ id: 'order.title' })}</title>
-				<meta
-					name='description'
-					content={intl.formatMessage({ id: 'order.description' })}
-				/>
+				<meta name='description' content={intl.formatMessage({ id: 'order.description' })} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
 			<main>
 				<Navbar />
 
-				<Paper img={banner} element={<InfoTitle text={intl.formatMessage({ id: 'order.header.title' })} />} />
+				<Paper
+					img={banner}
+					element={<InfoTitle text={intl.formatMessage({ id: 'order.header.title' })} />}
+				/>
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>

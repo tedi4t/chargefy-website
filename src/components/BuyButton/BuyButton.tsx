@@ -21,9 +21,7 @@ export default function BuyButton({
 	return (
 		<Wrapper>
 			{quantity === 0 ? (
-				<WButton onClick={handleAddClick}>
-					{intl.formatMessage({ id: 'buyButton.text' })}
-				</WButton>
+				<WButton onClick={handleAddClick}>{intl.formatMessage({ id: 'buyButton.text' })}</WButton>
 			) : (
 				<Box
 					sx={{

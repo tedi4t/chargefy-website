@@ -35,20 +35,18 @@ const ShoppingCartPage = () => {
 	return (
 		<>
 			<Head>
-				<title>{
-					intl.formatMessage({ id: 'shoppingCart.title' })
-				}</title>
-				<meta
-					name='description'
-					content={intl.formatMessage({ id: 'shoppingCart.description' })}
-				/>
+				<title>{intl.formatMessage({ id: 'shoppingCart.title' })}</title>
+				<meta name='description' content={intl.formatMessage({ id: 'shoppingCart.description' })} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
 			<main>
 				<Navbar />
 
-				<Paper img={banner} element={<InfoTitle text={intl.formatMessage({ id: 'shoppingCart.header.title' })} />} />
+				<Paper
+					img={banner}
+					element={<InfoTitle text={intl.formatMessage({ id: 'shoppingCart.header.title' })} />}
+				/>
 
 				<Box sx={{ my: '5rem' }}>
 					<Container>

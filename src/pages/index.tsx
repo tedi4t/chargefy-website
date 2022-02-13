@@ -26,13 +26,8 @@ const Home = ({
 	return (
 		<div>
 			<Head>
-				<title>
-					{intl.formatMessage({ id: 'index.title' })}
-				</title>
-				<meta
-					name='description'
-					content={intl.formatMessage({ id: 'index.description' })}
-				/>
+				<title>{intl.formatMessage({ id: 'index.title' })}</title>
+				<meta name='description' content={intl.formatMessage({ id: 'index.description' })} />
 				<link rel='icon' href='/favicon.ico' />
 
 				<meta

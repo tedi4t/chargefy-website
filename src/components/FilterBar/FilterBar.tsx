@@ -59,7 +59,9 @@ export default function FilterBar(props: FilterBarProps) {
 	const rendererValue = () => {
 		switch (props.sorting) {
 			case 'price:desc': {
-				return <Box sx={{ mt: '0.1rem' }}>{intl.formatMessage({ id: 'filterBar.price.desc' })}</Box>;
+				return (
+					<Box sx={{ mt: '0.1rem' }}>{intl.formatMessage({ id: 'filterBar.price.desc' })}</Box>
+				);
 			}
 			case 'price:asc': {
 				return <Box sx={{ mt: '0.1rem' }}>{intl.formatMessage({ id: 'filterBar.price.asc' })}</Box>;
@@ -96,8 +98,12 @@ export default function FilterBar(props: FilterBarProps) {
 											variant={'standard'}
 											renderValue={rendererValue}
 										>
-											<MenuItem value={'price:asc'}>{intl.formatMessage({ id: 'filterBar.menu.price.asc' })}</MenuItem>
-											<MenuItem value={'price:desc'}>{intl.formatMessage({ id: 'filterBar.menu.price.desc' })}</MenuItem>
+											<MenuItem value={'price:asc'}>
+												{intl.formatMessage({ id: 'filterBar.menu.price.asc' })}
+											</MenuItem>
+											<MenuItem value={'price:desc'}>
+												{intl.formatMessage({ id: 'filterBar.menu.price.desc' })}
+											</MenuItem>
 										</WSelect>
 									</FormControl>
 								</Grid>
@@ -106,27 +112,27 @@ export default function FilterBar(props: FilterBarProps) {
 					</Grid>
 				</Container>
 			</Wrapper>
-				<Overlay open={opened}>
-					<Box sx={{ position: 'absolute', top: '2.5rem', right: '2.5rem', zIndex: 1300 }}>
-						<WButton onClick={handleCloseClick}>
-							<CloseOutlinedIcon />
-						</WButton>
-					</Box>
-					<GridFullHeight container flexDirection={'column'}>
-						<Grid item>
-							<Box sx={{ mt: '3.5rem' }}>
-								<Sidebar {...props} />
-							</Box>
-						</Grid>
-						<Grid item container flexGrow={1} alignItems={'flex-end'}>
-							<Box sx={{ p: '2rem', width: '100%' }}>
-								<Button variant={'outlined'} fullWidth onClick={handleApplyFiltersClick}>
-									{intl.formatMessage({ id: 'filterBar.apply' })}
-								</Button>
-							</Box>
-						</Grid>
-					</GridFullHeight>
-				</Overlay>
+			<Overlay open={opened}>
+				<Box sx={{ position: 'absolute', top: '2.5rem', right: '2.5rem', zIndex: 1300 }}>
+					<WButton onClick={handleCloseClick}>
+						<CloseOutlinedIcon />
+					</WButton>
+				</Box>
+				<GridFullHeight container flexDirection={'column'}>
+					<Grid item>
+						<Box sx={{ mt: '3.5rem' }}>
+							<Sidebar {...props} />
+						</Box>
+					</Grid>
+					<Grid item container flexGrow={1} alignItems={'flex-end'}>
+						<Box sx={{ p: '2rem', width: '100%' }}>
+							<Button variant={'outlined'} fullWidth onClick={handleApplyFiltersClick}>
+								{intl.formatMessage({ id: 'filterBar.apply' })}
+							</Button>
+						</Box>
+					</Grid>
+				</GridFullHeight>
+			</Overlay>
 		</>
 	);
 }

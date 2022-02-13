@@ -199,7 +199,9 @@ export default function OrderForm({ areas, order, setOrder }: OrderFormProps) {
 				</Grid>
 				<Grid item xs={12} md={6}>
 					<Typography fontWeight={300} variant={'h5'}>
-						<Box sx={{ display: { xs: 'block', md: 'none' } }}>{intl.formatMessage({ id: 'orderForm.novaPoschtaTitle' })}</Box>
+						<Box sx={{ display: { xs: 'block', md: 'none' } }}>
+							{intl.formatMessage({ id: 'orderForm.novaPoschtaTitle' })}
+						</Box>
 					</Typography>
 					<FormSelect
 						value={order.area}

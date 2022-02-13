@@ -70,64 +70,59 @@ const Contacts: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>
-					{intl.formatMessage({ id: 'contacts.title' })}
-				</title>
-				<meta
-					name='description'
-					content={intl.formatMessage({ id: 'contacts.description' })}
-				/>
+				<title>{intl.formatMessage({ id: 'contacts.title' })}</title>
+				<meta name='description' content={intl.formatMessage({ id: 'contacts.description' })} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
 			<SpaceBetweenWrapper>
-			<main>
-				<Navbar />
+				<main>
+					<Navbar />
 
-				<Container>
-					<Box sx={{ py: '7rem' }}>
-						<Grid container spacing={4}>
-							<Grid item container xs={4} alignItems={'center'}>
-								<Image src={logo} alt={'chargefy'} />
-							</Grid>
-							<Grid item xs={8}>
-								<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
-									<Box sx={{ typography: 'h4', fontWeight: 300 }}>
-										<FormattedMessage id='contacts.mainBlock.title' />
+					<Container>
+						<Box sx={{ py: '7rem' }}>
+							<Grid container spacing={4}>
+								<Grid item container xs={4} alignItems={'center'}>
+									<Image src={logo} alt={'chargefy'} />
+								</Grid>
+								<Grid item xs={8}>
+									<Box sx={{ mx: '1.5rem', fontSize: '1rem', lineHeight: '2rem', fontWeight: 300 }}>
+										<Box sx={{ typography: 'h4', fontWeight: 300 }}>
+											<FormattedMessage id='contacts.mainBlock.title' />
+										</Box>
+										<Box sx={{ mt: '3rem' }}>
+											{socials.map(social => (
+												<Box key={social.text}>
+													{social.href ? (
+														<Link href={social.href}>
+															<a>
+																<Box sx={{ my: '1rem' }} onClick={social.cb}>
+																	<HighlightGrid container alignItems={'center'}>
+																		{social.icon}
+																		<Box sx={{ ml: '1rem' }}>{social.text}</Box>
+																	</HighlightGrid>
+																</Box>
+															</a>
+														</Link>
+													) : (
+														<Box sx={{ my: '1rem' }}>
+															<HighlightGrid container alignItems={'center'}>
+																{social.icon}
+																<Box sx={{ ml: '1rem' }}>{social.text}</Box>
+															</HighlightGrid>
+														</Box>
+													)}
+												</Box>
+											))}
+										</Box>
 									</Box>
-									<Box sx={{ mt: '3rem' }}>
-										{socials.map(social => (
-											<Box key={social.text}>
-												{social.href ? (
-													<Link href={social.href}>
-														<a>
-															<Box sx={{ my: '1rem' }} onClick={social.cb}>
-																<HighlightGrid container alignItems={'center'}>
-																	{social.icon}
-																	<Box sx={{ ml: '1rem' }}>{social.text}</Box>
-																</HighlightGrid>
-															</Box>
-														</a>
-													</Link>
-												) : (
-													<Box sx={{ my: '1rem' }}>
-														<HighlightGrid container alignItems={'center'}>
-															{social.icon}
-															<Box sx={{ ml: '1rem' }}>{social.text}</Box>
-														</HighlightGrid>
-													</Box>
-												)}
-											</Box>
-										))}
-									</Box>
-								</Box>
+								</Grid>
 							</Grid>
-						</Grid>
-					</Box>
-				</Container>
-			</main>
+						</Box>
+					</Container>
+				</main>
 
-			<Footer />
+				<Footer />
 			</SpaceBetweenWrapper>
 		</>
 	);

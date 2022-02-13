@@ -65,16 +65,16 @@ export const Language = styled.h3`
 	font-weight: lighter;
 	color: #000;
 
-  &.active {
-    color: ${({ theme }) => theme.palette.primary.main};
-    font-weight: normal;
-  }
+	&.active {
+		color: ${({ theme }) => theme.palette.primary.main};
+		font-weight: normal;
+	}
 `;
 
 export const LanguageSplitter = styled.div`
 	width: 1px;
 	height: 1rem;
-  font-weight: lighter;
+	font-weight: lighter;
 	margin: 0 0.5rem;
-  background: #000;
+	background: #000;
 `;

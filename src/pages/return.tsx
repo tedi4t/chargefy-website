@@ -17,13 +17,8 @@ const Return: NextPage = () => {
 	return (
 		<div>
 			<Head>
-				<title>
-					{intl.formatMessage({ id: 'return.title' })}
-				</title>
-				<meta
-					name='description'
-					content={intl.formatMessage({ id: 'return.description' })}
-				/>
+				<title>{intl.formatMessage({ id: 'return.title' })}</title>
+				<meta name='description' content={intl.formatMessage({ id: 'return.description' })} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 

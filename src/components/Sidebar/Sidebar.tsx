@@ -24,6 +24,7 @@ export interface SidebarProps {
 	categories: Array<CategoryResponse>;
 	minPrice: number;
 	maxPrice: number;
+	filters: FiltersProps;
 	setFilters: Dispatch<SetStateAction<FiltersProps>>;
 }
 
@@ -32,6 +33,7 @@ export default function Sidebar({
 	categories,
 	minPrice,
 	maxPrice,
+	filters,
 	setFilters,
 }: SidebarProps) {
 	const intl = useIntl();
@@ -76,7 +78,7 @@ export default function Sidebar({
 		const category = e.target.value;
 		setFilters((filters: FiltersProps) => ({
 			...filters,
-			categories: [category],
+			categories: [parseInt(category)],
 		}));
 	};
 
@@ -105,7 +107,7 @@ export default function Sidebar({
 							<FormControlLabel
 								key={category.id}
 								value={category.id}
-								control={<RadioCategory />}
+								control={<RadioCategory checked={filters.categories?.includes(category.id)} />}
 								label={<Text>{category.name}</Text>}
 							/>
 						))}

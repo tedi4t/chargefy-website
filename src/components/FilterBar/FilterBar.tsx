@@ -30,6 +30,7 @@ export interface FilterBarProps {
 	categories: Array<CategoryResponse>;
 	minPrice: number;
 	maxPrice: number;
+	filters: FiltersProps;
 	setFilters: Dispatch<SetStateAction<FiltersProps>>;
 	sorting: string | undefined;
 	setSorting: Dispatch<SetStateAction<string | undefined>>;
@@ -105,7 +106,6 @@ export default function FilterBar(props: FilterBarProps) {
 					</Grid>
 				</Container>
 			</Wrapper>
-			{opened && (
 				<Overlay open={opened}>
 					<Box sx={{ position: 'absolute', top: '2.5rem', right: '2.5rem', zIndex: 1300 }}>
 						<WButton onClick={handleCloseClick}>
@@ -127,7 +127,6 @@ export default function FilterBar(props: FilterBarProps) {
 						</Grid>
 					</GridFullHeight>
 				</Overlay>
-			)}
 		</>
 	);
 }

@@ -74,7 +74,6 @@ export default function FilterBar(props: FilterBarProps) {
 
 	return (
 		<>
-			<TopLine />
 			<Wrapper>
 				<Container>
 					<Grid container justifyContent={'space-between'} flexDirection={'row'}>

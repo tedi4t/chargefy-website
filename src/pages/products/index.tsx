@@ -142,9 +142,11 @@ const ProductsPage = (props: ProductsPageProps) => {
 			<main>
 				<Navbar />
 
-				<Carousel Slide={MainSlide} content={props.title.products} />
+				<Box sx={{ display: { xs: 'none', md: 'block' } }}>
+					<Carousel Slide={MainSlide} content={props.title.products} />
+				</Box>
 
-				<Box sx={{ display: { xs: 'block', md: 'none' } }}>
+				<Box sx={{ display: { xs: 'block', md: 'none' }, mt: { xs: '5rem', md: 0 }}}>
 					<FilterBar
 						{...props}
 						filters={filters}

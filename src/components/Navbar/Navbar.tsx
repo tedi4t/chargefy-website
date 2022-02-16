@@ -19,6 +19,8 @@ import {
 	GridMenuItem,
 	Language,
 	LanguageSplitter,
+	PageHolder,
+	LanguageHolder,
 } from './Navbar.styles';
 
 import Logo from '../../../media/logo.png';
@@ -88,22 +90,39 @@ export default function Navbar() {
 						</IconButton>
 						<Overlay opened={isMenuOpened} onClose={handleCloseNavMenu}>
 							<GridFullHeight container>
-								{pages.map(page => (
-									<GridMenuItem key={page.href}>
-										<Link href={page.href}>
+								<PageHolder container>
+									{pages.map(page => (
+										<GridMenuItem key={page.href}>
+											<Link href={page.href}>
+												<a>
+													<Typography
+														color={'primary'}
+														fontWeight={'light'}
+														fontSize={'1.2rem'}
+														textAlign={'center'}
+													>
+														{page.name}
+													</Typography>
+												</a>
+											</Link>
+										</GridMenuItem>
+									))}
+								</PageHolder>
+								<LanguageHolder>
+									<Grid container justifyContent={'center'} alignItems={'center'}>
+										<Link href={'/'} locale={'uk'}>
 											<a>
-												<Typography
-													color={'primary'}
-													fontWeight={'light'}
-													fontSize={'1.2rem'}
-													textAlign={'center'}
-												>
-													{page.name}
-												</Typography>
+												<Language className={router.locale === 'uk' ? 'active' : ''}>UA</Language>
 											</a>
 										</Link>
-									</GridMenuItem>
-								))}
+										<LanguageSplitter />
+										<Link href={'/'} locale={'ru'}>
+											<a>
+												<Language className={router.locale === 'ru' ? 'active' : ''}>RU</Language>
+											</a>
+										</Link>
+									</Grid>
+								</LanguageHolder>
 							</GridFullHeight>
 						</Overlay>
 					</Box>
@@ -130,7 +149,7 @@ export default function Navbar() {
 						))}
 					</Box>
 
-					<Box sx={{ flexGrow: 0 }}>
+					<Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'block' }}}>
 						<Grid container alignItems={'center'}>
 							<Link href={'/'} locale={'uk'}>
 								<a>

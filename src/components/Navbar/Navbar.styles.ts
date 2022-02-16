@@ -48,9 +48,22 @@ export const WShoppingCartIcon = styled(ShoppingCartIcon)`
 
 export const GridFullHeight = styled(Grid)`
 	height: 100%;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  flex-direction: column;
+`;
+
+export const PageHolder = styled(Grid)`
+	flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const LanguageHolder = styled(Grid)`
+  align-items: center;
+  justify-content: center;
+	flex-grow: 0;
+	width: 100%;
+	padding-bottom: 2rem;
 `;
 
 export const GridMenuItem = styled(Grid)`

@@ -129,7 +129,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 		fetchAPI(url).then((response: any) => {
 			setProductsList(toProductsListResponse(response));
 		});
-	}, [filters, page, sorting]);
+	}, [filters, page, sorting, router.locale]);
 
 	return (
 		<div>

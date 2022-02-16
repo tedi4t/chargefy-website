@@ -65,5 +65,10 @@
   "orderForm.region": "Область",
   "orderForm.secondName": "По батькові",
   "orderForm.surname": "Прізвище",
-  "orderForm.warehouse": "Склад"
+  "orderForm.warehouse": "Склад",
+
+  "sorting.price.name": "Сортувати",
+  "sorting.price.asc": "За зростанням ціни",
+  "sorting.price.desc": "За зменшенням ціни",
+  "sorting.price.default": "Звичайно"
 }

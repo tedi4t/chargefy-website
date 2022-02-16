@@ -13,7 +13,7 @@ import {
 	MainSlide,
 	Pagination,
 	FilterBar,
-	SidebarWrapper,
+	SidebarWrapper, Sorting,
 } from '../../components';
 import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
@@ -166,6 +166,9 @@ const ProductsPage = (props: ProductsPageProps) => {
 									</SidebarWrapper>
 								</Grid>
 								<Grid item xs={12} md={9}>
+									<Box sx={{ display: { xs: 'none', md: 'block' }, mb: '2rem', pl: '2rem', pt: '1rem'}}>
+										<Sorting sorting={sorting} setSorting={setSorting} />
+									</Box>
 									{productsList && <Products products={productsList?.products.data} />}
 								</Grid>
 							</Grid>

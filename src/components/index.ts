@@ -19,6 +19,7 @@ import FilterBar from './FilterBar';
 import SidebarWrapper from './SidebarWrapper';
 import Overlay from './Overlay';
 import SpaceBetweenWrapper from './SpaceBetweenWrapper';
+import Sorting from './Sorting';
 
 export {
 	Carousel,
@@ -42,4 +43,5 @@ export {
 	SidebarWrapper,
 	Overlay,
 	SpaceBetweenWrapper,
+	Sorting,
 };

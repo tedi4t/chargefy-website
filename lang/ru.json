@@ -65,5 +65,10 @@
   "orderForm.region": "Область",
   "orderForm.secondName": "Отчество",
   "orderForm.surname": "Фамилия",
-  "orderForm.warehouse": "Состав"
+  "orderForm.warehouse": "Состав",
+
+  "sorting.price.name": "Сортировать",
+  "sorting.price.asc": "По росту цены",
+  "sorting.price.desc": "По убыванию цены",
+  "sorting.price.default": "Обычно"
 }

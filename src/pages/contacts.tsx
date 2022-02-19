@@ -53,8 +53,8 @@ const Contacts: NextPage = () => {
 		},
 		{
 			icon: <PhoneIcon />,
-			text: '+38 063 039 90 93',
-			href: 'tel:+380630399093',
+			text: '+38 073 857 69 46',
+			href: 'tel:+380738576946',
 			cb: () => {
 				event({
 					action: 'purchase',

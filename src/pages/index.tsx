@@ -58,7 +58,7 @@ const Home = ({
 						<Info
 							title={intl.formatMessage({ id: 'index.sale.title' })}
 							description={intl.formatMessage({ id: 'index.sale.description' })}
-							price={149}
+							price={15}
 							link={'/products'}
 						/>
 					}

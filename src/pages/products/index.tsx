@@ -120,7 +120,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 			filters: queryFilters,
 			pagination: {
 				page: page,
-				pageSize: 15,
+				pageSize: 6,
 			},
 			sort: sorting ? [sorting] : [],
 			populate: '*',

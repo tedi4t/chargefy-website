@@ -85,7 +85,7 @@ Home.getInitialProps = async (ctx: NextPageContext) => {
 			},
 		},
 		populate: '*',
-		locale: ctx.locale || 'uk',
+		locale: ctx.locale || 'en',
 	});
 
 	const queryRecommend = qs.stringify({
@@ -95,7 +95,7 @@ Home.getInitialProps = async (ctx: NextPageContext) => {
 			},
 		},
 		populate: '*',
-		locale: ctx.locale || 'uk',
+		locale: ctx.locale || 'en',
 	});
 
 	const queryTitle = qs.stringify({
@@ -105,7 +105,7 @@ Home.getInitialProps = async (ctx: NextPageContext) => {
 			},
 		},
 		populate: '*',
-		locale: ctx.locale || 'uk',
+		locale: ctx.locale || 'en',
 	});
 
 	const url = '/products?';

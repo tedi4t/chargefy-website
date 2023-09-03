@@ -41,7 +41,7 @@ const ProductPage = ({
 	const intl = useIntl();
 
 	const router = useRouter();
-	const isUkLocale = router.locale === 'uk';
+	const isUkLocale = router.locale === 'en';
 
 	const [quantity, setQuantity] = useState(0);
 	const [, dispatch] = useContext(shoppingCartContext);
@@ -172,7 +172,7 @@ ProductPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductPageP
 			rowsPerPage: 4,
 		},
 		populate: '*',
-		locale: ctx.locale || 'uk',
+		locale: ctx.locale || 'en',
 	});
 	const categoryUrl = `/products?${categoryQuery}`;
 	const categoryResponse = await fetchAPI(categoryUrl);

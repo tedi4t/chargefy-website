@@ -33,9 +33,9 @@ const IntlProviderComponent = ({ children }: any) => {
 	return (
 		<IntlProvider
 			key={router.locale}
-			locale={router.locale || 'uk'}
+			locale={router.locale || 'en'}
 			defaultLocale={router.locale}
-			messages={router.locale === 'ru' ? ru : uk}
+			messages={router.locale === 'de' ? ru : uk}
 		>
 			{children}
 		</IntlProvider>

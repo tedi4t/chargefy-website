@@ -28,7 +28,7 @@ interface FormSelectProps {
 
 export const FormSelect = (props: FormSelectProps) => {
 	const router = useRouter();
-	const isUkLocale = router.locale === 'uk';
+	const isUkLocale = router.locale === 'en';
 
 	return (
 		<WFormControl fullWidth>

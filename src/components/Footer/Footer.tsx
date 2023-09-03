@@ -34,7 +34,7 @@ interface Social {
 
 export default function Footer() {
 	const router = useRouter();
-	const isUkLocale = router.locale === 'uk';
+	const isUkLocale = router.locale === 'en';
 
 	const socials: Array<Social> = [
 		{

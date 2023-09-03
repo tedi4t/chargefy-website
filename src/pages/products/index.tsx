@@ -123,7 +123,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 			},
 			sort: sorting ? [sorting] : [],
 			populate: '*',
-			locale: router.locale || 'uk',
+			locale: router.locale || 'en',
 		});
 		const url = `/products?${query}`;
 		fetchAPI(url).then((response: any) => {
@@ -188,7 +188,7 @@ ProductsPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductsPag
 	const colorsUrl = `/colors?`;
 	const colorsQuery = qs.stringify({
 		populate: '*',
-		locale: ctx.locale || 'uk',
+		locale: ctx.locale || 'en',
 	});
 
 	const colorsResponse = await fetchAPI(`${colorsUrl}${colorsQuery}`);
@@ -197,7 +197,7 @@ ProductsPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductsPag
 	const categoriesUrl = `/categories?`;
 	const categoriesQuery = qs.stringify({
 		populate: '*',
-		locale: ctx.locale || 'uk',
+		locale: ctx.locale || 'en',
 	});
 
 	const categoriesResponse = await fetchAPI(`${categoriesUrl}${categoriesQuery}`);
@@ -213,7 +213,7 @@ ProductsPage.getInitialProps = async (ctx: NextPageContext): Promise<ProductsPag
 			},
 		},
 		populate: '*',
-		locale: ctx.locale || 'uk',
+		locale: ctx.locale || 'en',
 	});
 
 	const url = '/products?';

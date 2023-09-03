@@ -25,7 +25,7 @@ export default function ProductInfo(props: ProductInfoProps) {
 		{
 			icon: <LocalShippingIcon color={'primary'} />,
 			text:
-				router.locale === 'uk'
+				router.locale === 'en'
 					? 'Безкоштовна доставка від 790 гривень'
 					: 'Бесплатная доставка от 790 гривен',
 		},

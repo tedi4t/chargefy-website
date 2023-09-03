@@ -31,7 +31,7 @@ import Typography from '@mui/material/Typography';
 
 export default function Navbar() {
 	const router = useRouter();
-	const isUkLocale = router.locale === 'uk';
+	const isUkLocale = router.locale === 'en';
 
 	const [shoppingCart] = useContext(shoppingCartContext);
 	const pages: Array<{ name: string; href: string }> = [
@@ -110,15 +110,15 @@ export default function Navbar() {
 								</PageHolder>
 								<LanguageHolder>
 									<Grid container justifyContent={'center'} alignItems={'center'}>
-										<Link href={'/'} locale={'uk'}>
+										<Link href={'/'} locale={'en'}>
 											<a>
-												<Language className={router.locale === 'uk' ? 'active' : ''}>UA</Language>
+												<Language className={router.locale === 'en' ? 'active' : ''}>EN</Language>
 											</a>
 										</Link>
 										<LanguageSplitter />
-										<Link href={'/'} locale={'ru'}>
+										<Link href={'/'} locale={'de'}>
 											<a>
-												<Language className={router.locale === 'ru' ? 'active' : ''}>RU</Language>
+												<Language className={router.locale === 'de' ? 'active' : ''}>DE</Language>
 											</a>
 										</Link>
 									</Grid>
@@ -149,17 +149,17 @@ export default function Navbar() {
 						))}
 					</Box>
 
-					<Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'block' }}}>
+					<Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'block' } }}>
 						<Grid container alignItems={'center'}>
-							<Link href={'/'} locale={'uk'}>
+							<Link href={'/'} locale={'en'}>
 								<a>
-									<Language className={router.locale === 'uk' ? 'active' : ''}>UA</Language>
+									<Language className={router.locale === 'en' ? 'active' : ''}>UA</Language>
 								</a>
 							</Link>
 							<LanguageSplitter />
-							<Link href={'/'} locale={'ru'}>
+							<Link href={'/'} locale={'de'}>
 								<a>
-									<Language className={router.locale === 'ru' ? 'active' : ''}>RU</Language>
+									<Language className={router.locale === 'de' ? 'active' : ''}>RU</Language>
 								</a>
 							</Link>
 						</Grid>

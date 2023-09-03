@@ -13,7 +13,8 @@ import {
 	MainSlide,
 	Pagination,
 	FilterBar,
-	SidebarWrapper, Sorting,
+	SidebarWrapper,
+	Sorting,
 } from '../../components';
 import { fetchAPI, getFirstListItemPrice } from '../../lib/api';
 
@@ -47,7 +48,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 	const router = useRouter();
 	const intl = useIntl();
 	const [page, setPage] = useState<number>(1);
-	const [pageCount, setPageCount] = useState<number>(10);
+	const [pageCount, setPageCount] = useState<number>(6);
 	const [productsList, setProductsList] = useState<ProductsListResponse | null>(null);
 	const [sorting, setSorting] = useState<string | undefined>();
 	const [filters, setFilters] = useState<FiltersProps>({
@@ -146,7 +147,7 @@ const ProductsPage = (props: ProductsPageProps) => {
 					<Carousel Slide={MainSlide} content={props.title.products} />
 				</Box>
 
-				<Box sx={{ display: { xs: 'block', md: 'none' }, mt: { xs: '5rem', md: 0 }}}>
+				<Box sx={{ display: { xs: 'block', md: 'none' }, mt: { xs: '5rem', md: 0 } }}>
 					<FilterBar
 						{...props}
 						filters={filters}
@@ -166,7 +167,14 @@ const ProductsPage = (props: ProductsPageProps) => {
 									</SidebarWrapper>
 								</Grid>
 								<Grid item xs={12} md={9}>
-									<Box sx={{ display: { xs: 'none', md: 'block' }, mb: '2rem', pl: '2rem', pt: '1rem'}}>
+									<Box
+										sx={{
+											display: { xs: 'none', md: 'block' },
+											mb: '2rem',
+											pl: '2rem',
+											pt: '1rem',
+										}}
+									>
 										<Sorting sorting={sorting} setSorting={setSorting} />
 									</Box>
 									{productsList && <Products products={productsList?.products.data} />}

@@ -5,7 +5,7 @@ module.exports = {
 		domains: ['127.0.0.1', 'res.cloudinary.com'],
 	},
 	i18n: {
-		locales: ['en', 'de'],
+		locales: ['en', 'nl'],
 		defaultLocale: 'en',
 	},
 };

@@ -119,9 +119,11 @@ export default function Navbar() {
 											</a>
 										</Link>
 										<LanguageSplitter />
-										<Link href={'/'} locale={'de'}>
+										<Link href={'/'} locale={'nl'}>
 											<a>
-												<Language className={router.locale === 'de' ? 'active' : ''}>DE</Language>
+												<Language className={router.locale === 'nl' ? 'active' : ''}>
+													{intl.formatMessage({ id: 'locale.de' })}
+												</Language>
 											</a>
 										</Link>
 									</Grid>
@@ -162,9 +164,9 @@ export default function Navbar() {
 								</a>
 							</Link>
 							<LanguageSplitter />
-							<Link href={'/'} locale={'de'}>
+							<Link href={'/'} locale={'nl'}>
 								<a>
-									<Language className={router.locale === 'de' ? 'active' : ''}>
+									<Language className={router.locale === 'nl' ? 'active' : ''}>
 										{intl.formatMessage({ id: 'locale.de' })}
 									</Language>
 								</a>

@@ -62,7 +62,7 @@ export default function ShoppingCartItemComponent({ product, quantity }: Shoppin
 					/>
 				</Grid>
 				<Grid item container xs={5} md={2} alignItems={'center'}>
-					<Price>₴ {(product.price * quantity).toFixed(2)}</Price>
+					<Price>$ {(product.price * quantity).toFixed(2)}</Price>
 				</Grid>
 			</Grid>
 			<Line />

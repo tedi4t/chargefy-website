@@ -1,0 +1,96 @@
+{
+  "about.title": "Über uns | Chargefy",
+  "about.description": "Chargefy-Shop für Telefonzubehör. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir Qualitätsprodukte und praktischen Service bieten. Wir helfen Ihnen, schnell und bequem das qualitativ beste Zubehör für Ihr Telefon zu finden.",
+  "about.mainBlock.description": "Wir sind ein neues Geschäft. Unser Ziel ist es, für unsere Kunden nützlich zu sein, Qualitätsprodukte zusammen mit bequemem Service anzubieten. Wir bieten eine Garantie, weil wir glauben, dass Online-Shopping so sicher wie möglich sein sollte. Wir helfen Ihnen, schnell und bequem das hochwertigste Zubehör für Ihr Telefon zu finden.",
+  "about.mainBlock.title": "Über uns",
+
+  "contacts.title": "Kontakte | Chargefy",
+  "contacts.description": "Chargefy-Shop für Telefonzubehör. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir Qualitätsprodukte und praktischen Service bieten. Wir helfen Ihnen, schnell und bequem das qualitativ beste Zubehör für Ihr Telefon zu finden.",
+  "contacts.mainBlock.title": "Kontakte",
+
+  "delivery.title": "Lieferung | Chargefy",
+  "delivery.description": "Laden für Telefonzubehör von Chargefy. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir ihnen Qualitätsprodukte und einen praktischen Service bieten. Wir helfen Ihnen, schnell und bequem das qualitativ beste Zubehör für Ihr Telefon zu finden.",
+  "delivery.mainBlock.title": "Lieferung",
+  "delivery.mainBlock.description": "Wir liefern über den Postdienst Nova Poshta. Die Zahlung per Nachnahme hat für uns Priorität, da Sie auf diese Weise die Qualität des Produkts vor der Bezahlung persönlich überprüfen können, aber das ist auch der Fall Auf Wunsch ist die Bezahlung mit Karte möglich. Gerne versenden wir auch mit einem anderen von Ihnen angegebenen Lieferdienst.",
+
+  "return.title": "Return | Chargefy",
+  "return.description": "Chargefys Telefonzubehör-Shop. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir Qualitätsprodukte zusammen mit praktischem Service bieten. Wir helfen Ihnen, schnell und bequem das beste Qualitätszubehör für Ihr Telefon zu finden.",
+  "return.mainBlock.description": "Der Rückgabebereich befindet sich derzeit in der Entwicklung, aber Sie können das Produkt zurücksenden, indem Sie uns unter den Kontaktnummern kontaktieren. Unsere Manager helfen Ihnen jederzeit gerne weiter.",
+  "return.mainBlock.title": "Zurück",
+
+  "index.title": "Aufladen",
+  "index.description": "Chargefy-Shop für Telefonzubehör. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir Qualitätsprodukte und praktischen Service bieten. Wir helfen Ihnen, schnell und bequem das qualitativ beste Zubehör für Ihr Telefon zu finden.",
+  "index.popular.title": "Beliebt",
+  "index.recommended.title": "Empfohlen",
+  "index.sale.title": "Waren im Angebot",
+  "index.sale.description": "Die stilvolle Autotelefonhalterung bietet einen starken und sicheren Halt für Ihr Telefon, während die verlängerten Metallplatten die Magnetkraft noch verstärken. Es gibt auch Halterungen mit kabelloser Aufladung, um Ihr Telefon schnell aufzuladen.",
+
+  "products.title": "Produkte | Chargefy",
+  "products.description": "Chargefy-Shop für Telefonzubehör. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir Qualitätsprodukte und praktischen Service bieten. Wir helfen Ihnen, schnell und bequem das qualitativ beste Zubehör für Ihr Telefon zu finden.",
+
+  "product.similar.title": "Ähnliche Produkte",
+
+  "shoppingCart.title": "Warenkorb | Chargefy",
+  "shoppingCart.description": "Chargefys Telefonzubehör-Shop. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir Qualitätsprodukte zusammen mit praktischem Service bieten. Wir helfen Ihnen, schnell und bequem das hochwertigste Zubehör für Ihr Telefon zu finden.",
+  "shoppingCart.button.text": "Bestellen",
+  "shoppingCart.header.title": "Warenkorb",
+
+  "order.title": "Zur Kasse | Chargefy",
+  "order.description": "Chargefy-Shop für Telefonzubehör. Unser Ziel ist es, unseren Kunden nützlich zu sein, indem wir Qualitätsprodukte und praktischen Service bieten. Wir helfen Ihnen, schnell und bequem das qualitativ beste Zubehör für Ihr Telefon zu finden.",
+  "order.button.text": "Bestellung aufgeben",
+  "order.header.title": "Zur Kasse gehen",
+  "order.main.title": "Bestellinformationen",
+
+  "info.from": "Von",
+  "info.go": "Kaufen",
+
+  "sidebar.categories.title": "Kategorie",
+  "sidebar.color.title": "Farbe",
+  "sidebar.price.title": "Preis",
+
+  "buyButton.text": "Kaufen",
+
+  "filterBar.apply": "Anwenden",
+  "filterBar.default": "Sortieren",
+  "filterBar.filter.text": "Filter",
+  "filterBar.menu.price.asc": "Aufsteigender Preis",
+  "filterBar.menu.price.desc": "Durch sinkenden Preis",
+  "filterBar.price.asc": "Aufsteigender Preis",
+  "filterBar.price.desc": "Durch sinkenden Preis",
+
+  "orderForm.city": "Stadt",
+  "orderForm.name": "Name",
+  "orderForm.novaPoschtaTitle": "Neue Postfiliale",
+  "orderForm.phoneNumber": "Mobiltelefon",
+  "orderForm.region": "Region",
+  "orderForm.secondName": "Patrony Name",
+  "orderForm.surname": "Nachname",
+  "orderForm.warehouse": "Lager",
+
+  "sorting.price.name": "Sortieren",
+  "sorting.price.asc": "Aufsteigender Preis",
+  "sorting.price.desc": "Durch sinkenden Preis",
+  "sorting.price.default": "Standard",
+
+  "navbar.home": "Startseite",
+  "navbar.products": "Produkte",
+  "navbar.about": "Über uns",
+  "navbar.contact": "Kontakt",
+
+  "locale.en": "EN",
+  "locale.de": "DE",
+
+  "footer.home": "Startseite",
+  "footer.products": "Produkte",
+  "footer.about": "Über uns",
+  "footer.contact": "Kontakt",
+  "footer.delivery": "Lieferung",
+  "footer.return": "Zurück",
+  "footer.pages": "Seiten",
+  "footer.help": "Hilfe",
+  "footer.copyright": "©Copyright. Entworfen und entwickelt von Everget",
+
+  "product.stages.main": "Startseite",
+  "product.stages.goods": "Produktliste",
+  "productInfo.freeDelivery": "Kostenlose Lieferung ab 10$"
+}

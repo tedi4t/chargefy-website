@@ -37,11 +37,11 @@ export default function Product(props: ProductProps) {
 						<Price>
 							{props.beforePrice ? (
 								<>
-									<span className={'crossed'}>₴{props.beforePrice}</span>
-									<span className={'sale'}>₴{props.price}</span>
+									<span className={'crossed'}>${props.beforePrice}</span>
+									<span className={'sale'}>${props.price}</span>
 								</>
 							) : (
-								<>₴{props.price}</>
+								<>${props.price}</>
 							)}
 						</Price>
 					</Wrapper>

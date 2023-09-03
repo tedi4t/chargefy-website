@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { useIntl } from 'react-intl';
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -34,7 +35,7 @@ interface Social {
 
 export default function Footer() {
 	const router = useRouter();
-	const isUkLocale = router.locale === 'en';
+	const intl = useIntl();
 
 	const socials: Array<Social> = [
 		{
@@ -79,36 +80,32 @@ export default function Footer() {
 
 	const pages: Array<{ name: string; href: string }> = [
 		{
-			name: isUkLocale ? 'Домашня сторінка' : 'Домашняя страница',
+			name: intl.formatMessage({ id: 'footer.home' }),
 			href: '/',
 		},
 		{
-			name: isUkLocale ? 'Товари' : 'Товары',
+			name: intl.formatMessage({ id: 'footer.products' }),
 			href: '/products',
 		},
 		{
-			name: isUkLocale ? 'Про нас' : 'О нас',
+			name: intl.formatMessage({ id: 'footer.about' }),
 			href: '/about',
 		},
 		{
-			name: isUkLocale ? 'Контакти' : 'Контакты',
+			name: intl.formatMessage({ id: 'footer.contact' }),
 			href: '/contacts',
 		},
 	];
 
 	const helpPages: Array<{ name: string; href: string }> = [
 		{
-			name: 'Доставка',
+			name: intl.formatMessage({ id: 'footer.delivery' }),
 			href: '/delivery',
 		},
 		{
-			name: 'Повернення',
+			name: intl.formatMessage({ id: 'footer.return' }),
 			href: '/return',
 		},
-		// {
-		// 	name: 'Запитання',
-		// 	href: '/faq',
-		// },
 	];
 
 	return (
@@ -148,7 +145,7 @@ export default function Footer() {
 								</Box>
 							</Grid>
 							<Grid item xs={12} md={4}>
-								<Title>сторінки</Title>
+								<Title>{intl.formatMessage({ id: 'footer.pages' })}</Title>
 								<Box sx={{ display: { sm: 'block', md: 'none' } }}>
 									<Column>
 										{pages.map(page => (
@@ -164,7 +161,7 @@ export default function Footer() {
 								</Box>
 							</Grid>
 							<Grid item xs={12} md={4}>
-								<Title>допомога</Title>
+								<Title>{intl.formatMessage({ id: 'footer.help' })}</Title>
 								<Box sx={{ display: { sm: 'block', md: 'none' } }}>
 									<Column>
 										{helpPages.map(page => (
@@ -234,7 +231,7 @@ export default function Footer() {
 							</Grid>
 						</Box>
 					</InsideWrapper>
-					<FooterText>©Copyright. Designed And Developed By Chargefy</FooterText>
+					<FooterText>{intl.formatMessage({ id: 'footer.copyright' })}</FooterText>
 				</Container>
 			</Wrapper>
 		</footer>

@@ -22,7 +22,7 @@ export default function Info(props: InfoProps) {
 					<Description>{props.description}</Description>
 					<Subtitle>
 						{intl.formatMessage({ id: 'info.from' })}
-						<span className='highlighted'>₴{props.price}</span>
+						<span className='highlighted'>${props.price}</span>
 					</Subtitle>
 					<WButton>
 						<Link href={props.link}>

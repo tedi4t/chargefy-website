@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import { useRouter } from 'next/router';
 
 import { Navbar, Footer, Paper, InfoTitle, Title, ActionButton } from '../../components';
 
@@ -16,7 +16,8 @@ import { useIntl } from 'react-intl';
 
 const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 	const intl = useIntl();
-	const [shoppingCart] = useContext(shoppingCartContext);
+	const router = useRouter();
+	const [shoppingCart, dispatch] = useContext(shoppingCartContext);
 	const [order, setOrder] = useState<OrderFormValue>({
 		name: null,
 		surname: null,
@@ -78,6 +79,8 @@ const OrderPage = ({ areas }: { areas: Array<NovaPoschtaInfo> }) => {
 				value: totalPrice,
 				currency: 'UAH',
 			});
+			dispatch?.({ type: 'clearState' });
+			router.push('/');
 		});
 	};
 

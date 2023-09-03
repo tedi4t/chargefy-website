@@ -6,8 +6,8 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
-import uk from '../../lang/uk.json';
-import ru from '../../lang/ru.json';
+import de from '../../lang/de.json';
+import en from '../../lang/en.json';
 import { ShoppingCartProvider } from '../contexts/shoppingCart';
 import { ShoppingCartChecker } from '../components';
 import { themeOptions } from '../../themes/theme';
@@ -35,7 +35,7 @@ const IntlProviderComponent = ({ children }: any) => {
 			key={router.locale}
 			locale={router.locale || 'en'}
 			defaultLocale={router.locale}
-			messages={router.locale === 'de' ? ru : uk}
+			messages={router.locale === 'de' ? de : en}
 		>
 			{children}
 		</IntlProvider>

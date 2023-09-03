@@ -56,7 +56,7 @@ const ShoppingCartPage = () => {
 							))}
 						<Typography>
 							<Box sx={{ mt: '2rem', textAlign: 'right', fontWeight: 300, fontSize: '1.3rem' }}>
-								₴ {totalPrice.toFixed(2)}
+								$ {totalPrice.toFixed(2)}
 							</Box>
 						</Typography>
 						<Box sx={{ mt: '4rem' }}>

@@ -46,11 +46,11 @@ export default function Sidebar({
 	const priceMarks = [
 		{
 			value: 0,
-			label: `₴${minPriceW}`,
+			label: `$${minPriceW}`,
 		},
 		{
 			value: 100,
-			label: `₴${maxPriceW}`,
+			label: `$${maxPriceW}`,
 		},
 	];
 

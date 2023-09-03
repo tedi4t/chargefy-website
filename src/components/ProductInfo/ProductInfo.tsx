@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import { useIntl } from 'react-intl';
 
 import {
 	Title,
@@ -18,16 +19,14 @@ import { useRouter } from 'next/router';
 
 export default function ProductInfo(props: ProductInfoProps) {
 	const router = useRouter();
+	const intl = useIntl();
 	const advantages: Array<{
 		icon: JSX.Element;
 		text: string;
 	}> = [
 		{
 			icon: <LocalShippingIcon color={'primary'} />,
-			text:
-				router.locale === 'en'
-					? 'Безкоштовна доставка від 790 гривень'
-					: 'Бесплатная доставка от 790 гривен',
+			text: intl.formatMessage({ id: 'productInfo.freeDelivery' }),
 		},
 	];
 
@@ -46,11 +45,11 @@ export default function ProductInfo(props: ProductInfoProps) {
 			<Price>
 				{props.beforePrice ? (
 					<>
-						<span className={'crossed'}>₴{props.beforePrice}</span>
-						<span className={'sale'}>₴{props.price}</span>
+						<span className={'crossed'}>${props.beforePrice}</span>
+						<span className={'sale'}>${props.price}</span>
 					</>
 				) : (
-					<>₴{props.price}</>
+					<>${props.price}</>
 				)}
 			</Price>
 			<Advantages>

@@ -1,0 +1,96 @@
+{
+  "about.title": "About Us | Chargefy",
+  "about.description": "Chargefy phone accessories store. Our goal is to be useful to our customers, providing quality products along with convenient service. We help you find the best quality accessories for your phone quickly and conveniently.",
+  "about.mainBlock.description": "We are a new store. Our goal is to be useful to our customers, to provide quality products along with convenient service. We provide a guarantee because we believe that online shopping should be as safe as possible. We help find the highest quality accessories for your phone quickly and conveniently.",
+  "about.mainBlock.title": "About Us",
+
+  "contacts.title": "Contacts | Chargefy",
+  "contacts.description": "Chargefy phone accessories store. Our goal is to be useful to our customers, providing quality products along with convenient service. We help you find the best quality accessories for your phone quickly and conveniently.",
+  "contacts.mainBlock.title": "Contacts",
+
+  "delivery.title": "Delivery | Chargefy",
+  "delivery.description": "Chargefy phone accessories store. Our goal is to be useful to our customers, to provide quality products along with convenient service. We help you find the best quality accessories for your phone quickly and conveniently.",
+  "delivery.mainBlock.title": "Delivery",
+  "delivery.mainBlock.description": "We deliver via the Nova Poshta postal service. Payment by cash on delivery is a priority for us, because this way you can personally verify the quality of the product before paying for it, but it is also possible to pay by card if you wish. We will also be happy to send by another delivery service that you specify.",
+
+  "return.title": "Return | Chargefy",
+  "return.description": "Chargefy's phone accessories store. Our goal is to be useful to our customers, providing quality products along with convenient service. We help you find the best quality accessories for your phone quickly and conveniently.",
+  "return.mainBlock.description": "The return section is currently under development, but you can return the product by contacting us at the contact numbers. Our managers will always be happy to help you.",
+  "return.mainBlock.title": "Return",
+
+  "index.title": "Chargefy",
+  "index.description": "Chargefy phone accessories store. Our goal is to be useful to our customers, providing quality products along with convenient service. We help you find the best quality accessories for your phone quickly and conveniently.",
+  "index.popular.title": "Popular",
+  "index.recommended.title": "Recommended",
+  "index.sale.title": "Goods on sale",
+  "index.sale.description": "The stylish car phone holder provides a strong and secure hold for your phone, while the extended metal plates further strengthen the magnetic force. There are also holders with wireless charging to quickly charge your phone.",
+
+  "products.title": "Products | Chargefy",
+  "products.description": "Chargefy phone accessories store. Our goal is to be useful to our customers, providing quality products along with convenient service. We help you find the best quality accessories for your phone quickly and conveniently.",
+
+  "product.similar.title": "Similar products",
+
+  "shoppingCart.title": "Cart | Chargefy",
+  "shoppingCart.description": "Chargefy's phone accessories store. Our goal is to be useful to our customers, providing quality products along with convenient service. We help you find the highest quality accessories for your phone quickly and conveniently.",
+  "shoppingCart.button.text": "Order",
+  "shoppingCart.header.title": "Cart",
+
+  "order.title": "Checkout | Chargefy",
+  "order.description": "Chargefy phone accessories store. Our goal is to be useful to our customers, providing quality products along with convenient service. We help you find the best quality accessories for your phone quickly and conveniently.",
+  "order.button.text": "Make an order",
+  "order.header.title": "Checkout",
+  "order.main.title": "Order Information",
+
+  "info.from": "From",
+  "info.go": "Buy",
+
+  "sidebar.categories.title": "Category",
+  "sidebar.color.title": "Color",
+  "sidebar.price.title": "Price",
+
+  "buyButton.text": "Buy",
+
+  "filterBar.apply": "Apply",
+  "filterBar.default": "Sorting",
+  "filterBar.filter.text": "Filter",
+  "filterBar.menu.price.asc": "Ascending price",
+  "filterBar.menu.price.desc": "By decreasing price",
+  "filterBar.price.asc": "Ascending price",
+  "filterBar.price.desc": "By decreasing price",
+
+  "orderForm.city": "City",
+  "orderForm.name": "Name",
+  "orderForm.novaPoschtaTitle": "New Post Branch",
+  "orderForm.phoneNumber": "Mobile Phone",
+  "orderForm.region": "Region",
+  "orderForm.secondName": "Patrony Name",
+  "orderForm.surname": "Surname",
+  "orderForm.warehouse": "Warehouse",
+
+  "sorting.price.name": "Sort",
+  "sorting.price.asc": "Ascending price",
+  "sorting.price.desc": "By decreasing price",
+  "sorting.price.default": "Default",
+
+  "navbar.home": "Home",
+  "navbar.products": "Products",
+  "navbar.about": "About Us",
+  "navbar.contact": "Contact",
+
+  "locale.en": "EN",
+  "locale.de": "DE",
+
+  "footer.home": "Home",
+  "footer.products": "Products",
+  "footer.about": "About Us",
+  "footer.contact": "Contact",
+  "footer.delivery": "Delivery",
+  "footer.return": "Return",
+  "footer.pages": "Pages",
+  "footer.help": "Help",
+  "footer.copyright": "©Copyright. Designed And Developed By Everget",
+
+  "product.stages.main": "Home",
+  "product.stages.goods": "Products list",
+  "productInfo.freeDelivery": "Free delivery from 10$"
+}

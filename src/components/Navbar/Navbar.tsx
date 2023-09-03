@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import { useIntl } from 'react-intl';
 
 import {
 	WAppBar,
@@ -30,25 +31,27 @@ import { Overlay } from '../index';
 import Typography from '@mui/material/Typography';
 
 export default function Navbar() {
+	const intl = useIntl();
+
 	const router = useRouter();
 	const isUkLocale = router.locale === 'en';
 
 	const [shoppingCart] = useContext(shoppingCartContext);
 	const pages: Array<{ name: string; href: string }> = [
 		{
-			name: isUkLocale ? 'Домашня сторінка' : 'Домашняя страница',
+			name: intl.formatMessage({ id: 'navbar.home' }),
 			href: '/',
 		},
 		{
-			name: isUkLocale ? 'Товари' : 'Товары',
+			name: intl.formatMessage({ id: 'navbar.products' }),
 			href: '/products',
 		},
 		{
-			name: isUkLocale ? 'Про нас' : 'О нас',
+			name: intl.formatMessage({ id: 'navbar.about' }),
 			href: '/about',
 		},
 		{
-			name: isUkLocale ? 'Контакти' : 'Контакты',
+			name: intl.formatMessage({ id: 'navbar.contact' }),
 			href: '/contacts',
 		},
 	];
@@ -153,13 +156,17 @@ export default function Navbar() {
 						<Grid container alignItems={'center'}>
 							<Link href={'/'} locale={'en'}>
 								<a>
-									<Language className={router.locale === 'en' ? 'active' : ''}>UA</Language>
+									<Language className={router.locale === 'en' ? 'active' : ''}>
+										{intl.formatMessage({ id: 'locale.en' })}
+									</Language>
 								</a>
 							</Link>
 							<LanguageSplitter />
 							<Link href={'/'} locale={'de'}>
 								<a>
-									<Language className={router.locale === 'de' ? 'active' : ''}>RU</Language>
+									<Language className={router.locale === 'de' ? 'active' : ''}>
+										{intl.formatMessage({ id: 'locale.de' })}
+									</Language>
 								</a>
 							</Link>
 						</Grid>

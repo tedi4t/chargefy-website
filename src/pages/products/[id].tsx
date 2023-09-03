@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 import type { NextPageContext } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -40,9 +39,6 @@ const ProductPage = ({
 }: ProductPageProps) => {
 	const intl = useIntl();
 
-	const router = useRouter();
-	const isUkLocale = router.locale === 'en';
-
 	const [quantity, setQuantity] = useState(0);
 	const [, dispatch] = useContext(shoppingCartContext);
 
@@ -70,11 +66,11 @@ const ProductPage = ({
 
 	const stages = {
 		mainPage: {
-			name: isUkLocale ? 'Головна сторінка' : 'Главная страница',
+			name: intl.formatMessage({ id: 'product.stages.main' }),
 			path: '/',
 		},
 		products: {
-			name: isUkLocale ? 'Товари' : 'Товары',
+			name: intl.formatMessage({ id: 'product.stages.goods' }),
 			path: '/products',
 		},
 		currentProduct: {

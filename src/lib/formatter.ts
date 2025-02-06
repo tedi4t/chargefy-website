@@ -94,3 +94,15 @@ export const toCategoriesResponse = (response: any): CategoriesResponse => {
 		}))
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
